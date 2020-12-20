@@ -12,44 +12,51 @@ enum LocalDbBoxes {
 /// Use `LocalDb.setValue()` to write or update the data in the database.
 /// Use `LocalDb.deleteValue()` to delete data in the database.
 class LocalDb {
+  HiveInterface hiveInterface;
+  LocalDb({this.hiveInterface}) {
+    if (hiveInterface == null) {
+      this.hiveInterface = Hive;
+    }
+  }
+
   /// Initialises the Hive Database
   Future initiateLocalDb() async {
-    await Hive.initFlutter();
+    await hiveInterface.initFlutter();
   }
 
   /// Opens the box named box
   Future<void> openBox(String box) async {
-    await Hive.openBox(box);
+    await hiveInterface.openBox(box);
   }
 
   /// Closes the box named box
   Future<void> closeBox(String box) async {
-    await Hive.box(box).close();
+    await hiveInterface.box(box).close();
   }
 
   /// Returns the value for the key from a box named boxName
   dynamic getValue(String boxName, String key) {
-    assert(Hive.isBoxOpen(boxName));
+    assert(hiveInterface.isBoxOpen(boxName));
 
-    var box = Hive.box(boxName);
+    final box = hiveInterface.box(boxName);
 
     return box.get(key);
   }
 
   /// Inserts a key-value pair into the box named boxname
   dynamic setValue(String boxName, String key, String value) {
-    assert(Hive.isBoxOpen(boxName));
+    assert(hiveInterface.isBoxOpen(boxName));
 
-    var box = Hive.box(boxName);
+    final box = hiveInterface.box(boxName);
 
     box.put(key, value);
   }
 
   /// Deletes the key-value pair from the box named boxName
   dynamic deleteValue(String boxName, String key) {
-    assert(Hive.isBoxOpen(boxName));
+    assert(hiveInterface.isBoxOpen(boxName));
 
-    var box = Hive.box(boxName);
+    final box = hiveInterface.box(boxName);
 
     box.delete(key);
   }

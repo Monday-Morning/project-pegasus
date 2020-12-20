@@ -1,54 +1,83 @@
+import 'dart:io';
+
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 import 'package:mondaymorning/services/local_db.dart';
+import 'package:mockito/mockito.dart';
+
+class MockHive extends Mock implements HiveInterface {}
+
+class MockHiveBox extends Mock implements Box {}
 
 void main() {
   LocalDb localDb;
 
+  MockHive mockHive;
+
+  MockHiveBox mockHiveBox;
+
   setUpAll(() async {
-    localDb = LocalDb();
+    mockHive = MockHive();
+    localDb = LocalDb(hiveInterface: mockHive);
+    mockHiveBox = MockHiveBox();
     await localDb.initiateLocalDb();
   });
   group("LocalDb - ", () {
     test("Opening the box", () async {
-      await localDb.openBox(LocalDbBoxes.userData.toString());
+      when(mockHive.openBox(any)).thenAnswer((_) async => mockHiveBox);
+      when(mockHive.box(any)).thenAnswer((_) => mockHiveBox);
 
-      expect(Hive.isBoxOpen(LocalDbBoxes.userData.toString()), true);
+      await localDb.openBox('boxName');
+
+      verify(mockHive.openBox('boxName'));
     });
 
     test("Closing the box ", () async {
-      await localDb.openBox(LocalDbBoxes.userData.toString());
+      when(mockHive.openBox(any)).thenAnswer((_) async => mockHiveBox);
+      when(mockHive.box(any)).thenAnswer((_) => mockHiveBox);
 
-      await localDb.closeBox(LocalDbBoxes.userData.toString());
+      await localDb.openBox('boxName');
 
-      expect(Hive.isBoxOpen(LocalDbBoxes.userData.toString()), false);
+      await localDb.closeBox('boxName');
+
+      final box = mockHive.box('name');
+
+      verify(box.close());
     });
     test("verify initialization and get assertion error", () async {
       expect(
-          () => localDb.getValue(LocalDbBoxes.userData.toString(), 'pegasus'),
-          throwsAssertionError);
+          () => localDb.getValue('boxName', 'pegasus'), throwsAssertionError);
+    });
+
+    test("getting a value", () async {
+      when(mockHive.box(any)).thenAnswer((_) => mockHiveBox);
+      when(mockHiveBox.get(any)).thenReturn('value');
+      when(mockHive.isBoxOpen(any)).thenReturn(true);
+
+      await localDb.getValue('boxName', 'key');
+
+      verify(mockHiveBox.get('key'));
     });
 
     test("setting a value", () async {
-      await localDb.openBox(LocalDbBoxes.userData.toString());
+      when(mockHive.box(any)).thenAnswer((_) => mockHiveBox);
+      when(mockHiveBox.put(any, any)).thenAnswer((_) async {});
+      when(mockHive.isBoxOpen(any)).thenReturn(true);
 
-      await localDb.setValue(
-          LocalDbBoxes.userData.toString(), 'flutter', 'pegasus');
+      await localDb.setValue('boxName', 'key', 'value');
 
-      expect(localDb.getValue(LocalDbBoxes.userData.toString(), 'flutter'),
-          'pegasus');
+      verify(mockHiveBox.put('key', 'value'));
     });
 
     test("Deleting a value", () async {
-      await localDb.openBox(LocalDbBoxes.userData.toString());
+      when(mockHive.box(any)).thenAnswer((_) => mockHiveBox);
+      when(mockHiveBox.delete(any)).thenAnswer((_) async {});
+      when(mockHive.isBoxOpen(any)).thenReturn(true);
 
-      var box = Hive.box(LocalDbBoxes.userData.toString());
+      localDb.deleteValue('boxName', 'key');
 
-      localDb.setValue(LocalDbBoxes.userData.toString(), 'flutter', 'pegasus');
-
-      localDb.deleteValue(LocalDbBoxes.userData.toString(), 'flutter');
-
-      expect(box.containsKey('flutter'), false);
+      verify(mockHiveBox.delete('key'));
     });
   });
 }
