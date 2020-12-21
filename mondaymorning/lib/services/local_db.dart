@@ -44,7 +44,7 @@ class LocalDb {
   }
 
   /// Inserts a key-value pair into the box named boxname
-  dynamic setValue(String boxName, String key, String value) {
+  void setValue(String boxName, String key, String value) {
     assert(hiveInterface.isBoxOpen(boxName));
 
     final box = hiveInterface.box(boxName);
@@ -53,7 +53,7 @@ class LocalDb {
   }
 
   /// Deletes the key-value pair from the box named boxName
-  dynamic deleteValue(String boxName, String key) {
+  void deleteValue(String boxName, String key) {
     assert(hiveInterface.isBoxOpen(boxName));
 
     final box = hiveInterface.box(boxName);
