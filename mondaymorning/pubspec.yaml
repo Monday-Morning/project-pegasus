@@ -1,6 +1,6 @@
 name: mondaymorning
 description: Monday Morning flutter app
-publish_to: 'none'
+publish_to: "none"
 version: 2.0.7+19
 
 environment:
@@ -9,25 +9,31 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
 
   # Local Database
   hive: ^1.4.4+1
   hive_flutter: ^0.3.1
 
-  #Mocking 
+  #Mocking
   mockito: ^4.1.3
 
   # State Management
-  stacked: 1.7.6
+  stacked: ^1.7.6
+
+  # Dependency Injection
+  injectable: ^1.0.5
+  get_it: ^5.0.3
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter  
+    sdk: flutter
   build_runner: ^1.10.9
 
   # Local Database - code generation
   hive_generator: ^0.8.2
+
+  # Dependency Injection - code generation
+  injectable_generator: ^1.0.6
 
 flutter:
   uses-material-design: true
