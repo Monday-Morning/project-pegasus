@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 import 'package:mondaymorning/services/local_db.dart';
@@ -65,7 +62,7 @@ void main() {
       when(mockHiveBox.put(any, any)).thenAnswer((_) async {});
       when(mockHive.isBoxOpen(any)).thenReturn(true);
 
-      await localDb.setValue('boxName', 'key', 'value');
+      localDb.setValue('boxName', 'key', 'value');
 
       verify(mockHiveBox.put('key', 'value'));
     });

@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:injectable/injectable.dart';
 
 /// Contains the box names that will be used for LocalDb
 enum LocalDbBoxes {
@@ -11,6 +12,7 @@ enum LocalDbBoxes {
 /// Use `LocalDb.getValue()` for retrieving the data from the database.
 /// Use `LocalDb.setValue()` to write or update the data in the database.
 /// Use `LocalDb.deleteValue()` to delete data in the database.
+@singleton
 class LocalDb {
   HiveInterface hiveInterface;
   LocalDb({this.hiveInterface}) {
