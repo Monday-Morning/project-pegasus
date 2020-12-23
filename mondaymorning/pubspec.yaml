@@ -14,13 +14,18 @@ dependencies:
   hive: ^1.4.4+1
   hive_flutter: ^0.3.1
 
-
   # State Management
   stacked: ^1.7.6
 
   # Dependency Injection
   injectable: ^1.0.5
   get_it: ^5.0.3
+
+  # Navigation
+  auto_route: ^0.6.9
+
+  # Services
+  stacked_services: ^0.6.0+1
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +43,9 @@ dev_dependencies:
 
   # Lint
   lint: ^1.0.0
+
+  # Navigation - code generation
+  auto_route_generator: ^0.6.9
 
 flutter:
   uses-material-design: true

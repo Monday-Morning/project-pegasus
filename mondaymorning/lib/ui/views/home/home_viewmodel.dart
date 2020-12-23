@@ -1,7 +1,8 @@
 import 'package:stacked/stacked.dart';
 
+/// ViewModel for [HomeView]
 class HomeViewmodel extends BaseViewModel {
-  String _title = "Welcome to Monday Morning App";
+  final String _title = "Welcome to Monday Morning App";
   String get title => _title;
 
   int _counter = 0;
