@@ -14,11 +14,13 @@ enum LocalDbBoxes {
 /// Use `LocalDb.deleteValue()` to delete data in the database.
 @singleton
 class LocalDb {
+  /// Instance of [Hive]
   HiveInterface hiveInterface;
+
+  /// Constructor for [LocalDb]. Takes an optional parameter [hiveInterface] to
+  /// be used only during tests.
   LocalDb({this.hiveInterface}) {
-    if (hiveInterface == null) {
-      this.hiveInterface = Hive;
-    }
+    hiveInterface ??= Hive;
   }
 
   /// Initialises the Hive Database

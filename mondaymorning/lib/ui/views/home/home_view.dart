@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mondaymorning/ui/views/home/home_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
+/// Home screen of app
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
