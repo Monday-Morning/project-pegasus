@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/app/locator.dart';
 import 'package:mondaymorning/app/router.gr.dart';
-import 'package:mondaymorning/app/theme_data.dart';
+import 'package:mondaymorning/app/app_theme.dart';
 import 'package:mondaymorning/ui/views/home/home_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stacked_themes/stacked_themes.dart';
@@ -15,7 +15,7 @@ Future<void> main() async {
 /// The main app.
 class MMApp extends StatelessWidget {
   /// Instance of Themes().
-  final Themes themes = Themes();
+  final AppTheme themes = AppTheme();
   @override
   Widget build(BuildContext context) {
     return ThemeBuilder(
