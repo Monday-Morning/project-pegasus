@@ -14,14 +14,12 @@ Future<void> main() async {
 
 /// The main app.
 class MMApp extends StatelessWidget {
-  /// Instance of Themes().
-  final AppTheme themes = AppTheme();
   @override
   Widget build(BuildContext context) {
     return ThemeBuilder(
       defaultThemeMode: ThemeMode.light,
-      lightTheme: themes.lightTheme,
-      darkTheme: themes.darkTheme,
+      lightTheme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       builder: (context, regularTheme, darkTheme, themeMode) => MaterialApp(
         title: 'Monday Morning',
         theme: regularTheme,

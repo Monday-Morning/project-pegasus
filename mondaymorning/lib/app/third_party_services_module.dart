@@ -53,7 +53,7 @@ abstract class ThirdPartyServicesModule {
 
   /// Registers themeService from stacked_themes
   /// ```dart
-  /// // Theme Example
+  /// // ThemeService usage Example
   /// final ThemeService _themeService = locator<ThemeService>();
   /// ...
   /// _themeService.toggleDarkLightTheme();
