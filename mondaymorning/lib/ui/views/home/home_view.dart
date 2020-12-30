@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
         child: Scaffold(
           floatingActionButton: FloatingActionButton(
             onPressed: model.updateCounter,
-            child: GestureDetector(child: const Icon(Icons.add)),
+            child: const Icon(Icons.add),
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,

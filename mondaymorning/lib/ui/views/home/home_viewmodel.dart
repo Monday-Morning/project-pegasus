@@ -17,5 +17,5 @@ class HomeViewmodel extends BaseViewModel {
   }
 
   /// Toggles the dark and light theme.
-  void setTheme() => _themeService.toggleDarkLightTheme();
+  void toggleTheme() => _themeService.toggleDarkLightTheme();
 }
