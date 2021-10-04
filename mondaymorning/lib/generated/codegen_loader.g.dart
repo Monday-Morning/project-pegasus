@@ -17,7 +17,7 @@ class CodegenLoader extends AssetLoader {
 
   static const Map<String, dynamic> en = {
     "appName": "Monday Morning",
-    "title": "Welcome to Monday Morning App"
+    "title": "Welcome to Monday Morning NITR"
   };
   static const Map<String, Map<String, dynamic>> mapLocales = {"en": en};
 }
