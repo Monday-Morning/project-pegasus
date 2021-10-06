@@ -1,38 +1,26 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:mondaymorning/app/locator.dart';
-import 'package:mondaymorning/app/router.gr.dart';
-import 'package:mondaymorning/generated/codegen_loader.g.dart';
-import 'package:mondaymorning/generated/locale_keys.g.dart';
-import 'package:mondaymorning/ui/views/home/home_view.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mondaymorning/core/navigation_service.dart';
+import 'package:mondaymorning/core/router.dart';
+import 'package:mondaymorning/ui/home_view.dart';
 
 void main() {
-  setupLocator(environment: Env.dev);
-  runApp(
-    EasyLocalization(
-      supportedLocales: const <Locale>[Locale('en')],
-      path: 'assets/translations',
-      assetLoader: const CodegenLoader(),
-      child: MMApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MMApp()));
 }
 
 /// The main app.
 class MMApp extends StatelessWidget {
+  const MMApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: LocaleKeys.appName.tr(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomeView(),
-      initialRoute: Routes.homeView,
-      onGenerateRoute: AppRouter().onGenerateRoute,
-      navigatorKey: locator<NavigationService>().navigatorKey,
+      title: 'MondayMorning',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(),
+      home: const HomeView(),
+      navigatorKey: context.read(navigatorProvider).navigatorKey,
+      onGenerateRoute: AppRouter().generateRoute,
     );
   }
 }
