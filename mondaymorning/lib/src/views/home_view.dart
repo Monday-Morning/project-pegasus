@@ -11,6 +11,7 @@ class HomeView extends StatelessWidget {
           backgroundColor: Colors.transparent,
           title: const Text('Monday Morning'),
         ),
+        body: Container(),
       ),
     );
   }

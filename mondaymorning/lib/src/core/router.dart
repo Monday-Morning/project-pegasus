@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mondaymorning/ui/home_view.dart';
+import 'package:mondaymorning/views/home_view.dart';
 
 /// Contains all the routes for navigation.
 class AppRouter {
