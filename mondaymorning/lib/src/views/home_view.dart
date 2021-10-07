@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
 
+/// Home View widget of the app.
 class HomeView extends ConsumerWidget {
+  /// Constructor for HomeView.
   const HomeView({Key? key}) : super(key: key);
 
   @override
