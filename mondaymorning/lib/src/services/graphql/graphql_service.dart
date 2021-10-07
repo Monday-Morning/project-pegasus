@@ -1,23 +1,27 @@
-import 'package:flutter/material.dart';
-// ignore: import_of_legacy_library_into_null_safe
+import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mondaymorning/src/constants/strings.dart';
 import 'package:mondaymorning/src/models/article.dart';
-// import 'package:mondaymorning/src/models/article.dart';
 import 'package:mondaymorning/src/services/graphql/queries.dart';
 
+/// An abstract class which contains all the required APIs for the app.
 abstract class GraphQLApi {
+  /// The function used to initialise GraphQL.
   Future<void> initGraphQL();
+
+  /// A future that returns a list of all the articles.
   Future<List<Article>> listArticles();
 }
 
-class GrapQLService extends GraphQLApi {
-  GrapQLService();
+/// A service used for all the API operations.
+class GraphQLService extends GraphQLApi {
+  /// Constructor for GraphQLService.
+  GraphQLService();
   late GraphQLClient _client;
 
   @override
   Future<void> initGraphQL() async {
-    final HttpLink _httpLink = HttpLink(Strings.GRAPHQL_URL);
+    final _httpLink = HttpLink(Strings.graphQLURL);
 
     // final AuthLink _authLink = AuthLink(getToken: () async => 'Bearer ');
 
@@ -29,11 +33,11 @@ class GrapQLService extends GraphQLApi {
 
   @override
   Future<List<Article>> listArticles() async {
-    final QueryOptions options = QueryOptions(
-      document: gql(Queries.LIST_ARTICLES),
+    final options = QueryOptions(
+      document: gql(Queries.listArticles),
     );
 
-    final QueryResult result = await _client.query(options);
+    final result = await _client.query(options);
 
     if (result.hasException) {
       debugPrint(result.exception.toString());
