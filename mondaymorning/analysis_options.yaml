@@ -30,7 +30,9 @@ analyzer:
     sdk_version_async_exported_from_core: ignore
     # Turned off until null-safe rollout is complete.
     unnecessary_null_comparison: ignore
-  # exclude:
+  exclude:
+    - '**/*.freezed.dart'
+    - '**/*.g.dart'
 
 linter:
   rules:
