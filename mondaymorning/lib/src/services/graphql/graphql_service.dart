@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls
+
 import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mondaymorning/src/constants/strings.dart';
@@ -34,19 +36,43 @@ class GraphQLService extends GraphQLApi {
   @override
   Future<List<Article>> listArticles() async {
     final options = QueryOptions(
-      document: gql(Queries.listArticles),
-    );
+        document: gql(Queries.listArticles),
+        variables: <String, bool>{'onlyPublished': true});
 
-    final result = await _client.query(options);
+    try {
+      final result = await _client.query(options);
 
-    if (result.hasException) {
-      debugPrint(result.exception.toString());
+      if (result.hasException) {
+        debugPrint(result.exception.toString());
+      }
+
+      /// Takes in data from [QueryResult] and converts it to a map
+      List<Map<String, dynamic>> toMap(Map<String, dynamic> data) {
+        /// Stores the list of instruction strings.
+
+        final list = <Map<String, dynamic>>[];
+        for (final article in data['listArticles']) {
+          final listItem = <String, dynamic>{
+            'id': article['id'],
+            'title': article['title'],
+            'inshort': article['inshort'],
+          };
+          list.add(listItem);
+        }
+        return list;
+      }
+
+      final listArticles = toMap(result.data!);
+
+      final articles = <Article>[];
+
+      for (final article in listArticles) {
+        final singleArticle = Article.fromJson(article);
+        articles.add(singleArticle);
+      }
+      return articles;
+    } catch (e) {
+      rethrow;
     }
-
-    print(result.data);
-
-    return <Article>[
-      const Article(id: '1', title: 'title', inshort: 'inshort')
-    ];
   }
 }

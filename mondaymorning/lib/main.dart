@@ -3,5 +3,5 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mondaymorning/src/app.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MMApp()));
+  runApp(ProviderScope(child: MMApp()));
 }
