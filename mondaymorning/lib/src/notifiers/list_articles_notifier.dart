@@ -1,11 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
-import 'package:mondaymorning/src/state/article_state.dart';
+import 'package:mondaymorning/src/state/list_articles_state.dart';
 
 /// Notifier for List Articles API.
-class ListArticlesNotifier extends StateNotifier<ArticleState> {
+class ListArticlesNotifier extends StateNotifier<ListArticlesState> {
   /// Constructor for ListArticlesNotifier.
-  ListArticlesNotifier(this._graphQLApi) : super(const ArticleState()) {
+  ListArticlesNotifier(this._graphQLApi) : super(const ListArticlesState()) {
     listArticles();
   }
 
@@ -14,15 +14,15 @@ class ListArticlesNotifier extends StateNotifier<ArticleState> {
   /// A future that handles the state of listArticles.
   Future<void> listArticles() async {
     try {
-      state = const ArticleState.loading();
+      state = const ListArticlesState.loading();
       final articles = await _graphQLApi.listArticles();
       if (articles.isNotEmpty) {
-        state = ArticleState.success(articles);
+        state = ListArticlesState.success(articles);
       } else {
-        state = const ArticleState();
+        state = const ListArticlesState();
       }
     } catch (e) {
-      state = const ArticleState.error('Could not fetch Articles');
+      state = const ListArticlesState.error('Could not fetch Articles');
     }
   }
 }

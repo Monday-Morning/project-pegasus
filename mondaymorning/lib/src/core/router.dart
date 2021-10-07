@@ -1,28 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:mondaymorning/src/views/home_view.dart';
 
-/// Contains all the routes for navigation.
-class AppRouter {
-  /// Route for add alarm view.
-  static const String homeViewRoute = 'home_view';
+@MaterialAutoRouter(
+  replaceInRouteName: 'Page,Route',
+  routes: <AutoRoute>[
+    AutoRoute<HomeView>(page: HomeView, initial: true),
+  ],
+)
 
-  /// Generate routes used in the app.
-  Route<dynamic> generateRoute(RouteSettings settings) {
-    switch (settings.name) {
-      case homeViewRoute:
-        return PageRouteBuilder<dynamic>(
-          pageBuilder: (BuildContext context, Animation<double> animation,
-                  Animation<double> secondaryAnimation) =>
-              const HomeView(),
-        );
-      default:
-        return MaterialPageRoute<Widget>(
-          builder: (BuildContext context) => Scaffold(
-            body: Center(
-              child: Text('No path for ${settings.name}'),
-            ),
-          ),
-        );
-    }
-  }
-}
+/// Manages the navigation and routing of the app
+class $AppRouter {}
