@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mondaymorning/src/providers/providers.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends ConsumerWidget {
   const HomeView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return SafeArea(
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(graphqlProvider);
+    final listArticles = ref.watch(listArticlesProvider);
+    return const SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          title: const Text('Monday Morning'),
+        body: Center(
+          child: Text('Monday Morning'),
         ),
-        body: Container(),
       ),
     );
   }
