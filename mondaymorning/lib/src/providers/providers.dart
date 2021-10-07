@@ -8,7 +8,7 @@ final graphqlProvider =
     Provider<GraphQLService>((ref) => GraphQLService()..initGraphQL());
 
 /// StateNotifierProvider for ListArticlesNotifier.
-final listArticlesProvider = StateNotifierProvider<ListArticlesNotifier,
+final listArticlesNotifierProvider = StateNotifierProvider<ListArticlesNotifier,
         ListArticlesState>(
     (StateNotifierProviderRef<ListArticlesNotifier, ListArticlesState> ref) =>
         ListArticlesNotifier(ref.watch(graphqlProvider)));
