@@ -1,5 +1,7 @@
+/// A class that contains all the GraphQL Queries.
 abstract class Queries {
-  static const String LIST_ARTICLES = '''
+  /// A query string to fetch listArticles
+  static const String listArticles = '''
     query listArticles(){
         listArticles() {
             id

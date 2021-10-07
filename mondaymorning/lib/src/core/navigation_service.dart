@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provides an instance of navigation service.
 final Provider<NavigationService> navigatorProvider =
-    Provider<NavigationService>((ProviderReference ref) => NavigationService());
+    Provider<NavigationService>((ProviderRefBase ref) => NavigationService());
 
 /// Service for navigation without context.
 class NavigationService {

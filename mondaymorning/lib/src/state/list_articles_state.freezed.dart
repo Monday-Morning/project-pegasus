@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'article_state.dart';
+part of 'list_articles_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,8 +13,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$ArticleStateTearOff {
-  const _$ArticleStateTearOff();
+class _$ListArticlesStateTearOff {
+  const _$ListArticlesStateTearOff();
 
   _Initial call() {
     return const _Initial();
@@ -38,10 +38,10 @@ class _$ArticleStateTearOff {
 }
 
 /// @nodoc
-const $ArticleState = _$ArticleStateTearOff();
+const $ListArticlesState = _$ListArticlesStateTearOff();
 
 /// @nodoc
-mixin _$ArticleState {
+mixin _$ListArticlesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
@@ -79,19 +79,20 @@ mixin _$ArticleState {
 }
 
 /// @nodoc
-abstract class $ArticleStateCopyWith<$Res> {
-  factory $ArticleStateCopyWith(
-          ArticleState value, $Res Function(ArticleState) then) =
-      _$ArticleStateCopyWithImpl<$Res>;
+abstract class $ListArticlesStateCopyWith<$Res> {
+  factory $ListArticlesStateCopyWith(
+          ListArticlesState value, $Res Function(ListArticlesState) then) =
+      _$ListArticlesStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ArticleStateCopyWithImpl<$Res> implements $ArticleStateCopyWith<$Res> {
-  _$ArticleStateCopyWithImpl(this._value, this._then);
+class _$ListArticlesStateCopyWithImpl<$Res>
+    implements $ListArticlesStateCopyWith<$Res> {
+  _$ListArticlesStateCopyWithImpl(this._value, this._then);
 
-  final ArticleState _value;
+  final ListArticlesState _value;
   // ignore: unused_field
-  final $Res Function(ArticleState) _then;
+  final $Res Function(ListArticlesState) _then;
 }
 
 /// @nodoc
@@ -101,7 +102,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$ArticleStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$ListArticlesStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -116,7 +117,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'ArticleState()';
+    return 'ListArticlesState()';
   }
 
   @override
@@ -180,7 +181,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements ArticleState {
+abstract class _Initial implements ListArticlesState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -191,7 +192,7 @@ abstract class _$LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$ArticleStateCopyWithImpl<$Res>
+class __$LoadingCopyWithImpl<$Res> extends _$ListArticlesStateCopyWithImpl<$Res>
     implements _$LoadingCopyWith<$Res> {
   __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
       : super(_value, (v) => _then(v as _Loading));
@@ -206,7 +207,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'ArticleState.loading()';
+    return 'ListArticlesState.loading()';
   }
 
   @override
@@ -270,7 +271,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements ArticleState {
+abstract class _Loading implements ListArticlesState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -282,7 +283,7 @@ abstract class _$SuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$ArticleStateCopyWithImpl<$Res>
+class __$SuccessCopyWithImpl<$Res> extends _$ListArticlesStateCopyWithImpl<$Res>
     implements _$SuccessCopyWith<$Res> {
   __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
       : super(_value, (v) => _then(v as _Success));
@@ -312,7 +313,7 @@ class _$_Success implements _Success {
 
   @override
   String toString() {
-    return 'ArticleState.success(articles: $articles)';
+    return 'ListArticlesState.success(articles: $articles)';
   }
 
   @override
@@ -386,7 +387,7 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements ArticleState {
+abstract class _Success implements ListArticlesState {
   const factory _Success(List<Article> articles) = _$_Success;
 
   List<Article> get articles => throw _privateConstructorUsedError;
@@ -403,7 +404,7 @@ abstract class _$ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$ArticleStateCopyWithImpl<$Res>
+class __$ErrorCopyWithImpl<$Res> extends _$ListArticlesStateCopyWithImpl<$Res>
     implements _$ErrorCopyWith<$Res> {
   __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
       : super(_value, (v) => _then(v as _Error));
@@ -433,7 +434,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'ArticleState.error(message: $message)';
+    return 'ListArticlesState.error(message: $message)';
   }
 
   @override
@@ -506,7 +507,7 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements ArticleState {
+abstract class _Error implements ListArticlesState {
   const factory _Error(String message) = _$_Error;
 
   String get message => throw _privateConstructorUsedError;

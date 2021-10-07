@@ -8,7 +8,7 @@ class HomeView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(graphqlProvider);
-    final listArticles = ref.watch(listArticlesProvider);
+    ref.watch(listArticlesProvider);
     return const SafeArea(
       child: Scaffold(
         body: Center(
