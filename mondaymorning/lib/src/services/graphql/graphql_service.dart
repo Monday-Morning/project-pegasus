@@ -8,7 +8,7 @@ import 'package:mondaymorning/src/services/graphql/queries.dart';
 
 /// An abstract class which contains all the required APIs for the app.
 abstract class GraphQLApi {
-  /// The function used to initialise GraphQL.
+  /// Initialises GraphQL client
   Future<void> initGraphQL();
 
   /// A future that returns a list of all the articles.

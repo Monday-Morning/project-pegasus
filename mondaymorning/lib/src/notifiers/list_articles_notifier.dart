@@ -11,7 +11,7 @@ class ListArticlesNotifier extends StateNotifier<ListArticlesState> {
 
   final GraphQLApi _graphQLApi;
 
-  /// A future that handles the state of listArticles.
+  /// Fetches the list of articles from API and updates state accordingly
   Future<void> listArticles() async {
     try {
       state = const ListArticlesState.loading();
