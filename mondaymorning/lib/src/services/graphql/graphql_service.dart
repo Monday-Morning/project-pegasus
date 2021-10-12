@@ -2,9 +2,9 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:mondaymorning/src/constants/strings.dart';
 import 'package:mondaymorning/src/models/article.dart';
 import 'package:mondaymorning/src/services/graphql/queries.dart';
+import 'package:mondaymorning/src/utils/strings.dart';
 
 /// An abstract class which contains all the required APIs for the app.
 abstract class GraphQLApi {

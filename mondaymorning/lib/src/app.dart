@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mondaymorning/src/core/router.gr.dart';
+import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 
 /// Main app widget.
 class MMApp extends StatelessWidget {
