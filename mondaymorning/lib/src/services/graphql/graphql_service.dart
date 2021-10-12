@@ -2,7 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:mondaymorning/src/models/article.dart';
+import 'package:mondaymorning/src/models/article/article.dart';
 import 'package:mondaymorning/src/services/graphql/queries.dart';
 import 'package:mondaymorning/src/utils/strings.dart';
 
@@ -49,7 +49,6 @@ class GraphQLService extends GraphQLApi {
       /// Takes in data from [QueryResult] and converts it to a map
       List<Map<String, dynamic>> toMap(Map<String, dynamic> data) {
         /// Stores the list of instruction strings.
-
         final list = <Map<String, dynamic>>[];
         for (final article in data['listArticles']) {
           final listItem = <String, dynamic>{
