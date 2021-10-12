@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mondaymorning/src/core/router.gr.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
+import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 
 /// Home View widget of the app.
 class HomeView extends ConsumerWidget {
