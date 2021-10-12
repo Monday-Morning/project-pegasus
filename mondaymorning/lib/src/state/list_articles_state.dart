@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mondaymorning/src/models/article.dart';
+import 'package:mondaymorning/src/models/article/article.dart';
 
 part 'list_articles_state.freezed.dart';
 
