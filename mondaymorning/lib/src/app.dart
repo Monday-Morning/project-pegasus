@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
-import 'package:mondaymorning/src/utils/themes.dart';
+import 'package:mondaymorning/src/themes/base_theme.dart';
 
 /// Main app widget.
 class MMApp extends ConsumerWidget {
