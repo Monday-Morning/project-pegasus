@@ -12,29 +12,34 @@ class HomeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final darkmodeEnabled = ref.watch(appThemeNotifierProvider.notifier);
+    final darkmodeEnabled = ref.watch(appThemeNotifierProvider);
     SizeConfig().init(context);
     ref.watch(graphqlProvider);
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () => context.pushRoute(const ArticlesView()),
-              child: const Text('Articles'),
-            ),
-            Switch(
-                value: darkmodeEnabled.state,
-                onChanged: (enabled) {
-                  if (enabled) {
-                    // print(enabled.toString());
-                    darkmodeEnabled.setDarkTheme();
-                  } else {
-                    darkmodeEnabled.setLightTheme();
-                  }
-                })
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () => context.pushRoute(const ArticlesView()),
+                child: const Text('Articles'),
+              ),
+              Switch(
+                  value: darkmodeEnabled,
+                  onChanged: (enabled) {
+                    if (enabled) {
+                      ref
+                          .watch(appThemeNotifierProvider.notifier)
+                          .setDarkTheme();
+                    } else {
+                      ref
+                          .watch(appThemeNotifierProvider.notifier)
+                          .setLightTheme();
+                    }
+                  })
+            ],
+          ),
         ),
       ),
     );
