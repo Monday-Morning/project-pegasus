@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
-import 'package:mondaymorning/src/utils/ui_scaling.dart';
 
 /// Home View widget of the app.
 class HomeView extends ConsumerWidget {
@@ -13,7 +12,6 @@ class HomeView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final darkmodeEnabled = ref.watch(appThemeNotifierProvider);
-    SizeConfig().init(context);
     ref.watch(graphqlProvider);
     return SafeArea(
       child: Scaffold(
