@@ -1,8 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
-import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 
 /// Home View widget of the app.
 class HomeView extends ConsumerWidget {
@@ -19,10 +17,10 @@ class HomeView extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: () => context.pushRoute(const ArticlesView()),
-                child: const Text('Articles'),
-              ),
+              // ElevatedButton(
+              //   onPressed: () => context.pushRoute(const ArticlesView()),
+              //   child: const Text('Articles'),
+              // ),
               Switch(
                   value: darkmodeEnabled,
                   onChanged: (enabled) {

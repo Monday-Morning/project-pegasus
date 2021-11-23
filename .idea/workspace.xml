@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c3d8dc17-8122-4fdd-b078-2633048ef91c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/project-pegasus.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mondaymorning/lib/src/providers/mockdata/mock_data.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mondaymorning/lib/src/views/categories_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mondaymorning/lib/src/views/expression_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mondaymorning/lib/src/views/home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mondaymorning/lib/src/views/mock_articles.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mondaymorning/lib/src/widgets/article_tile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mondaymorning/lib/src/widgets/custom_icon_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mondaymorning/lib/src/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mondaymorning/lib/src/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mondaymorning/lib/src/services/navigation/router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mondaymorning/lib/src/services/navigation/router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mondaymorning/lib/src/themes/base_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mondaymorning/lib/src/themes/base_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mondaymorning/lib/src/themes/colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mondaymorning/lib/src/themes/colors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mondaymorning/lib/src/views/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/mondaymorning/lib/src/views/home_view.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="20m1z7guQBnXkvDkyW1fbySVgPu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\asuto\AndroidStudioProjects\project-pegasus\mondaymorning\lib\src\views" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/mondaymorning/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c3d8dc17-8122-4fdd-b078-2633048ef91c" name="Default Changelist" comment="" />
+      <created>1636635208306</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636635208306</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="873" y="186" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1637555551131">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="873" y="186" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1637555551131" />
+    <state width="1491" height="173" key="GridCell.Tab.0.bottom" timestamp="1637659352326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="173" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1637659352326" />
+    <state width="1491" height="173" key="GridCell.Tab.0.center" timestamp="1637659352326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="173" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1637659352326" />
+    <state width="1491" height="173" key="GridCell.Tab.0.left" timestamp="1637659352326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="173" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1637659352326" />
+    <state width="1491" height="173" key="GridCell.Tab.0.right" timestamp="1637659352326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="173" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1637659352326" />
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1637499144436">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1637499144436" />
+  </component>
+</project>

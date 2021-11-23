@@ -10,7 +10,7 @@ class MMApp extends ConsumerWidget {
   MMApp({Key? key}) : super(key: key);
 
   /// Instance of [AppRouter]
-  final appRouter = AppRouter();
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final darkmodeEnabled = ref.watch<bool>(appThemeNotifierProvider);
@@ -20,8 +20,8 @@ class MMApp extends ConsumerWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      routeInformationParser: appRouter.defaultRouteParser(),
-      routerDelegate: appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      routerDelegate: _appRouter.delegate(),
     );
   }
 }
