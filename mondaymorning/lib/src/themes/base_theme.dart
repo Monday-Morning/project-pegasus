@@ -31,14 +31,23 @@ abstract class AppTheme {
   /// Base light theme of the app.
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.kLightScaffoldBackground,
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(backgroundColor: AppColors.kBlue10, selectedItemColor: AppColors.kBlue50, unselectedItemColor: AppColors.kBlue40),
+    cardTheme: const CardTheme( color: AppColors.white),
+    iconTheme: const IconThemeData(color: AppColors.black),
     textTheme: textTheme,
+    appBarTheme: const AppBarTheme(backgroundColor: AppColors.kLightScaffoldBackground, foregroundColor: AppColors.black),
     colorScheme: const ColorScheme.light(),
   );
 
   /// Base dark theme of the app.
   static final darkTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.kDarkScaffoldBackground,
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(backgroundColor: AppColors.kBlue05, selectedItemColor: AppColors.kBlue30, unselectedItemColor: AppColors.kBlue20),
+    cardTheme: const CardTheme( color: AppColors.neutral90),
+    iconTheme: const IconThemeData(color: AppColors.neutral10),
     textTheme: textTheme,
+    appBarTheme: const AppBarTheme(backgroundColor: AppColors.kDarkScaffoldBackground, foregroundColor: AppColors.neutral10),
     colorScheme: const ColorScheme.dark(),
   );
 }
+

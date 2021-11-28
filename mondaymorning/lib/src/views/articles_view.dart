@@ -14,7 +14,7 @@ class ArticlesView extends StatelessWidget {
         builder: (context, ref, child) {
           final listArticles = ref.watch(listArticlesNotifierProvider);
           return listArticles.when(
-            () => const Center(
+                () => const Center(
               child: Text('No Articles Available'),
             ),
             loading: () => const Center(
