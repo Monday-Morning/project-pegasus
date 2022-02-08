@@ -1,8 +1,10 @@
-// ignore_for_file: sort_constructors_first, public_member_api_docs, prefer_const_constructors, prefer_const_literals_to_create_immutables
+/// ArticleTile is the card widget displaying an articles preview on home page
 
 import 'package:flutter/material.dart';
 
 class ArticleTile extends StatelessWidget {
+
+  /// Constructor for [ArticleTile]
   final String articleTitle;
   final String articleDescription;
   final void Function() onTileTap;
@@ -25,7 +27,7 @@ class ArticleTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
         ),
         color: Theme.of(context).cardTheme.color,
-        elevation: 8,
+        elevation: 7,
         child: Row(
           children: [
             Container(
