@@ -1,14 +1,16 @@
-// ignore_for_file: public_member_api_docs, deprecated_member_use, prefer_const_constructors, prefer_const_literals_to_create_immutables
+/// ArticlesPage : Overview of articles containing carousel cards Article Overview Tiles and 2 Menu Buttons
 
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
-import 'package:mondaymorning/widgets/article_tile.dart';
-import 'package:mondaymorning/widgets/custom_icon_button.dart';
-import 'package:mondaymorning/widgets/slide_card.dart';
+import 'package:mondaymorning/src/widgets/article_tile.dart';
+import 'package:mondaymorning/src/widgets/custom_icon_button.dart';
+import 'package:mondaymorning/src/widgets/carousel_card.dart';
 
 class ArticlesPage extends StatelessWidget {
+  /// Constructor for [ArticlesPage]
   ArticlesPage({Key? key}) : super(key: key);
 
+  /// Instance of [Post]
   final articles = Post.posts;
 
   @override
@@ -22,7 +24,7 @@ class ArticlesPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SlideCard(),
+            CarouselCard(),
             for (int i = 0; i < articles.length; i++)
               ArticleTile(
                 articleTitle: articles[i].title,

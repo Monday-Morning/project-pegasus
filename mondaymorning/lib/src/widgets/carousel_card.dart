@@ -1,8 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, public_member_api_docs, use_key_in_widget_constructors
+/// Carousel Card Widget
 
 import 'package:flutter/material.dart';
 
-class SlideCard extends StatelessWidget {
+class CarouselCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -18,7 +18,7 @@ class SlideCard extends StatelessWidget {
           children: [
             Ink.image(
               image: NetworkImage(
-                'https://arbre.je/wp-content/uploads/2016/05/oak.jpg',
+                'https://llandscapes-10674.kxcdn.com/wp-content/uploads/2019/07/lighting.jpg',
               ),
               fit: BoxFit.cover,
               child: InkWell(
