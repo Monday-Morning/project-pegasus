@@ -7,16 +7,19 @@ class CustomIconButton extends StatelessWidget {
   /// Constructor for [CustomIconButton]
   final IconData icon;
   final String text;
+  final void Function() onButtonTap;
+
   const CustomIconButton({
     Key? key,
     required this.icon,
     required this.text,
+    required this.onButtonTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-      onPressed: () {},
+      onPressed: onButtonTap,
       elevation: 3,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(6),
@@ -28,14 +31,14 @@ class CustomIconButton extends StatelessWidget {
           SizedBox(width: 4),
           Icon(
             icon,
-            size: 20,
+            size: 18,
             color: Theme.of(context).iconTheme.color,
           ),
           SizedBox(width: 10),
           Text(
             text,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 13,
               fontWeight: FontWeight.w600,
               color: Theme.of(context).iconTheme.color,
             ),

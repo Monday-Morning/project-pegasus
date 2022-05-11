@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class DdcwcPage extends StatelessWidget {
+class CareerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('DD and CWC Page'),
+        child: Text('Career Page'),
       ),
     );
   }

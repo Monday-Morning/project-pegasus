@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
+import 'package:mondaymorning/src/widgets/more_button.dart';
 
 /// Home View widget of the app.
 class HomeView extends ConsumerWidget {
@@ -12,28 +13,94 @@ class HomeView extends ConsumerWidget {
     final darkmodeEnabled = ref.watch(appThemeNotifierProvider);
     ref.watch(graphqlProvider);
     return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Scaffold(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // ElevatedButton(
               //   onPressed: () => context.pushRoute(const ArticlesView()),
               //   child: const Text('Articles'),
               // ),
-              Switch(
-                  value: darkmodeEnabled,
-                  onChanged: (enabled) {
-                    if (enabled) {
-                      ref
-                          .watch(appThemeNotifierProvider.notifier)
-                          .setDarkTheme();
-                    } else {
-                      ref
-                          .watch(appThemeNotifierProvider.notifier)
-                          .setLightTheme();
-                    }
-                  })
+              Card(
+                elevation: 7,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Icon(Icons.dark_mode_outlined, size: 27),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                              ' Dark Mode',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Switch(
+                          value: darkmodeEnabled,
+                          onChanged: (enabled) {
+                            if (enabled) {
+                              ref
+                                  .watch(appThemeNotifierProvider.notifier)
+                                  .setDarkTheme();
+                            } else {
+                              ref
+                                  .watch(appThemeNotifierProvider.notifier)
+                                  .setLightTheme();
+                            }
+                          }
+                          ),
+                    ],
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  MoreButton(feature: 'Bookmarks', icon: Icons.bookmark_border_outlined),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  MoreButton(feature: 'Password Change', icon: Icons.password_outlined),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  MoreButton(feature: 'Verify Account', icon: Icons.verified_outlined),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  MoreButton(feature: 'Terms and Policies', icon: Icons.info_outline),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  MoreButton(feature: 'About MM', icon: Icons.call_outlined),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  MoreButton(feature: 'Newsletter Subscription', icon: Icons.description_outlined),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
