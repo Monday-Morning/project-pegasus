@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 
 /// LandingPage : has navigation routes to the 4 primary section Home, Categories, Expressions, More
+
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

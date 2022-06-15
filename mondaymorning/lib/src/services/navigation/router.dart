@@ -108,6 +108,8 @@ import 'package:mondaymorning/src/views/mock_articles.dart';
       ),
     ],
     ),
+    AutoRoute<dynamic>(path: '/campuspage', page: CampusPage),
+    AutoRoute<dynamic>(path: '/expressionpage', page: ConnectPage),
   ],
 )
 
