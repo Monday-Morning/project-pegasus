@@ -1,9 +1,10 @@
-/// Categories Page : Contains category cards and menu buttons
-
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:mondaymorning/src/widgets/categories_card.dart';
+import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 import 'package:mondaymorning/src/widgets/custom_icon_button.dart';
 
+/// Categories Page : Contains category cards and menu buttons
 class CategoriesView extends StatefulWidget {
   /// Constructor for [CategoriesView]
   const CategoriesView({Key? key}) : super(key: key);
@@ -22,17 +23,17 @@ class _CategoriesViewState extends State<CategoriesView> {
           SizedBox(height: 10),
           Row(
             children: [
-              CategoriesCard(image: 'assets/images/campus.png', title: 'Campus', onCardTap: () {Navigator.pushNamed(context, '/campuspage');}),
-              CategoriesCard(image: 'assets/images/connect.png', title: 'Connect', onCardTap: () {}),
-              CategoriesCard(image: 'assets/images/ddandcwc.png', title: 'DD & CWC', onCardTap: () {}),
+              CategoriesCard(image: 'assets/images/campus.png', title: 'Campus', onCardTap: () => context.router.push(CampusRoute(),)),
+              CategoriesCard(image: 'assets/images/connect.png', title: 'Connect', onCardTap: () {context.router.push(ConnectRoute(),);}),
+              CategoriesCard(image: 'assets/images/ddandcwc.png', title: 'DD & CWC', onCardTap: () {context.router.push(DdcwcRoute(),);}),
             ],
           ),
           SizedBox(height: 6),
           Row(
             children: [
-              CategoriesCard(image: 'assets/images/career.png', title: 'Career', onCardTap: () {}),
-              CategoriesCard(image: 'assets/images/alumni.png', title: 'Alumni', onCardTap: () {}),
-              CategoriesCard(image: 'assets/images/expression.png', title: 'Expression', onCardTap: () {}),
+              CategoriesCard(image: 'assets/images/career.png', title: 'Career', onCardTap: () {context.router.push(CareerRoute(),);}),
+              CategoriesCard(image: 'assets/images/alumni.png', title: 'Alumni', onCardTap: () {context.router.push(AlumniRoute(),);}),
+              CategoriesCard(image: 'assets/images/expression.png', title: 'Expression', onCardTap: () {context.router.push(ExpressionRoute(),);}),
             ],
           ),
           SizedBox(height: 12),
@@ -43,7 +44,9 @@ class _CategoriesViewState extends State<CategoriesView> {
                   margin: EdgeInsets.only(left: 5),
                   child: CustomIconButton(
                       icon: Icons.calendar_today_outlined,
-                      text: 'Wisdom'),
+                      text: 'Wisdom',
+                      onButtonTap: () {context.router.push(ComingSoonRoute(),);},
+                  ),
                 ),
               ),
               SizedBox(width: 12),
@@ -51,7 +54,10 @@ class _CategoriesViewState extends State<CategoriesView> {
                 child: Container(
                   margin: EdgeInsets.only(right: 5),
                   child: CustomIconButton(
-                      icon: Icons.pie_chart_outline, text: 'Podcasts'),
+                      icon: Icons.pie_chart_outline,
+                      text: 'Podcasts',
+                      onButtonTap: () {context.router.push(ComingSoonRoute(),);},
+                  ),
                 ),
               ),
             ],
@@ -64,7 +70,9 @@ class _CategoriesViewState extends State<CategoriesView> {
                   margin: EdgeInsets.only(left: 5),
                   child: CustomIconButton(
                       icon: Icons.calendar_today_outlined,
-                      text: 'Photojournalism'),
+                      text: 'Photojournalism',
+                      onButtonTap: () {context.router.push(ComingSoonRoute(),);},
+                  ),
                 ),
               ),
               SizedBox(width: 12),
@@ -72,7 +80,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                 child: Container(
                   margin: EdgeInsets.only(right: 5),
                   child: CustomIconButton(
-                      icon: Icons.pie_chart_outline, text: 'Photo Gallery'),
+                      icon: Icons.pie_chart_outline, text: 'Photo Gallery', onButtonTap: () {context.router.push(ComingSoonRoute(),);},),
                 ),
               ),
             ],

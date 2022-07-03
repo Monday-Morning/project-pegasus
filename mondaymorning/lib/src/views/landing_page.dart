@@ -1,8 +1,8 @@
-/// LandingPage : has navigation routes to the 4 primary section Home, Categories, Expressions, More
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
+
+/// LandingPage : has navigation routes to the 4 primary section Home, Categories, Expressions, More
 
 class LandingPage extends StatelessWidget {
   @override
@@ -11,16 +11,34 @@ class LandingPage extends StatelessWidget {
       appBarBuilder: (_, tabsRouter) => AppBar(
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
-        title: Text(
-          'Monday Morning',
-          style: TextStyle(
+        actions: [
+          ImageIcon(
+            AssetImage("assets/images/mmlogo.png"),
             color: Theme.of(context).appBarTheme.foregroundColor,
+            size: 30,
           ),
-        ),
+          SizedBox(
+            width: 10,
+          ),
+          Container(
+            child: Center(
+              child: Text(
+                'Monday Morning',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.246,
+          ),
+        ],
         centerTitle: true,
         leading: const AutoBackButton(),
       ),
-      routes: [
+      routes:  [
         ArticlesRouter(),
         CategoriesRouter(),
         ExpressionRouter(),
