@@ -1,29 +1,18 @@
-/// CategoriesCard is a card widget for category menu cards. It takes 3 inputs image, title and onCardTap function for building category card
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
-class CategoriesCard extends StatefulWidget {
-
-  /// Constructor for [CategoriesCard]
+class PageCategoriesCard extends StatelessWidget {
   final String image;
   final String title;
-  final String link;
+  final void Function() onCardTap;
 
-  const CategoriesCard({
+  const PageCategoriesCard({
     Key? key,
     required this.image,
     required this.title,
-    required this.link,
+    required this.onCardTap,
   }) : super(key: key);
-
-  @override
-  State<CategoriesCard> createState() => _CategoriesCardState();
-}
-
-class _CategoriesCardState extends State<CategoriesCard> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +27,9 @@ class _CategoriesCardState extends State<CategoriesCard> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),
             ),
-            child: Link(
-              target: LinkTarget.self,
-              uri: Uri.parse(widget.link),
-              builder: (context, followLink) => InkWell(
+            child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
-                onTap: followLink,
+                onTap: onCardTap,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
                   child: Column(
@@ -56,7 +42,7 @@ class _CategoriesCardState extends State<CategoriesCard> {
                             child: Container(
                               constraints: const BoxConstraints.expand(),
                               child: Image.asset(
-                                widget.image,
+                                image,
                               ),
                             ),
                           ),
@@ -69,7 +55,7 @@ class _CategoriesCardState extends State<CategoriesCard> {
                           height: 20,
                           child: Center(
                             child: AutoSizeText(
-                                widget.title,
+                              title,
                               style: TextStyle(
                                 fontSize: 15.4,
                                 fontWeight: FontWeight.w600,
@@ -87,7 +73,6 @@ class _CategoriesCardState extends State<CategoriesCard> {
             ),
           ),
         ),
-      ),
     );
   }
 }
