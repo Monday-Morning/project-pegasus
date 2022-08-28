@@ -12,6 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod:
+  url_launcher:
+  auto_size_text:
+  material_design_icons_flutter:
+  webview_flutter:
   google_fonts:
   graphql_flutter:
   json_serializable:
