@@ -1,6 +1,7 @@
 /// CustomIconButton takes an icon amd a text, builds a raised button
 
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class CustomIconButton extends StatelessWidget {
 
@@ -24,7 +25,7 @@ class CustomIconButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       color: Theme.of(context).cardTheme.color,
-      padding: EdgeInsets.symmetric(vertical: 14, horizontal: 10),
+      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 10),
       child: Row(
         children: [
           SizedBox(width: 4),
@@ -34,12 +35,18 @@ class CustomIconButton extends StatelessWidget {
             color: Theme.of(context).iconTheme.color,
           ),
           SizedBox(width: 10),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context).iconTheme.color,
+          Container(
+            width: MediaQuery.of(context).size.width*0.291,
+            height: 16.5,
+            child: AutoSizeText(
+              text,
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: Theme.of(context).iconTheme.color,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],

@@ -1,7 +1,11 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
 import 'package:mondaymorning/src/widgets/more_button.dart';
+
+import '../services/navigation/router.gr.dart';
 
 /// Home View widget of the app.
 class HomeView extends ConsumerWidget {
@@ -40,11 +44,17 @@ class HomeView extends ConsumerWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Text(
-                              ' Dark Mode',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
+                          Container(
+                            width: MediaQuery.of(context).size.width*0.5,
+                            height: 24,
+                            child: AutoSizeText(
+                                ' Dark Mode',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ],
@@ -75,27 +85,27 @@ class HomeView extends ConsumerWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  MoreButton(feature: 'Bookmarks', icon: Icons.bookmark_border_outlined),
+                  MoreButton(feature: 'Bookmarks', icon: Icons.bookmark_border_outlined, onTileTap: (){context.router.push(ComingSoonRoute(),);},),
                   SizedBox(
                     height: 5,
                   ),
-                  MoreButton(feature: 'Password Change', icon: Icons.password_outlined),
+                  MoreButton(feature: 'Password Change', icon: Icons.password_outlined, onTileTap: (){context.router.push(ComingSoonRoute(),);},),
                   SizedBox(
                     height: 5,
                   ),
-                  MoreButton(feature: 'Verify Account', icon: Icons.verified_outlined),
+                  MoreButton(feature: 'Verify Account', icon: Icons.verified_outlined, onTileTap: (){context.router.push(ComingSoonRoute(),);},),
                   SizedBox(
                     height: 5,
                   ),
-                  MoreButton(feature: 'Terms and Policies', icon: Icons.info_outline),
+                  MoreButton(feature: 'Terms and Policies', icon: Icons.info_outline, onTileTap: () {context.router.push(TermsAndPoliciesRoute(),);},),
                   SizedBox(
                     height: 5,
                   ),
-                  MoreButton(feature: 'About MM', icon: Icons.call_outlined),
+                  MoreButton(feature: 'About MM', icon: Icons.call_outlined, onTileTap: (){context.router.push(AboutMMRoute(),);},),
                   SizedBox(
                     height: 5,
                   ),
-                  MoreButton(feature: 'Newsletter Subscription', icon: Icons.description_outlined),
+                  MoreButton(feature: 'Newsletter Subscription', icon: Icons.description_outlined, onTileTap: (){context.router.push(ComingSoonRoute(),);},),
                 ],
               ),
               SizedBox(

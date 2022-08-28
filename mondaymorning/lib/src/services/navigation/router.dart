@@ -13,20 +13,12 @@ import 'package:mondaymorning/src/views/full_page_article.dart';
 import 'package:mondaymorning/src/views/landing_page.dart';
 import 'package:mondaymorning/src/views/home_view.dart';
 import 'package:mondaymorning/src/views/mock_articles.dart';
+import 'package:mondaymorning/src/views/morepages/about_mm.dart';
+import 'package:mondaymorning/src/views/morepages/terms_and_policies.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    // AutoRoute<dynamic>(page: LandingPage, path: '/', initial: true, children: [
-    //   AutoRoute<dynamic>(page: CategoriesView, path: 'categories', children: [
-    //     AutoRoute<dynamic>(path: 'campuspage', page: CampusPage),
-    //     AutoRoute<dynamic>(path: 'expressionpage', page: ConnectPage),
-    //   ],),
-    //   AutoRoute<dynamic>(page: ArticlesPage),
-    //   AutoRoute<dynamic>(page: ExpressionView),
-    //   AutoRoute<dynamic>(page: HomeView),
-    // ],),
-
     AutoRoute<dynamic>(path: '/', page: LandingPage, children: [
       AutoRoute<dynamic>(
         path:'articles',
@@ -104,12 +96,18 @@ import 'package:mondaymorning/src/views/mock_articles.dart';
             path: ':coming_soon_page',
             page: ComingSoonPage,
           ),
+          AutoRoute<dynamic>(
+            path: ':about_mm_page',
+            page: AboutMMPage,
+          ),
+          AutoRoute<dynamic>(
+            path: ':terms_and_policies_page',
+            page: TermsAndPoliciesPage,
+          ),
         ],
       ),
     ],
     ),
-    AutoRoute<dynamic>(path: '/campuspage', page: CampusPage),
-    AutoRoute<dynamic>(path: '/expressionpage', page: ConnectPage),
   ],
 )
 

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 /// ArticleTile is the card widget displaying an articles preview on home page
@@ -59,21 +60,31 @@ class ArticleTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 4),
-                  Text(
-                    'Editorial',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+                  Container(
+                    height: 14,
+                    width: MediaQuery.of(context).size.width*0.2,
+                    child: AutoSizeText(
+                      'Editorial',
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+                      ),
+                      maxLines: 1,
                     ),
                   ),
                   SizedBox(height: 2),
                   Padding(
                     padding: const EdgeInsets.only(right: 4),
-                    child: Text(
-                      articleTitle,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+                    child: Container(
+                      height: 36,
+                      child: AutoSizeText(
+                        articleTitle,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ),
@@ -81,11 +92,17 @@ class ArticleTile extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        author,
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xFF6E6E6E)
+                      Container(
+                        width: MediaQuery.of(context).size.width*0.4,
+                        height: 16,
+                        child: AutoSizeText(
+                          author,
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Color(0xFF6E6E6E)
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       Container(
@@ -96,11 +113,17 @@ class ArticleTile extends StatelessWidget {
                               color: Color(0xFF6E6E6E),
                               size: 14,
                             ),
-                            Text(
-                              ' $time min',
-                              style: TextStyle(
-                                color: Color(0xFF6E6E6E),
-                                fontSize: 12,
+                            Container(
+                              height: 16,
+                              width: MediaQuery.of(context).size.width*0.1,
+                              child: AutoSizeText(
+                                ' $time min',
+                                style: TextStyle(
+                                  color: Color(0xFF6E6E6E),
+                                  fontSize: 12,
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             SizedBox(width: 12),
