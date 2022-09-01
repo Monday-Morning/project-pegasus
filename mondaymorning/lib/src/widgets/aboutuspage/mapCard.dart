@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MapCards extends StatelessWidget {
@@ -62,31 +63,35 @@ class MapCards extends StatelessWidget {
                           ),
                         ],
                       ),
-                      GestureDetector(
-                        onTap: (){
-                          _launchUrl("https://goo.gl/maps/L77bRS9fZBT8hdQP9");
-                        },
-                        child: Column(
-                          children: [
-                            Material(
-                              elevation: 4,
-                              borderRadius: BorderRadius.circular(7),
-                              clipBehavior:  Clip.antiAliasWithSaveLayer,
-                              child: Container(
-                                height: 110,
-                                width: 114,
-                                child: Image.asset("assets/images/MapSac.png", fit: BoxFit.cover,),
+                      Link(
+                        uri: Uri.parse("https://goo.gl/maps/L77bRS9fZBT8hdQP9"),
+                        builder:(context, followLink) => GestureDetector(
+                          onTap: (){
+                            _launchUrl("https://goo.gl/maps/L77bRS9fZBT8hdQP9");
+                            followLink;
+                          },
+                          child: Column(
+                            children: [
+                              Material(
+                                elevation: 4,
+                                borderRadius: BorderRadius.circular(7),
+                                clipBehavior:  Clip.antiAliasWithSaveLayer,
+                                child: Container(
+                                  height: 110,
+                                  width: 114,
+                                  child: Image.asset("assets/images/MapSac.png", fit: BoxFit.cover,),
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 7),
-                            Text(
-                              "See on Maps",
-                              style: TextStyle(
-                                fontSize: 14,
-                                decoration: TextDecoration.underline,
+                              SizedBox(height: 7),
+                              Text(
+                                "See on Maps",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  decoration: TextDecoration.underline,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],

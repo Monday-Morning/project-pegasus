@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Mails extends StatelessWidget {
   String title;
   String link;
   Mails({Key? key, required this.title, required this.link}) : super(key: key);
+
+  Future<void> _launchUrl(String url) async {
+    var uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +30,10 @@ class Mails extends StatelessWidget {
         Link(
           uri: Uri.parse("mailto:$link"),
           builder:(context, followLink) => GestureDetector(
-            onTap: followLink,
+            onTap: (){
+              _launchUrl("mailto:$link");
+              followLink;
+            },
             child: Container(
               height: 20,
               child: Text(
