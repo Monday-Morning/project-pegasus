@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Socials extends StatelessWidget {
   String lable;
   String link;
   IconData icon;
   Socials({Key? key, required this.lable, required this.link, required this.icon}) : super(key: key);
+
+  Future<void> _launchUrl(String url) async {
+    var uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +27,10 @@ class Socials extends StatelessWidget {
             Icon(icon, size: 34),
             SizedBox(width: 20),
             GestureDetector(
-                onTap: followLink,
+                onTap: (){
+                  _launchUrl(link);
+                  followLink;
+                },
                 child: Container(
                   height: 20,
                   child: Text(

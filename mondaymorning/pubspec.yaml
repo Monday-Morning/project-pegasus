@@ -7,26 +7,26 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  analyzer:
-  auto_route:
+  analyzer: ^3.4.1
+  auto_route: ^4.0.1
   flutter:
     sdk: flutter
-  flutter_riverpod:
-  url_launcher:
-  auto_size_text:
-  material_design_icons_flutter:
-  webview_flutter:
-  google_fonts:
-  graphql_flutter:
-  json_serializable:
+  flutter_riverpod: ^1.0.4
+  url_launcher: ^6.1.5
+  auto_size_text: ^3.0.0
+  material_design_icons_flutter: ^5.0.6996
+  webview_flutter: ^3.0.4
+  google_fonts: ^3.0.1
+  graphql_flutter: ^5.1.0
+  json_serializable: ^6.2.0
 
 dev_dependencies:
-  auto_route_generator:
-  build_runner:
+  auto_route_generator: ^4.0.0
+  build_runner: ^2.1.11
   flutter_test:
     sdk: flutter
-  freezed:
-  very_good_analysis:
+  freezed: ^2.0.3+1
+  very_good_analysis: ^3.0.0
   
 
 flutter:

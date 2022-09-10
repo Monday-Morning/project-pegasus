@@ -9,11 +9,11 @@ class CCContact extends StatelessWidget {
   String link;
   CCContact({Key? key, required this.name, required this.number, required this.link}) : super(key: key);
 
-  Future<void> _launchUrl(String url) async{
-    if (await canLaunch(url))
-      await launch(url);
-    else
-      throw "Could not launch $url";
+  Future<void> _launchUrl(String url) async {
+    var uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
   }
 
   @override
@@ -40,6 +40,7 @@ class CCContact extends StatelessWidget {
           builder: (context, followLink) => GestureDetector(
             onTap: (){
               _launchUrl(link);
+              followLink;
             },
             child: Container(
               height: 30,

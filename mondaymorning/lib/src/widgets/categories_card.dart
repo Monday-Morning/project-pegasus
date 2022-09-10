@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class CategoriesCard extends StatefulWidget {
@@ -24,6 +25,12 @@ class CategoriesCard extends StatefulWidget {
 
 class _CategoriesCardState extends State<CategoriesCard> {
 
+  Future<void> _launchUrl(String url) async {
+    var uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +50,10 @@ class _CategoriesCardState extends State<CategoriesCard> {
               uri: Uri.parse(widget.link),
               builder: (context, followLink) => InkWell(
                 splashColor: Colors.blue.withAlpha(30),
-                onTap: followLink,
+                onTap: (){
+                  _launchUrl(widget.link);
+                  followLink;
+                },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
                   child: Column(
