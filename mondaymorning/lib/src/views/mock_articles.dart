@@ -5,6 +5,7 @@ import 'package:mondaymorning/src/widgets/article_tile.dart';
 import 'package:mondaymorning/src/widgets/custom_icon_button.dart';
 import 'package:mondaymorning/src/widgets/carousel_card.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
+import 'package:mondaymorning/src/widgets/scrollProperty/scrollproperty.dart';
 
 /// ArticlesPage : Overview of articles containing carousel cards Article Overview Tiles and 2 Menu Buttons
 class ArticlesPage extends StatelessWidget {
@@ -97,10 +98,3 @@ class ArticlesPage extends StatelessWidget {
   }
 }
 
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildOverscrollIndicator(
-      BuildContext context, Widget child, ScrollableDetails details) {
-    return child;
-  }
-}

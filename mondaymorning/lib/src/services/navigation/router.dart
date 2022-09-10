@@ -7,6 +7,7 @@ import 'package:mondaymorning/src/views/categoriespages/career_page.dart';
 import 'package:mondaymorning/src/views/categoriespages/connect_page.dart';
 import 'package:mondaymorning/src/views/categoriespages/ddandcwc_page.dart';
 import 'package:mondaymorning/src/views/categoriespages/expression_page.dart';
+import 'package:mondaymorning/src/views/categoriespages/webview.dart';
 import 'package:mondaymorning/src/views/coming_soon_page.dart';
 import 'package:mondaymorning/src/views/expression_view.dart';
 import 'package:mondaymorning/src/views/full_page_article.dart';
@@ -53,7 +54,7 @@ import 'package:mondaymorning/src/views/morepages/terms_and_policies.dart';
             page: CampusPage,
           ),
           AutoRoute<dynamic>(
-            path: ':connect_page',
+            path: ':connect',
             page: ConnectPage,
           ),
           AutoRoute<dynamic>(
