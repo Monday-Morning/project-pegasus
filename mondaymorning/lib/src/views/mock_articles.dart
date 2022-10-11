@@ -1,9 +1,9 @@
 import 'package:auto_route/src/router/auto_router_x.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
+import 'package:mondaymorning/src/widgets/articleCarousel.dart';
 import 'package:mondaymorning/src/widgets/article_tile.dart';
 import 'package:mondaymorning/src/widgets/custom_icon_button.dart';
-import 'package:mondaymorning/src/widgets/carousel_card.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 
 /// ArticlesPage : Overview of articles containing carousel cards Article Overview Tiles and 2 Menu Buttons
@@ -28,17 +28,7 @@ class ArticlesPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CarouselCard(
-                  articleTitle: articles[0].title,
-                  articleDescription: articles[0].description,
-                  onTileTap: () {
-                    context.router.push(
-                      FullRouteArticle(postId: articles[0].id),
-                    );
-                  },
-                  time: articles[0].time,
-                  author: articles[0].author,
-                ),
+                ArticleCarousel(),
 
                 SizedBox(height: 13),
 
