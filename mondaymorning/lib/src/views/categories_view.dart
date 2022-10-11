@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:mondaymorning/src/widgets/categories_card.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 import 'package:mondaymorning/src/widgets/custom_icon_button.dart';
 import 'package:mondaymorning/src/widgets/page_categories_card.dart';
@@ -27,16 +26,16 @@ class _CategoriesViewState extends State<CategoriesView> {
             SizedBox(height: 10),
             Row(
               children: [
-                CategoriesCard(image: 'assets/images/campus.png', title: 'Campus', link: "https://mondaymorning.nitrkl.ac.in/campus",),
-                CategoriesCard(image: 'assets/images/connect.png', title: 'Connect', link: "https://mondaymorning.nitrkl.ac.in/connect",),
-                CategoriesCard(image: 'assets/images/ddandcwc.png', title: 'DD & CWC', link: "https://mondaymorning.nitrkl.ac.in/ddcwc",),
+                PageCategoriesCard(image: 'assets/images/campus.png', title: 'Campus', onCardTap: () {context.router.push(CategoriesRouteView(categories: 'campus'),);},),
+                PageCategoriesCard(image: 'assets/images/connect.png', title: 'Connect', onCardTap: () {context.router.push(CategoriesRouteView(categories: 'connect'),);},),
+                PageCategoriesCard(image: 'assets/images/ddandcwc.png', title: 'DD & CWC', onCardTap: () {context.router.push(CategoriesRouteView(categories: 'ddcwc'),);},),
               ],
             ),
             SizedBox(height: 6),
             Row(
               children: [
-                CategoriesCard(image: 'assets/images/career.png', title: 'Career', link: "https://mondaymorning.nitrkl.ac.in/career",),
-                CategoriesCard(image: 'assets/images/alumni.png', title: 'Alumni', link: "https://mondaymorning.nitrkl.ac.in/alumni",),
+                PageCategoriesCard(image: 'assets/images/career.png', title: 'Career', onCardTap: () {context.router.push(CategoriesRouteView(categories: 'career'),);},),
+                PageCategoriesCard(image: 'assets/images/alumni.png', title: 'Alumni', onCardTap: () {context.router.push(CategoriesRouteView(categories: 'alumni'),);},),
                 PageCategoriesCard(image: 'assets/images/expression.png', title: 'Expression', onCardTap: () {context.router.push(ComingSoonRoute(),);},),
               ],
             ),

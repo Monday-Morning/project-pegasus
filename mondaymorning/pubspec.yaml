@@ -19,6 +19,7 @@ dependencies:
   google_fonts:
   graphql_flutter:
   json_serializable:
+  carousel_slider:
 
 dev_dependencies:
   auto_route_generator:

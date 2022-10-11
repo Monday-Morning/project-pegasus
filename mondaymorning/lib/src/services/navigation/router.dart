@@ -1,14 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/empty_router_widgets.dart';
 import 'package:mondaymorning/src/views/categories_view.dart';
-import 'package:mondaymorning/src/views/categoriespages/alumni_page.dart';
-import 'package:mondaymorning/src/views/categoriespages/campus_page.dart';
-import 'package:mondaymorning/src/views/categoriespages/career_page.dart';
-import 'package:mondaymorning/src/views/categoriespages/connect_page.dart';
-import 'package:mondaymorning/src/views/categoriespages/ddandcwc_page.dart';
-import 'package:mondaymorning/src/views/categoriespages/expression_page.dart';
+import 'package:mondaymorning/src/views/categoriespages/subCategories.dart';
 import 'package:mondaymorning/src/views/coming_soon_page.dart';
-import 'package:mondaymorning/src/views/expression_view.dart';
+import 'package:mondaymorning/src/views/categories_full_view.dart';
 import 'package:mondaymorning/src/views/full_page_article.dart';
 import 'package:mondaymorning/src/views/landing_page.dart';
 import 'package:mondaymorning/src/views/home_view.dart';
@@ -49,28 +45,12 @@ import 'package:mondaymorning/src/views/morepages/terms_and_policies.dart';
             page: CategoriesView,
           ),
           AutoRoute<dynamic>(
-            path: ':campus_page',
-            page: CampusPage,
+            path: ':categories',
+            page: CategoriesPageView,
           ),
           AutoRoute<dynamic>(
-            path: ':connect_page',
-            page: ConnectPage,
-          ),
-          AutoRoute<dynamic>(
-            path: ':ddcwc_page',
-            page: DdcwcPage,
-          ),
-          AutoRoute<dynamic>(
-            path: ':career_page',
-            page: CareerPage,
-          ),
-          AutoRoute<dynamic>(
-            path: ':alumni_page',
-            page: AlumniPage,
-          ),
-          AutoRoute<dynamic>(
-            path: ':expression_page',
-            page: ExpressionPage,
+            path: ':categories/:subCategories',
+            page: SubCategories,
           ),
           AutoRoute<dynamic>(
             path: ':coming_soon_page',
@@ -81,7 +61,7 @@ import 'package:mondaymorning/src/views/morepages/terms_and_policies.dart';
       AutoRoute<dynamic>(
         path:'expression',
         name: 'ExpressionRouter',
-        page: ExpressionView,
+        page: ComingSoonPage,
       ),
       AutoRoute<dynamic>(
         path:'more',
