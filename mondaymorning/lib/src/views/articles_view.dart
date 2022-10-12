@@ -10,28 +10,28 @@ class ArticlesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer(
-        builder: (context, ref, child) {
-          final listArticles = ref.watch(listArticlesNotifierProvider);
-          return listArticles.when(
-                () => const Center(
-              child: Text('No Articles Available'),
-            ),
-            loading: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
-            success: (articles) => ListView.builder(
-              itemCount: articles.length,
-              itemBuilder: (context, index) => ListTile(
-                title: Text(articles[index].title),
-              ),
-            ),
-            error: (error) => Center(
-              child: Text(error),
-            ),
-          );
-        },
-      ),
+      // body: Consumer(
+      //   builder: (context, ref, child) {
+      //     final listArticles = ref.watch(listArticlesNotifierProvider);
+      //     return listArticles.when(
+      //           () => const Center(
+      //         child: Text('No Articles Available'),
+      //       ),
+      //       loading: () => const Center(
+      //         child: CircularProgressIndicator(),
+      //       ),
+      //       success: (articles) => ListView.builder(
+      //         itemCount: articles.length,
+      //         itemBuilder: (context, index) => ListTile(
+      //           title: Text(articles[index].title),
+      //         ),
+      //       ),
+      //       error: (error) => Center(
+      //         child: Text(error),
+      //       ),
+      //     );
+      //   },
+      // ),
     );
   }
 }
