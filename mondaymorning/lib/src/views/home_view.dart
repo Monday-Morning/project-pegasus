@@ -15,7 +15,7 @@ class HomeView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final darkmodeEnabled = ref.watch(appThemeNotifierProvider);
-    ref.watch(graphqlProvider);
+    // ref.watch(graphqlProvider);
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(10),

@@ -5,8 +5,10 @@ import 'package:mondaymorning/src/widgets/categoriesTopBar.dart';
 
 /// Categories View widget of the app.
 class CategoriesPageView extends StatelessWidget {
+
+  /// [PathParam] Categories View widget of the app.
   CategoriesPageView({
-    required this.categories,
+    @PathParam() required this.categories,
   });
 
   final String categories;

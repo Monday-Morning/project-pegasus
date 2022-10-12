@@ -7,10 +7,13 @@ import '../../widgets/articleCarousel.dart';
 import '../../widgets/article_tile.dart';
 import '../../widgets/categoriesTopBar.dart';
 
+/// SubCategories of various Categories
 class SubCategories extends StatelessWidget {
+
+  /// [PathParam] SubCategories of various Categories
   SubCategories({
-    required this.category,
-    required this.subCategory,
+    @PathParam() required this.category,
+    @PathParam() required this.subCategory,
   });
 
   final String category;
