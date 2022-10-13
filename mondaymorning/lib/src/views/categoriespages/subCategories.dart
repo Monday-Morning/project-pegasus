@@ -26,6 +26,10 @@ class SubCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(subCategory),
+        elevation: 0,
+      ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(

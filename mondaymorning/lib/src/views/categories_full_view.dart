@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:mondaymorning/src/utils/routes.dart';
 import 'package:mondaymorning/src/views/categoriespages/categories.dart';
 import 'package:mondaymorning/src/widgets/categoriesTopBar.dart';
 
@@ -16,6 +17,10 @@ class CategoriesPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(categoriesRoutes[categories]!.name),
+        elevation: 0,
+      ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(

@@ -10,36 +10,14 @@ class AboutMMPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('About and Contact Us'),
+        elevation: 0,
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 5),
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "About and Contact Us",
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 6),
-                    Container(
-                      height: 3.8,
-                      color: Colors.blue,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            SizedBox(height: 15),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Text(
