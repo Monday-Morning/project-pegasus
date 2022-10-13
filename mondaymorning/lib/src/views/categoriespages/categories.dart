@@ -22,7 +22,7 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    subCategoriesRoutes[category]?.forEach((element) {
+    subCategoriesRoutes[category]?.values.toList().forEach((element) {
       categories.add(element.name);
     });
 

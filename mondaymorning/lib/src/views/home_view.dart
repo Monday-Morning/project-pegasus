@@ -20,6 +20,10 @@ class HomeView extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Scaffold(
+          appBar: AppBar(
+            title: Text('More'),
+            elevation: 0,
+          ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
