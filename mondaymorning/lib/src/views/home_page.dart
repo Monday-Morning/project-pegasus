@@ -114,9 +114,9 @@ import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 //   }
 // }
 
-class ArticlesPage extends StatelessWidget {
-  /// Constructor for [ArticlesPage]
-  ArticlesPage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  /// Constructor for [HomePage]
+  HomePage({Key? key}) : super(key: key);
 
   /// Instance of [Post]
   final articles = Post.posts;

@@ -9,7 +9,7 @@ class CategoriesPageView extends StatelessWidget {
 
   /// [PathParam] Categories View widget of the app.
   CategoriesPageView({
-    @PathParam() required this.categories,
+    required this.categories,
   });
 
   final String categories;

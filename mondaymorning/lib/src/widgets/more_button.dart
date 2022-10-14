@@ -16,11 +16,7 @@ class MoreButton extends StatelessWidget {
       onTap: onTileTap,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 3),
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 15),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Color(0xA6999999), width: 2)
-        ),
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -44,7 +40,7 @@ class MoreButton extends StatelessWidget {
                 ),
               ],
             ),
-            Icon(Icons.arrow_forward_ios_outlined),
+            Icon(Icons.arrow_forward_ios_outlined, size: 20,),
           ],
         ),
       ),

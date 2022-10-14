@@ -12,8 +12,8 @@ class SubCategories extends StatelessWidget {
 
   /// [PathParam] SubCategories of various Categories
   SubCategories({
-    @PathParam() required this.category,
-    @PathParam() required this.subCategory,
+    required this.category,
+    required this.subCategory,
   });
 
   final String category;
