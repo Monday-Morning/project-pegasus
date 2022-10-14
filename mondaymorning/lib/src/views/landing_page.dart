@@ -9,7 +9,7 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       routes:  [
-        ArticlesRouter(),
+        HomeRouter(),
         CategoriesRouter(),
         ExpressionRouter(),
         MoreRouter(),

@@ -7,8 +7,8 @@ import 'package:mondaymorning/src/views/coming_soon_page.dart';
 import 'package:mondaymorning/src/views/categories_full_view.dart';
 import 'package:mondaymorning/src/views/full_page_article.dart';
 import 'package:mondaymorning/src/views/landing_page.dart';
-import 'package:mondaymorning/src/views/home_view.dart';
-import 'package:mondaymorning/src/views/mock_articles.dart';
+import 'package:mondaymorning/src/views/more_view.dart';
+import 'package:mondaymorning/src/views/home_page.dart';
 import 'package:mondaymorning/src/views/morepages/about_mm.dart';
 import 'package:mondaymorning/src/views/morepages/terms_and_policies.dart';
 
@@ -18,19 +18,19 @@ import 'package:mondaymorning/src/views/morepages/terms_and_policies.dart';
     AutoRoute<dynamic>(path: '/', page: LandingPage, children: [
       AutoRoute<dynamic>(
         path:'articles',
-        name: 'ArticlesRouter',
+        name: 'HomeRouter',
         page: EmptyRouterPage,
         children: [
           AutoRoute<dynamic>(
             path: '',
-            page: ArticlesPage,
+            page: HomePage,
           ),
           AutoRoute<dynamic>(
             path: ':postId',
             page: FullPageArticle,
           ),
           AutoRoute<dynamic>(
-            path: ':coming_soon_page',
+            path: 'coming_soon_page',
             page: ComingSoonPage,
           ),
         ],
@@ -53,7 +53,7 @@ import 'package:mondaymorning/src/views/morepages/terms_and_policies.dart';
             page: SubCategories,
           ),
           AutoRoute<dynamic>(
-            path: ':coming_soon_page',
+            path: 'coming_soon_page',
             page: ComingSoonPage,
           ),
         ],
@@ -70,18 +70,18 @@ import 'package:mondaymorning/src/views/morepages/terms_and_policies.dart';
         children: [
           AutoRoute<dynamic>(
             path: '',
-            page: HomeView,
+            page: MoreView,
           ),
           AutoRoute<dynamic>(
-            path: ':coming_soon_page',
+            path: 'coming_soon_page',
             page: ComingSoonPage,
           ),
           AutoRoute<dynamic>(
-            path: ':about_mm_page',
+            path: 'about_mm_page',
             page: AboutMMPage,
           ),
           AutoRoute<dynamic>(
-            path: ':terms_and_policies_page',
+            path: 'terms_and_policies_page',
             page: TermsAndPoliciesPage,
           ),
         ],
