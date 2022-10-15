@@ -84,104 +84,110 @@ class _TermsAndPoliciesPageState extends State<TermsAndPoliciesPage> {
         title: Text('Terms and Policies'),
         elevation: 0,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 40,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Center(
-                        child: TextButton(
-                          style: ButtonStyle(
-                            overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent),
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              currentId = categories[index].id;
-                            });
-                          },
-                          child: Text(categories[index].name,
-                            style:  categories[index].id == currentId ? TextStyle(fontSize: 18, color: Theme.of(context).primaryColor) :  TextStyle(fontSize: 18, color: AppColors.kGrey70),
-                          ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 40,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Center(
+                      child: TextButton(
+                        style: ButtonStyle(
+                          overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            currentId = categories[index].id;
+                          });
+                        },
+                        child: Text(categories[index].name,
+                          style:  categories[index].id == currentId ? TextStyle(fontSize: 18, color: Theme.of(context).primaryColor) :  TextStyle(fontSize: 18, color: AppColors.kGrey70),
                         ),
                       ),
-                    );
-                  }
-              ),
+                    ),
+                  );
+                }
             ),
-            SizedBox(height: 10,),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 15.0),
+          ),
+          SizedBox(height: 10,),
+          Expanded(
+            child: Container(
+              // height: MediaQuery.of(context).size.height*0.75,
+              margin: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10.0),
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(5)),
                 border: Border.all(color: AppColors.kGrey50),
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(5)),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
-                padding: EdgeInsets.all(5.0),
-                child: ListView.separated(
-                    shrinkWrap: true,
-                    itemCount: termsOfPolicy[currentId]!.length,
-                    separatorBuilder: (BuildContext context, int index){
-                      return SizedBox(
-                        height: 20,
-                      );
-                    },
-                    itemBuilder: (BuildContext context, int index){
-                      return Container(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              if(termsOfPolicy[currentId]![index].Title != 'Introduction')
-                                Text(termsOfPolicy[currentId]![index].Title,
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
+                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 10.0),
+                  padding: EdgeInsets.all(5.0),
+                  child: ListView.separated(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: termsOfPolicy[currentId]!.length,
+                      separatorBuilder: (BuildContext context, int index){
+                        return SizedBox(
+                          height: 20,
+                        );
+                      },
+                      itemBuilder: (BuildContext context, int index){
+                        return Container(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 5.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if(termsOfPolicy[currentId]![index].Title != 'Introduction')
+                                  Text(termsOfPolicy[currentId]![index].Title,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
+
+                                SizedBox(
+                                  height: 10,
                                 ),
 
-                              SizedBox(
-                                height: 10,
-                              ),
-
-                              ListView.separated(
-                                  scrollDirection: Axis.vertical,
-                                  shrinkWrap: true,
-                                  itemCount: termsOfPolicy[currentId]![index].paragraphs.length,
-                                  itemBuilder: (BuildContext context, int ind){
-                                    return Text(termsOfPolicy[currentId]![index].paragraphs.elementAt(ind),
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                      ),
-                                    );
-                                  },
-                                  separatorBuilder: (BuildContext context, int index){
-                                    return SizedBox(
-                                      height: 10.0,
-                                    );
-                                  })
-                            ],
+                                ListView.separated(
+                                    shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                    itemCount: termsOfPolicy[currentId]![index].paragraphs.length,
+                                    itemBuilder: (BuildContext context, int ind){
+                                      return Text(termsOfPolicy[currentId]![index].paragraphs.elementAt(ind),
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                        ),
+                                      );
+                                    },
+                                    separatorBuilder: (BuildContext context, int index){
+                                      return SizedBox(
+                                        height: 10.0,
+                                      );
+                                    }
+                                  )
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }
+                        );
+                      }
+                  ),
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
