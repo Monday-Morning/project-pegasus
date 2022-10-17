@@ -1,5 +1,5 @@
 
-class getLastestIssueQuery{
+class getArticlesByCategoriesQuery{
   static const coverMedia = '''
     coverMedia {
         square {
@@ -18,7 +18,7 @@ class getLastestIssueQuery{
   ''';
 
   static const basicArticleData = '''
-    id
+      id
       articleType
       title
       inshort
@@ -34,18 +34,19 @@ class getLastestIssueQuery{
       $coverMedia
   ''';
 
-
-  static const getLastestIssue = '''
-    query getLatestIssues(\$limit: Int!, \$onlyPublished: Boolean!) {
-  getLatestIssues(limit: \$limit, onlyPublished: \$onlyPublished) {
-    id
-    featured {
-      $basicArticleData
-    }
-    articles {
+  static const getArticlesByCategories = '''
+    query getArticlesByCategories(
+    \$categoryNumbers: [Int]!
+    \$limit: Int
+    \$offset: Int
+  ) {
+    getArticlesByCategories(
+      categoryNumbers: \$categoryNumbers
+      limit: \$limit
+      offset: \$offset
+    ) {
       $basicArticleData
     }
   }
-}
-''';
+  ''';
 }

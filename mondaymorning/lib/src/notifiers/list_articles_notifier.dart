@@ -4,10 +4,10 @@ import 'package:mondaymorning/src/state/list_articles_state.dart';
 
 /// Notifier for List Articles API.
 class ListArticlesNotifier extends StateNotifier<ListArticlesState> {
-  final GraphQLApi _graphQLApi;
+  // final GraphQLApi _graphQLApi;
 
   /// Constructor for ListArticlesNotifier.
-  ListArticlesNotifier(this._graphQLApi) : super(const ListArticlesState()) {
+  ListArticlesNotifier() : super(const ListArticlesState()) {
     listArticles();
   }
 
