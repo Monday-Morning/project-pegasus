@@ -1,12 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
+import 'package:mondaymorning/src/services/graphql/queries/category/getArticlesByCategories.dart';
+import 'package:mondaymorning/src/utils/dummy/articles.dart';
 import 'package:mondaymorning/src/widgets/articleCarousel.dart';
 
 import '../../services/navigation/router.gr.dart';
 import '../../utils/routes.dart';
 import '../../widgets/article_tile.dart';
 import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
-
 
 class Categories extends StatelessWidget {
   Categories({
@@ -16,8 +19,55 @@ class Categories extends StatelessWidget {
   final String category;
 
   /// Instance of [Post]
-  final articles = Post.posts;
+  // final articles = Post.posts;
   final List<String> categories = <String>[];
+
+  @override
+  void initState() {
+    getArticles();
+  }
+
+  Future<void> getArticles() async {
+    try {
+      final result = await GraphQLService().query(query: QueryOptions(
+        document: gql(getArticlesByCategoriesQuery.getArticlesByCategories),
+        variables: {
+          'limit' : 2,
+          'categoryNumbers' : [categoriesRoutes[category]?.idNumber,...?categoriesRoutes[category]?.subCategoriesIds],
+        },
+      ),
+      );
+
+
+      final articles = result.data;
+
+      // final featured = <ArticleIssue>[];
+      // final latest = <ArticleIssue>[];
+      //
+      // final latestIssue = LatestIssue(
+      //   id: articles!['getLatestIssues']['id'] as String,
+      //   featured: articles['getLatestIssues']['featured'] as List<ArticleIssue>,
+      //   articles: articles['getLatestIssues']['articles'] as List<ArticleIssue>
+      // );
+
+      print(articles);
+
+      // for (final element in articles) {
+      //   articleList.add(
+      //     MMArticle(
+      //       id: element['id'] as String,
+      //       title: element['title'] as String,
+      //       imageUrl: element['coverMedia']['rectangle']['storePath'] as String,
+      //     ),
+      //   );
+      // }
+
+      return;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +88,18 @@ class Categories extends StatelessWidget {
               SizedBox(
                 height: 10.0,
               ),
-              ArticleCarousel(),
+              ArticleCarousel(featured: DummyData.articles,),
 
-              SizedBox(height: 20.0),
+              // SizedBox(height: 20.0),
+
+              // ElevatedButton(
+              //   onPressed: (){
+              //     getArticles();
+              //   },
+              //   child: Text(
+              //       "Query Data"
+              //   ),
+              // ),
 
               for (int i = 0; i < categories.length; i++)
                 SubSection(category: category,subCategory: categories[i])
@@ -59,7 +118,7 @@ class SubSection extends StatelessWidget {
   final String subCategory;
 
   /// Instance of [Post]
-  final articles = Post.posts;
+  final articles = DummyData.articles;
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +146,10 @@ class SubSection extends StatelessWidget {
           SizedBox(height: 5.0,),
           for (int i = 1; i < articles.length-1; i++)
             ArticleTile(
-              articleTitle: articles[i].title,
-              articleDescription: articles[i].description,
-              time: articles[i].time,
-              author: articles[i].author,
+              article: articles[i],
               onTileTap: () {
                 context.router.push(
-                  FullRouteArticle(postId: articles[i].id),
+                  FullRouteArticle(postId: 1),
                 );
               },
             ),

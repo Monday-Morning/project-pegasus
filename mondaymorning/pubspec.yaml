@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^1.0.4
+  flutter_markdown: ^0.6.12
   url_launcher: ^6.1.5
   auto_size_text: ^3.0.0
   material_design_icons_flutter: ^5.0.6996

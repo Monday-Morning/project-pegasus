@@ -9,8 +9,10 @@ import 'package:mondaymorning/src/models/issues/latest_issue.dart';
 import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
 import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
 import 'package:mondaymorning/src/services/graphql/queries/homepage/getLatestIssues.dart';
+import 'package:mondaymorning/src/utils/dummy/articles.dart';
 import 'package:mondaymorning/src/widgets/articleCarousel.dart';
 import 'package:mondaymorning/src/widgets/article_tile.dart';
+import 'package:mondaymorning/src/widgets/carousel_card.dart';
 import 'package:mondaymorning/src/widgets/custom_icon_button.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 
@@ -25,17 +27,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   /// Instance of [Post]
-  final articles = Post.posts;
+  late Future<LatestIssue> issue;
+  final List<ArticleIssue> articles = DummyData.articles;
 
   bool loading = false;
 
   @override
   void initState() {
     super.initState();
-    getArticles();
+    issue = getArticles();
   }
 
-  Future<void> getArticles() async {
+  Future<LatestIssue> getArticles() async {
     try {
       final result = await GraphQLService().query(query: QueryOptions(
           document: gql(getLastestIssueQuery.getLastestIssue),
@@ -45,31 +48,13 @@ class _HomePageState extends State<HomePage> {
           },
       ),);
 
+      final issue = result.data!['getLatestIssues']![0];
 
-      final articles = result.data;
+      print("ArticleData: " + issue.toString());
 
-      // final featured = <ArticleIssue>[];
-      // final latest = <ArticleIssue>[];
-      //
-      // final latestIssue = LatestIssue(
-      //   id: articles!['getLatestIssues']['id'] as String,
-      //   featured: articles['getLatestIssues']['featured'] as List<ArticleIssue>,
-      //   articles: articles['getLatestIssues']['articles'] as List<ArticleIssue>
-      // );
+      final latestIssue = LatestIssue.fromJson(issue as Map<String, dynamic>);
 
-      print(articles);
-
-      // for (final element in articles) {
-      //   articleList.add(
-      //     MMArticle(
-      //       id: element['id'] as String,
-      //       title: element['title'] as String,
-      //       imageUrl: element['coverMedia']['rectangle']['storePath'] as String,
-      //     ),
-      //   );
-      // }
-
-      return;
+      return latestIssue;
     } catch (e) {
       rethrow;
     }
@@ -123,19 +108,16 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  ArticleCarousel(),
+                  ArticleCarousel(featured: articles),
 
                   SizedBox(height: 13),
 
-                  for (int i = 1; i < articles.length; i++)
+                  for (int i = 0; i < articles.length; i++)
                     ArticleTile(
-                      articleTitle: articles[i].title,
-                      articleDescription: articles[i].description,
-                      time: articles[i].time,
-                      author: articles[i].author,
+                      article: articles[i],
                       onTileTap: () {
                         context.router.push(
-                          FullRouteArticle(postId: articles[i].id),
+                          FullRouteArticle(postId: 1),
                         );
                       },
                     ),
