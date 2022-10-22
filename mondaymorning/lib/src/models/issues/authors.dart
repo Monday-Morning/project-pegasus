@@ -14,7 +14,7 @@ class Image with _$Image {
   factory Image({
     required String store,
     required String storePath,
-    required String blurhash,
+    String? blurhash,
   }) = _Image;
 
   /// a factory function that converts a json object to a dart object.

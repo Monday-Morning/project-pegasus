@@ -2,6 +2,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:mondaymorning/src/models/issues/authors.dart';
 
 part 'media.freezed.dart';
 part 'media.g.dart';
@@ -15,7 +16,8 @@ class Media with _$Media {
     required String store,
     required String storePath,
     required String mediaType,
-    required String blurHash,
+    String? blurHash,
+    List<Authors>? authors,
   }) = _Media;
 
   /// a factory function that converts a json object to a dart object.

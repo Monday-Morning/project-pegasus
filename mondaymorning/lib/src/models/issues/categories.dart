@@ -12,8 +12,8 @@ class Categories with _$Categories {
   @JsonSerializable(explicitToJson: true)
   /// Constructor for Categories
   factory Categories({
-    required String name,
-    required String details,
+    required int number,
+    bool? isCategory,
     String? reference,
   }) = _Categories;
 

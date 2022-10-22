@@ -25,9 +25,9 @@ Map<String, CategoriesClass> categoriesRoutes = {
 // ------------------- sub-categories -----------------------
 
 class SubCategoriesClass{
-  String name;
-  String shortName;
-  int idNumber;
+  final String name;
+  final String shortName;
+  final int idNumber;
 
   SubCategoriesClass(@required this.name, @required this.shortName, @required this.idNumber);
 }

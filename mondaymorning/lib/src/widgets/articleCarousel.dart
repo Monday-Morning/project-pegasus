@@ -1,22 +1,24 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mondaymorning/src/models/issues/article_issue.dart';
+import 'package:mondaymorning/src/utils/dummy/articles.dart';
 
 import '../providers/mockdata/mock_data.dart';
 import '../services/navigation/router.gr.dart';
 import 'carousel_card.dart';
 
 class ArticleCarousel extends StatefulWidget {
-  const ArticleCarousel({Key? key}) : super(key: key);
+
+  final List<ArticleIssue> featured;
+
+  const ArticleCarousel({required this.featured});
 
   @override
   State<ArticleCarousel> createState() => _ArticleCarouselState();
 }
 
 class _ArticleCarouselState extends State<ArticleCarousel> {
-
-  /// Instance of [Post]
-  final articles = Post.posts;
 
   int _currentIndex = 0;
 
@@ -42,19 +44,16 @@ class _ArticleCarouselState extends State<ArticleCarousel> {
               );
             },
           ),
-          items: [1,2,3,4,5].map((i) {
+          items: [0,1,2,3,4].map((i) {
             return Builder(
               builder: (BuildContext context) {
                 return CarouselCard(
-                  articleTitle: articles[0].title,
-                  articleDescription: articles[0].description,
+                  article: widget.featured[i],
                   onTileTap: () {
                     context.router.push(
-                      FullRouteArticle(postId: articles[0].id),
+                      FullRouteArticle(postId: 1),
                     );
                   },
-                  time: articles[0].time,
-                  author: articles[0].author,
                 );
               },
             );

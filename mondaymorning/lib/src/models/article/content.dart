@@ -2,6 +2,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:mondaymorning/src/models/media/media.dart';
 
 part 'content.freezed.dart';
 part 'content.g.dart';
@@ -34,6 +35,7 @@ class Content with _$Content {
     required String data,
     required String contentType,
     required BlockFormatting blockFormatting,
+    Media? media,
   }) = _Content;
 
   /// a factory function that converts a json object to a dart object.

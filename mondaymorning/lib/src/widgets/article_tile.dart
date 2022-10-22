@@ -1,22 +1,19 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:mondaymorning/src/models/issues/article_issue.dart';
+import 'package:mondaymorning/src/utils/getStores.dart';
+import 'package:mondaymorning/src/utils/limitString.dart';
 
 /// ArticleTile is the card widget displaying an articles preview on home page
 class ArticleTile extends StatelessWidget {
 
   /// Constructor for [ArticleTile]
-  final String articleTitle;
-  final String articleDescription;
-  final String time;
-  final String author;
+  final ArticleIssue article;
   final void Function() onTileTap;
 
   const ArticleTile({
     Key? key,
-    required this.articleTitle,
-    required this.articleDescription,
-    required this.time,
-    required this.author,
+    required this.article,
     required this.onTileTap,
   }) : super(key: key);
 
@@ -48,7 +45,7 @@ class ArticleTile extends StatelessWidget {
                     ),
                   ),
                   child: Image.network(
-                    articleDescription,
+                    ImageStore.stores[article.coverMedia.rectangle.store]! + Uri.encodeFull(article.coverMedia.rectangle.storePath),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -78,7 +75,7 @@ class ArticleTile extends StatelessWidget {
                     child: Container(
                       height: 36,
                       child: AutoSizeText(
-                        articleTitle,
+                        article.title,
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -95,14 +92,37 @@ class ArticleTile extends StatelessWidget {
                       Container(
                         width: MediaQuery.of(context).size.width*0.4,
                         height: 16,
-                        child: AutoSizeText(
-                          author,
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF6E6E6E)
-                          ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
+                        child: Row(
+                          children: [
+                            ListView.separated(
+                                scrollDirection: Axis.horizontal,
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index){
+                                  return AutoSizeText(
+                                    limitString(article.authors[index].name),
+                                    style: const TextStyle(
+                                        fontSize: 12,
+                                        color: Color(0xFF6E6E6E)
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  );
+                                },
+                                separatorBuilder: (context, index){
+                                  return AutoSizeText(
+                                    ', ',
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Color(0xFF6E6E6E)
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  );
+                                },
+                                itemCount: article.authors.length
+                            ),
+                          ],
                         ),
                       ),
                       Container(
@@ -117,7 +137,7 @@ class ArticleTile extends StatelessWidget {
                               height: 16,
                               width: MediaQuery.of(context).size.width*0.1,
                               child: AutoSizeText(
-                                ' $time min',
+                                ' ${Duration(seconds: 120).inMinutes} min',
                                 style: TextStyle(
                                   color: Color(0xFF6E6E6E),
                                   fontSize: 12,

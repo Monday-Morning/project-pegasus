@@ -1,7 +1,13 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mondaymorning/src/models/article/content.dart';
 import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
+import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
+import 'package:mondaymorning/src/services/graphql/queries/articles/getArticleById.dart';
+import 'package:mondaymorning/src/utils/getStores.dart';
 import 'package:mondaymorning/src/widgets/fullpagearticle/heading2.dart';
 import 'package:mondaymorning/src/widgets/fullpagearticle/image_box.dart';
 import 'package:mondaymorning/src/widgets/fullpagearticle/quote_box.dart';
@@ -21,9 +27,145 @@ class FullPageArticle extends StatefulWidget {
       _FullPageArticleState(postId: this.postId);
 }
 
+Map<String, int> CONTENT_TYPE = {
+'H1': 0,
+'H2': 1,
+'H3': 2,
+'PARAGRAPH': 3,
+'IMAGE' : 4,
+'QUOTE' : 5,
+'ORDERED_LIST': 6,
+'UNORDERED_LIST': 7,
+'TABLE': 8,
+'BAR_GRAPH': 9,
+'COLUMN_GRAPH': 10,
+'LINE_CHART' : 11,
+'PIE_CHART': 12,
+'HORIZONTAL_LINE': 13,
+};
+
 class _FullPageArticleState extends State<FullPageArticle> {
   int postId;
   _FullPageArticleState({required this.postId});
+
+  final String id = "629dbd541acb2c3831ab475d";
+
+  @override
+  void initState() {
+    getArticles();
+  }
+
+  Future<void> getArticles() async {
+    try {
+      final result = await GraphQLService().query(query: QueryOptions(
+        document: gql(getArticleByIdQueries.getArticleById),
+        variables: {
+          'id' : id,
+        },
+      ),
+      );
+
+
+      final articles = result.data;
+
+      // final featured = <ArticleIssue>[];
+      // final latest = <ArticleIssue>[];
+      //
+      // final latestIssue = LatestIssue(
+      //   id: articles!['getLatestIssues']['id'] as String,
+      //   featured: articles['getLatestIssues']['featured'] as List<ArticleIssue>,
+      //   articles: articles['getLatestIssues']['articles'] as List<ArticleIssue>
+      // );
+
+      print(articles);
+
+      // for (final element in articles) {
+      //   articleList.add(
+      //     MMArticle(
+      //       id: element['id'] as String,
+      //       title: element['title'] as String,
+      //       imageUrl: element['coverMedia']['rectangle']['storePath'] as String,
+      //     ),
+      //   );
+      // }
+
+      return;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Widget renderContent(Content content){
+
+    String contentType = content.contentType;
+    String text = content.text;
+
+    switch(CONTENT_TYPE[contentType]){
+      case 0:
+        return Container(
+          margin: EdgeInsets.only(top: 8.0),
+          child: Markdown(
+              data: text,
+              styleSheet: MarkdownStyleSheet(
+                h1: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+          ),
+        );
+      case 1:
+        return Container(
+          margin: EdgeInsets.only(top: 8.0),
+          child: Markdown(
+            data: text,
+            styleSheet: MarkdownStyleSheet(
+              h2: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        );
+      case 2:
+        return Container(
+          margin: EdgeInsets.only(top: 8.0),
+          child: Markdown(
+            data: text,
+            styleSheet: MarkdownStyleSheet(
+              h3: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        );
+      case 3:
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 16),
+          child: Markdown(
+            data: text,
+          ),
+        );
+      case 4:
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 25.0),
+          child: Expanded(
+            child: Image.network(ImageStore.stores[content.media?.store]! + Uri.encodeFull(content.media!.storePath)),
+          ),
+        );
+      case 5:
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 25.0),
+          child: Markdown(
+            data: text, // TODO
+          ),
+        );
+    }
+
+    return Text('');
+  }
+
   @override
   Widget build(BuildContext context) {
     final article = Post.posts[postId - 1];
