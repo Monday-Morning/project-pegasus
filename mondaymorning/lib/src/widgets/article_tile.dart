@@ -137,7 +137,7 @@ class ArticleTile extends StatelessWidget {
                               height: 16,
                               width: MediaQuery.of(context).size.width*0.1,
                               child: AutoSizeText(
-                                ' ${Duration(seconds: 120).inMinutes} min',
+                                ' ${Duration(seconds: article.readTime).inMinutes} min',
                                 style: TextStyle(
                                   color: Color(0xFF6E6E6E),
                                   fontSize: 12,
