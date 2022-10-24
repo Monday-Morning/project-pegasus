@@ -5,6 +5,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mondaymorning/src/models/article/content.dart';
 import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
+import 'package:collection/collection.dart';
 import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
 import 'package:mondaymorning/src/services/graphql/queries/articles/getArticleById.dart';
 import 'package:mondaymorning/src/utils/getStores.dart';
@@ -156,14 +157,68 @@ class _FullPageArticleState extends State<FullPageArticle> {
         );
       case 5:
         return Container(
-          margin: EdgeInsets.symmetric(vertical: 25.0),
+          margin: EdgeInsets.only(left: 2, top: 25.0, bottom: 25.0),
           child: Markdown(
-            data: text, // TODO
+            data: text,
+            styleSheet: MarkdownStyleSheet(
+              blockquote: TextStyle(
+                  fontSize: 16,
+                  fontStyle: FontStyle.italic
+              ),
+              blockquoteDecoration: BoxDecoration(
+                color: Theme.of(context).appBarTheme.backgroundColor,
+                border:  Border(
+                  left: BorderSide(
+                    color: Theme.of(context).primaryColor,
+                    width: 3.0,
+                  ),
+                ),
+              ),
+              blockquotePadding: EdgeInsets.only(left: 12),
+            ),
           ),
         );
+      case 6:
+        final data = text.split('\n');
+        final _markDownData = data.map((x) => "- $x\n").reduce((x,y) => "$x$y");
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 25.0),
+          child: Markdown(
+            data: _markDownData,
+            styleSheet: MarkdownStyleSheet(
+              listBullet: TextStyle(
+                fontSize: 16.0,
+              )
+            ),
+          ),
+        );
+      case 7:
+        final data = text.split('\n');
+        final _markDownData = data.mapIndexed((index,x) => "${index+1} $x\n").reduce((x,y) => "$x$y");
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 25.0),
+          child: Markdown(
+            data: _markDownData,
+            styleSheet: MarkdownStyleSheet(
+                listBullet: TextStyle(
+                  fontSize: 16.0,
+                )
+            ),
+          ),
+        );
+      case 8:
+        return Divider(
+          color: Colors.black,
+          height: 2,
+        );
+      case 9:
+        return Divider(
+          color: Colors.black,
+          height: 2,
+        );
+      default:
+        return Text('');
     }
-
-    return Text('');
   }
 
   @override

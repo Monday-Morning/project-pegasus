@@ -1,15 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mondaymorning/src/models/category/category.dart';
+import 'package:mondaymorning/src/models/issues/article_issue.dart';
+import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
 import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
 import 'package:mondaymorning/src/services/graphql/queries/category/getArticlesByCategories.dart';
+import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 import 'package:mondaymorning/src/utils/dummy/articles.dart';
+import 'package:mondaymorning/src/utils/routes.dart';
 import 'package:mondaymorning/src/widgets/articleCarousel.dart';
-
-import '../../services/navigation/router.gr.dart';
-import '../../utils/routes.dart';
-import '../../widgets/article_tile.dart';
-import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
+import 'package:mondaymorning/src/widgets/article_tile.dart';
 
 class Categories extends StatelessWidget {
   Categories({
@@ -39,28 +40,20 @@ class Categories extends StatelessWidget {
       );
 
 
-      final articles = result.data;
+      final articles = result.data!['getArticlesByCategories'];
 
-      // final featured = <ArticleIssue>[];
-      // final latest = <ArticleIssue>[];
+      // final categoriesArticles = <List<ArticleIssue>>[];
       //
-      // final latestIssue = LatestIssue(
-      //   id: articles!['getLatestIssues']['id'] as String,
-      //   featured: articles['getLatestIssues']['featured'] as List<ArticleIssue>,
-      //   articles: articles['getLatestIssues']['articles'] as List<ArticleIssue>
-      // );
+      // for(final categoryList in articles){
+      //   final cat = <ArticleIssue>[];
+      //   for(final subcategory in categoryList){
+      //     final article = ArticleIssue.fromJson(subcategory as Map<String, dynamic>);
+      //     cat.add(article);
+      //   }
+      //   categoriesArticles.add(cat);
+      // }
 
       print(articles);
-
-      // for (final element in articles) {
-      //   articleList.add(
-      //     MMArticle(
-      //       id: element['id'] as String,
-      //       title: element['title'] as String,
-      //       imageUrl: element['coverMedia']['rectangle']['storePath'] as String,
-      //     ),
-      //   );
-      // }
 
       return;
     } catch (e) {
@@ -90,16 +83,16 @@ class Categories extends StatelessWidget {
               ),
               ArticleCarousel(featured: DummyData.articles,),
 
-              // SizedBox(height: 20.0),
+              SizedBox(height: 20.0),
 
-              // ElevatedButton(
-              //   onPressed: (){
-              //     getArticles();
-              //   },
-              //   child: Text(
-              //       "Query Data"
-              //   ),
-              // ),
+              ElevatedButton(
+                onPressed: (){
+                  getArticles();
+                },
+                child: Text(
+                    "Query Data"
+                ),
+              ),
 
               for (int i = 0; i < categories.length; i++)
                 SubSection(category: category,subCategory: categories[i])
