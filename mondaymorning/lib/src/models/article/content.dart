@@ -13,10 +13,10 @@ class BlockFormatting with _$BlockFormatting {
   @JsonSerializable(explicitToJson: true)
   /// Constructor for BlockFormatting
   factory BlockFormatting({
-    required String align,
-    required bool hasHeaderRow,
-    required bool hasHeaderColumn,
-    required String listStyle,
+    String? align,
+    bool? hasHeaderRow,
+    bool? hasHeaderColumn,
+    String? listStyle,
   }) = _BlockFormatting;
 
   /// a factory function that converts a json object to a dart object.
@@ -31,8 +31,8 @@ class Content with _$Content {
   /// Constructor for Content
   factory Content({
     required String text,
-    required String mediaID,
-    required String data,
+    String? mediaID,
+    String? data,
     required String contentType,
     required BlockFormatting blockFormatting,
     Media? media,

@@ -18,9 +18,9 @@ class Article with _$Article {
     required String inshort,
     required String articleType,
     required List<Authors> authors,
-    required List<Authors> photographers,
-    required List<Authors> designers,
-    required List<Authors> tech,
+    List<Authors>? photographers,
+    List<Authors>? designers,
+    List<Authors>? tech,
     required List<Categories> categories,
     required List<Content> content,
     required CoverMedia coverMedia,
@@ -30,6 +30,7 @@ class Article with _$Article {
     required int views,
     required int hits,
     required int readTime,
+    required int updatedAt,
   }) = _Article;
 
   /// a factory function that converts a json object to a dart object.
