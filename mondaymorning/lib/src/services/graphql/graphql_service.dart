@@ -3,7 +3,15 @@
 import 'package:graphql/client.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-class GraphQLService {
+abstract class GraphQLApi {
+    /// Initialises GraphQL client
+    Future<void> initGraphQL();
+
+    /// A future that returns a list of all the articles.
+    Future<QueryResult> query({required QueryOptions query});
+}
+
+class GraphQLService extends GraphQLApi {
     factory GraphQLService() {
         return _graphQLService;
     }
@@ -11,14 +19,19 @@ class GraphQLService {
 
     static final GraphQLService _graphQLService = GraphQLService._internal();
 
-    GraphQLClient client = GraphQLClient(
-        link: HttpLink("https://project-reclamation-staging.herokuapp.com/v1/graph"),
-        cache: GraphQLCache(),
-    );
+    late GraphQLClient _client;
 
+    @override
+    Future<void> initGraphQL() async {
+        final _httpLink = HttpLink("https://project-reclamation-staging.herokuapp.com/v1/graph");
+
+        _client = GraphQLClient(link: _httpLink, cache: GraphQLCache());
+    }
+
+    @override
     Future<QueryResult> query({required QueryOptions query}) async {
         try {
-            final result = await client.query(query);
+            final result = await _client.query(query);
 
             if (result.data != null) {
                 return result;

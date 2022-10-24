@@ -19,4 +19,6 @@ class Category with _$Category {
   /// a factory function that converts a json object to a dart object.
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
+
+
 }

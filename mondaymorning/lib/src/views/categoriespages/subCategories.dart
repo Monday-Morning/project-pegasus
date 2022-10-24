@@ -1,16 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
 import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
 import 'package:mondaymorning/src/services/graphql/queries/category/getArticlesByCategories.dart';
+import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 import 'package:mondaymorning/src/utils/dummy/articles.dart';
 import 'package:mondaymorning/src/utils/routes.dart';
-
-import '../../providers/mockdata/mock_data.dart';
-import '../../services/navigation/router.gr.dart';
-import '../../widgets/articleCarousel.dart';
-import '../../widgets/article_tile.dart';
-import '../../widgets/categoriesTopBar.dart';
+import 'package:mondaymorning/src/widgets/articleCarousel.dart';
+import 'package:mondaymorning/src/widgets/article_tile.dart';
+import 'package:mondaymorning/src/widgets/categoriesTopBar.dart';
 
 /// SubCategories of various Categories
 class SubCategories extends StatelessWidget {
@@ -48,27 +47,7 @@ class SubCategories extends StatelessWidget {
 
       final articles = result.data;
 
-      // final featured = <ArticleIssue>[];
-      // final latest = <ArticleIssue>[];
-      //
-      // final latestIssue = LatestIssue(
-      //   id: articles!['getLatestIssues']['id'] as String,
-      //   featured: articles['getLatestIssues']['featured'] as List<ArticleIssue>,
-      //   articles: articles['getLatestIssues']['articles'] as List<ArticleIssue>
-      // );
-
       print(articles);
-
-      // for (final element in articles) {
-      //   articleList.add(
-      //     MMArticle(
-      //       id: element['id'] as String,
-      //       title: element['title'] as String,
-      //       imageUrl: element['coverMedia']['rectangle']['storePath'] as String,
-      //     ),
-      //   );
-      // }
-
       return;
     } catch (e) {
       rethrow;
@@ -104,14 +83,14 @@ class SubCategories extends StatelessWidget {
 
                       SizedBox(height: 20.0),
 
-                      // ElevatedButton(
-                      //   onPressed: (){
-                      //     getArticles();
-                      //   },
-                      //   child: Text(
-                      //       "Query Data"
-                      //   ),
-                      // ),
+                      ElevatedButton(
+                        onPressed: (){
+                          getArticles();
+                        },
+                        child: Text(
+                            "Query Data"
+                        ),
+                      ),
 
                       for (int i = 1; i < articles.length; i++)
                         ArticleTile(
