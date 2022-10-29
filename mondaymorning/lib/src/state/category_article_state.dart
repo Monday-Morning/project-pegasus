@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mondaymorning/src/models/category/category.dart';
+import 'package:mondaymorning/src/models/issues/article_issue.dart';
 
 part 'category_article_state.freezed.dart';
 
@@ -13,7 +14,7 @@ class CategoryState with _$CategoryState {
   const factory CategoryState.loading() = _Loading;
 
   /// Success state of Article List. Provides the list of articles to the UI.
-  const factory CategoryState.success(Category categoryArticles) = _Success;
+  const factory CategoryState.success(List<List<ArticleIssue>> categoryArticles) = _Success;
 
   /// Error state of Article.
   const factory CategoryState.error(String message) = _Error;

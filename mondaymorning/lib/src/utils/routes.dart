@@ -13,7 +13,7 @@ class CategoriesClass{
 
 Map<String, CategoriesClass> categoriesRoutes = {
   'campus': CategoriesClass(
-      'Campus', 'campus', 1, [11, 12, 13, 14, 15, 16, 17]),
+      'Campus', 'campus', 1, [11, 12, 14, 15, 16, 17]),
   'connect': CategoriesClass('Connect', 'connect', 2, [21, 22, 23, 24]),
   'ddcwc': CategoriesClass('DD & CWC', 'ddcwc', 3, [31, 32]),
   'career': CategoriesClass('Career', 'career', 4, [41, 42, 43, 44]),
@@ -35,7 +35,7 @@ class SubCategoriesClass{
 Map<String, SubCategoriesClass> campus = {
   'academics': SubCategoriesClass('Academics', 'academics', 11),
   'campusBuzz': SubCategoriesClass('Campus Buzz', 'campusBuzz', 12),
-  'forum': SubCategoriesClass('Forum', 'forum', 13),
+  // 'forum': SubCategoriesClass('Forum', 'forum', 13),
   'studentActivities': SubCategoriesClass('Student Activities', 'studentActivities', 14),
   'halls': SubCategoriesClass('Halls', 'halls', 15),
   'pollAnalysis': SubCategoriesClass('Poll Analysis', 'pollAnalysis', 16),

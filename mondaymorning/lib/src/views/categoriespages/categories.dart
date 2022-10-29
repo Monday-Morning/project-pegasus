@@ -1,15 +1,19 @@
+import 'dart:convert';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mondaymorning/src/models/category/category.dart';
 import 'package:mondaymorning/src/models/issues/article_issue.dart';
 import 'package:mondaymorning/src/providers/mockdata/mock_data.dart';
+import 'package:mondaymorning/src/providers/providers.dart';
 import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
 import 'package:mondaymorning/src/services/graphql/queries/category/getArticlesByCategories.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 import 'package:mondaymorning/src/utils/dummy/articles.dart';
 import 'package:mondaymorning/src/utils/routes.dart';
-import 'package:mondaymorning/src/widgets/articleCarousel.dart';
+import 'package:mondaymorning/src/widgets/article_carousel.dart';
 import 'package:mondaymorning/src/widgets/article_tile.dart';
 
 class Categories extends StatelessWidget {
@@ -19,99 +23,74 @@ class Categories extends StatelessWidget {
 
   final String category;
 
-  /// Instance of [Post]
-  // final articles = Post.posts;
   final List<String> categories = <String>[];
-
-  @override
-  void initState() {
-    getArticles();
-  }
-
-  Future<void> getArticles() async {
-    try {
-      final result = await GraphQLService().query(query: QueryOptions(
-        document: gql(getArticlesByCategoriesQuery.getArticlesByCategories),
-        variables: {
-          'limit' : 2,
-          'categoryNumbers' : [categoriesRoutes[category]?.idNumber,...?categoriesRoutes[category]?.subCategoriesIds],
-        },
-      ),
-      );
-
-
-      final articles = result.data!['getArticlesByCategories'];
-
-      // final categoriesArticles = <List<ArticleIssue>>[];
-      //
-      // for(final categoryList in articles){
-      //   final cat = <ArticleIssue>[];
-      //   for(final subcategory in categoryList){
-      //     final article = ArticleIssue.fromJson(subcategory as Map<String, dynamic>);
-      //     cat.add(article);
-      //   }
-      //   categoriesArticles.add(cat);
-      // }
-
-      print(articles);
-
-      return;
-    } catch (e) {
-      rethrow;
-    }
-  }
-
 
   @override
   Widget build(BuildContext context) {
 
     subCategoriesRoutes[category]?.values.toList().forEach((element) {
-      categories.add(element.name);
+      categories.add(element.shortName);
     });
 
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              SizedBox(
-                height: 10.0,
+    return Consumer(builder: (context,ref, child){
+      final categoryArticle = ref.watch(categoryNotifierProvider(QueryOptions(
+        document: gql(getArticlesByCategoriesQuery.getArticlesByCategories),
+        variables: {
+          'limit' : 2,
+          'categoryNumbers' : [categoriesRoutes[category]?.idNumber,...?categoriesRoutes[category]?.subCategoriesIds],
+        },
+      ),),);
+      
+      return categoryArticle.when(
+              () => const Center(
+                child: Text('No Articles Available'),
               ),
-              ArticleCarousel(featured: DummyData.articles,),
-
-              SizedBox(height: 20.0),
-
-              ElevatedButton(
-                onPressed: (){
-                  getArticles();
-                },
-                child: Text(
-                    "Query Data"
-                ),
-              ),
-
-              for (int i = 0; i < categories.length; i++)
-                SubSection(category: category,subCategory: categories[i])
-            ],
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
           ),
+          success: (articles){
+                final singleListOfArticles = articles.reduce((prev, cur) => [...prev, ...cur]);
+                final uniqueArticles = singleListOfArticles.sublist(0,(singleListOfArticles.length/2).round()).toSet().toList();
+                final featuredArticles = uniqueArticles.sublist(0,(uniqueArticles.length/2).round());
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          ArticleCarousel(featured: featuredArticles,),
+
+                          SizedBox(height: 20.0),
+
+                          for (int i = 0; i < categories.length; i++)
+                            SubSection(category: category,subCategory: categories[i], articles: articles[i],)
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+          },
+          error: (error) => Center(
+            child: Text(error),
         ),
-      ),
+      );
+    },
     );
   }
 }
 
 class SubSection extends StatelessWidget {
-  SubSection({required this.category, required this.subCategory});
+  SubSection({required this.category, required this.subCategory, required this.articles});
 
   final String category;
   final String subCategory;
-
-  /// Instance of [Post]
-  final articles = DummyData.articles;
+  final List<ArticleIssue> articles;
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +101,7 @@ class SubSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(subCategory, style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.bold),),
+              Text((subCategoriesRoutes[category]![subCategory] as SubCategoriesClass).name, style: TextStyle(fontSize: 23.0, fontWeight: FontWeight.bold),),
               ElevatedButton(
                 onPressed: () {
                   context.router.push(SubCategories(category: category,subCategory: subCategory));
@@ -137,7 +116,7 @@ class SubSection extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5.0,),
-          for (int i = 1; i < articles.length-1; i++)
+          for (int i = 0; i < articles.length; i++)
             ArticleTile(
               article: articles[i],
               onTileTap: () {

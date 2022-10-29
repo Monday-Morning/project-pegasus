@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
-import 'package:mondaymorning/src/widgets/articleCarousel.dart';
+import 'package:mondaymorning/src/widgets/article_carousel.dart';
 import 'package:mondaymorning/src/widgets/article_tile.dart';
 import 'package:mondaymorning/src/widgets/custom_icon_button.dart';
 

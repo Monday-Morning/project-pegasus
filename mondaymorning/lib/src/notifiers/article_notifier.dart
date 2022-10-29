@@ -5,37 +5,29 @@ import 'package:mondaymorning/src/models/issues/article_issue.dart';
 import 'package:mondaymorning/src/models/issues/latest_issue.dart';
 import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
 import 'package:mondaymorning/src/services/graphql/queries/homepage/getLatestIssues.dart';
+import 'package:mondaymorning/src/state/article_state.dart';
 import 'package:mondaymorning/src/state/category_article_state.dart';
 import 'package:mondaymorning/src/state/latest_issue_state.dart';
 
 /// Notifier for List Articles API.
-class CategoryArticlesNotifier extends StateNotifier<CategoryState> {
+class ArticleNotifier extends StateNotifier<ArticleState> {
   final GraphQLApi _graphQLApi;
   final QueryOptions query;
 
   /// Constructor for ListArticlesNotifier.
-  CategoryArticlesNotifier(this._graphQLApi, this.query) : super(const CategoryState()) {
+  ArticleNotifier(this._graphQLApi, this.query) : super(const ArticleState()) {
     listArticles();
   }
 
   /// Fetches the list of articles from API and updates state accordingly
   Future<void> listArticles() async {
     try {
-      state = const CategoryState.loading();
+      state = const ArticleState.loading();
       final result = await _graphQLApi.query(query: query,);
 
-      final List<List<dynamic>> data = (result.data!['getArticlesByCategories'] as List<dynamic>).cast<List<dynamic>>();
 
-      final finalData = data.map((e) => e.map((e) => ArticleIssue.fromJson(e as Map<String, dynamic>)).toList()).toList();
-
-
-      if (finalData.isNotEmpty) {
-        state = CategoryState.success(finalData);
-      } else {
-        state = const CategoryState();
-      }
     } catch (e) {
-      state = const CategoryState.error('Could not fetch Articles');
+      state = const ArticleState.error('Could not fetch Articles');
     }
   }
 }
