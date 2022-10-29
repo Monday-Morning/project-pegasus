@@ -24,7 +24,7 @@ class CategoriesTopBar extends StatelessWidget {
   Widget build(BuildContext context) {
 
     subCategoriesRoutes[category]?.values.toList().forEach((element) {
-      categories.add(element.name);
+      categories.add(element.shortName);
     });
 
     return Container(
@@ -38,10 +38,10 @@ class CategoriesTopBar extends StatelessWidget {
               child: Center(
                 child: TextButton(
                   onPressed: () {
-                    if(categories[index] != 'All') context.router.push(SubCategories(category: category, subCategory: categories[index]),);
-                    else context.router.push(CategoriesRouteView(categories: category),);
+                    if(categories[index] != 'All') context.router.replace(SubCategories(category: category, subCategory: categories[index]),);
+                    else context.router.replace(CategoriesRouteView(categories: category),);
                   },
-                  child: Text(categories[index],
+                  child: Text(categories[index] != 'All' ? ((subCategoriesRoutes[category]![categories[index]] as SubCategoriesClass).name.toString()) : 'All',
                     style: ((isCategory && categories[index] == 'All') || (categories[index] == subCategory)) ? TextStyle(fontSize: 18, color: Theme.of(context).primaryColor): TextStyle(fontSize: 18, color: AppColors.kGrey70),
                   ),
                   ),

@@ -234,6 +234,7 @@ class _FullPageArticleState extends State<FullPageArticle> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             AspectRatio(
               aspectRatio: 16 / 9,
@@ -251,33 +252,24 @@ class _FullPageArticleState extends State<FullPageArticle> {
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Row(
-                  //   children: [
-                  //     ListView.separated(
-                  //         scrollDirection: Axis.horizontal,
-                  //         shrinkWrap: true,
-                  //         itemBuilder: (context, index){
-                  //           return Text(
-                  //             CategoryNumbers.categoryNumbers[dummyArticle.categories[index].number]!,
-                  //             style: const TextStyle(
-                  //                 fontSize: 1,
-                  //                 color: Color(0xFF6E6E6E)
-                  //             ),
-                  //           );
-                  //         },
-                  //         separatorBuilder: (context, index){
-                  //           return Text(
-                  //             ' |',
-                  //             style: TextStyle(
-                  //                 fontSize: 1,
-                  //                 color: Color(0xFF6E6E6E)
-                  //             ),
-                  //           );
-                  //         },
-                  //         itemCount: dummyArticle.categories.length
-                  //     ),
-                  //   ],
+                  // ListView.builder(
+                  //     scrollDirection: Axis.horizontal,
+                  //     shrinkWrap: true,
+                  //     itemBuilder: (context, index){
+                  //       return Container(
+                  //         child: Text(
+                  //           CategoryNumbers.categoryNumbers[dummyArticle.categories[index].number]!,
+                  //           style: const TextStyle(
+                  //               fontSize: 16,
+                  //               color: Color(0xFF6E6E6E)
+                  //           ),
+                  //           maxLines: 1,
+                  //         ),
+                  //       );
+                  //     },
+                  //     itemCount: dummyArticle.categories.length
                   // ),
                   SizedBox(height: 8),
                   Text(
@@ -362,15 +354,18 @@ class _FullPageArticleState extends State<FullPageArticle> {
                   Divider(
                     thickness: 1,
                   ),
-                  // ListView.builder(
-                  //   scrollDirection: Axis.vertical,
-                  //   shrinkWrap: true,
-                  //   physics: const NeverScrollableScrollPhysics(),
-                  //   itemBuilder: (context,index){
-                  //     return renderContent(dummyArticle.content[index]);
-                  //     },
-                  //   itemCount: dummyArticle.content.length,
-                  // ),
+                  Expanded(
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context,index){
+                        print(dummyArticle.content[index]);
+                        return renderContent(dummyArticle.content[index]);
+                        },
+                      itemCount: dummyArticle.content.length,
+                    ),
+                  ),
                   SizedBox(height: 10),
                   Text('DISCLAIMER: The content, opinions or views expressed on the Monday Mornings website and its social media platforms, including, but not limited to Facebook, Instagram and Twitter pages, are strictly the property of Monday Morning and represent the extensive research and work of the working team of respective academic year of Monday Morning and not those of the institute. \n \nThe reports and statements published consolidated from the collected background research and interviews. The institutes official statements can be found in the press releases published by the institute or via an RTI application.No article or any statements by Monday Morning is to be reproduced, presented or distributed in part or whole without prior permission of the Executive Body of Monday Morning for any purposes, including, but not limited to print and electronic form.',
                   style: TextStyle(

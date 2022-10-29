@@ -23,7 +23,7 @@ class GraphQLService extends GraphQLApi {
 
     @override
     Future<void> initGraphQL() async {
-        final _httpLink = HttpLink("https://project-reclamation-staging.herokuapp.com/v1/graph");
+        final _httpLink = HttpLink("https://mm.dashnet.in/api/v1/graph");
 
         _client = GraphQLClient(link: _httpLink, cache: GraphQLCache());
     }

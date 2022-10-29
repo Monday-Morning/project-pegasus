@@ -2,7 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/utils/routes.dart';
 import 'package:mondaymorning/src/views/categoriespages/categories.dart';
-import 'package:mondaymorning/src/widgets/categoriesTopBar.dart';
+import 'package:mondaymorning/src/widgets/categories_top_bar.dart';
 
 /// Categories View widget of the app.
 class CategoriesPageView extends StatelessWidget {

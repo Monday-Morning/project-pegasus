@@ -22,6 +22,11 @@ class _ArticleCarouselState extends State<ArticleCarousel> {
 
   int _currentIndex = 0;
 
+  Iterable<int> get positiveIntegers sync* {
+    int i = 0;
+    while (true) yield i++;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,7 +49,9 @@ class _ArticleCarouselState extends State<ArticleCarousel> {
               );
             },
           ),
-          items: [0,1,2,3,4].map((i) {
+          items: positiveIntegers
+              .take(widget.featured.length)
+              .toList().map((i) {
             return Builder(
               builder: (BuildContext context) {
                 return CarouselCard(
@@ -61,7 +68,9 @@ class _ArticleCarouselState extends State<ArticleCarousel> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [0,1,2,3,4].map((i) {
+          children: positiveIntegers
+              .take(widget.featured.length)
+              .toList().map((i) {
             return Container(
               width: 5.0,
               height: 5.0,

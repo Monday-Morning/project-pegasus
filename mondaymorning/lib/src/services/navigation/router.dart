@@ -2,7 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:mondaymorning/src/views/categories_view.dart';
-import 'package:mondaymorning/src/views/categoriespages/subCategories.dart';
+import 'package:mondaymorning/src/views/categoriespages/sub_categories.dart';
 import 'package:mondaymorning/src/views/coming_soon_page.dart';
 import 'package:mondaymorning/src/views/categories_full_view.dart';
 import 'package:mondaymorning/src/views/full_page_article.dart';
