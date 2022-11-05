@@ -1,0 +1,51 @@
+# Planned Folder Structure
+
+- assets
+  - fonts
+    - (font_name)/
+  - i18n
+    - (language_code).json
+  - images
+    - light/
+    - dark/
+- lib
+  - main.dart
+  - src
+    - app.dart
+    - pages
+      - (page_name)_page.dart
+    - ui
+      - screens
+        - (screen_name)_screen.dart
+      - components
+        - (screen_name)/
+        - shared/
+        - widgets/
+    - services
+      - firebase/
+      - graphql/
+      - router/
+      - themes/
+    - api
+      - models
+        - (model_name)
+          - (model_name).dart
+          - (related_model_name).dart
+      - repositories
+        - (model_name)
+          - (model_name)_repository.dart
+          - graph_(model_name)_repository.dart
+          - graph_(model_name)_repository_provider.dart
+      - graphql
+        - fragments
+          - (model_name)_fragments.dart
+        - mutations
+          - (model_name)_mutations.dart
+        - queries
+          - (model_name)_queries.dart
+    - store
+      - constants/
+      - states
+        - (state_name)
+          - (state_name)(_data)_type.dart
+          - (state_name)_provider.dart
