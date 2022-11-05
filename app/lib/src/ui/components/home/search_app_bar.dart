@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 
 class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const SearchAppBar({Key? key}) : super(key: key);
+  const SearchAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

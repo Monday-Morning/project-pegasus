@@ -3,7 +3,7 @@ import 'package:mondaymorning/src/services/themes/index.dart';
 import 'package:mondaymorning/src/ui/screens/full_loading_screen.dart';
 
 class FullLoadingPage extends StatelessWidget {
-  const FullLoadingPage({Key? key}) : super(key: key);
+  const FullLoadingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

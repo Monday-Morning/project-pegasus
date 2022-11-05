@@ -3,7 +3,7 @@ import 'package:mondaymorning/src/services/themes/rem_size.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 
 class FullErrorScreen extends StatelessWidget {
-  const FullErrorScreen({Key? key}) : super(key: key);
+  const FullErrorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
