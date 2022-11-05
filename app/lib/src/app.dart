@@ -10,7 +10,7 @@ import 'package:mondaymorning/src/store/states/app_config/app_config_provider.da
 import 'package:mondaymorning/src/store/states/app_config/app_config_type.dart';
 
 class ProjectPegasus extends ConsumerWidget {
-  ProjectPegasus({Key? key}) : super(key: key);
+  ProjectPegasus({super.key});
 
   final mmRouter = MMRouter();
 
