@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mondaymorning/firebase_options.dart';
@@ -20,7 +21,9 @@ Future<AppConfig> appConfig(AppConfigRef ref) async {
   //   webRecaptchaSiteKey: 'web-captcha-key',
   // );
 
-  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  if (!kDebugMode) {
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  }
 
   await GraphQLService().init();
 
@@ -29,8 +32,9 @@ Future<AppConfig> appConfig(AppConfigRef ref) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final String? themeMode = prefs.getString('preffered_app_theme_mode');
 
-  // TODO: remove in production
-  await Future.delayed(const Duration(seconds: 1), () => {});
+  if (!kDebugMode) {
+    await Future.delayed(const Duration(seconds: 3), () => {});
+  }
 
   return AppConfig().init(
     firebaseApp,
