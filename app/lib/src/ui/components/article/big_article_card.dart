@@ -56,18 +56,12 @@ class BigArticleCard extends StatelessWidget {
                       gradient: LinearGradient(
                         colors: [
                           Color(0xFF222222).withOpacity(0.0),
-                          Color(0xFF222222).withOpacity(0.0),
-                          Color(0xFF222222).withOpacity(0.0),
-                          Color(0xFF222222).withOpacity(0.0),
-                          Color(0xFF222222).withOpacity(0.0),
-                          Color(0xFF222222).withOpacity(0.2),
                           Color(0xFF222222).withOpacity(0.5),
-                          Color(0xFF222222).withOpacity(0.8),
-                          Color(0xFF222222).withOpacity(0.9),
                           Color(0xFF222222).withOpacity(1.0),
                         ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
+                        stops: [0.4, 0.7, 1.0],
                       ),
                     ),
                   ),
@@ -81,6 +75,7 @@ class BigArticleCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
                         article.title,
