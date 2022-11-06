@@ -52,7 +52,7 @@ class ArticleCarousel extends HookWidget {
                   article: featured[i],
                   onTileTap: () {
                     AutoRouter.of(context).push(
-                      ArticleRoute(),
+                      ArticleRoute(articleId: featured[i].id),
                     );
                   },
                 );

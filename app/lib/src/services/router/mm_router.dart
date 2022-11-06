@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
+import 'package:mondaymorning/src/pages/article_page.dart';
 import 'package:mondaymorning/src/pages/home_page.dart';
 import 'package:mondaymorning/src/ui/screens/home_screen.dart';
 
@@ -43,9 +44,9 @@ import 'package:mondaymorning/src/ui/screens/home_screen.dart';
       ],
     ),
     AutoRoute<dynamic>(
-      path: 'article/:postId',
+      path: 'article/:articleId',
       name: 'ArticleRoute',
-      page: EmptyRouterPage,
+      page: ArticlePage,
     ),
     AutoRoute<dynamic>(
       path: 'campus',
