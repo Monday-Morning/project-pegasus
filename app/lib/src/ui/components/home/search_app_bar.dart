@@ -56,6 +56,5 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size.fromHeight(SizeConfig.safeBlockVertical! * 10);
 }
