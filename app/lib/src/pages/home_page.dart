@@ -10,7 +10,7 @@ import 'package:mondaymorning/src/store/states/home_page/home_page_data_type.dar
 import 'package:mondaymorning/src/store/states/home_page/home_page_provider.dart';
 
 class HomePage extends ConsumerWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,7 +31,7 @@ class HomePage extends ConsumerWidget {
           }
           return AutoTabsScaffold(
             routes: [
-              HomeScreenRoute(),
+              HomeScreenRoute(data: snapshot.data!),
               CategoriesRoute(),
               ExpressionRouter(),
               MoreRouter(),
