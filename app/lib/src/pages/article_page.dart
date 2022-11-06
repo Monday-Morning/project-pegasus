@@ -19,15 +19,14 @@ class ArticlePage extends ConsumerWidget {
       future: ref.read(articlePageDataProvider(articleId: articleId).future),
       initialData: null,
       builder: (BuildContext context, AsyncSnapshot<ArticlePageData> snapshot) {
-        if (snapshot.hasError) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return FullLoadingScreen();
+        }
+        if (snapshot.hasError || !snapshot.hasData) {
           if (kDebugMode) {
             print(snapshot.error);
           }
           return FullErrorScreen();
-        }
-        if (!snapshot.hasData ||
-            snapshot.connectionState != ConnectionState.done) {
-          return FullLoadingScreen();
         }
         if (kDebugMode) {
           print(snapshot.data);
