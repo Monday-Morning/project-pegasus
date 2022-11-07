@@ -23,15 +23,14 @@ class SmallArticleCard extends StatelessWidget {
       onTap: onTileTap,
       child: Card(
         surfaceTintColor: Theme.of(context).cardTheme.color,
-        margin: EdgeInsets.only(
-            left: SizeConfig.safeBlockHorizontal!,
-            right: SizeConfig.safeBlockHorizontal!),
+        margin: EdgeInsets.symmetric(
+            horizontal: SizeConfig.safeBlockHorizontal! * 1.5),
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
               Theme.of(context).extension<REMSpace>()!.get(1)),
         ),
-        elevation: 7,
+        elevation: 2,
         child: Row(
           children: [
             SizedBox(
