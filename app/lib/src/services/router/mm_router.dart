@@ -2,7 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:mondaymorning/src/pages/article_page.dart';
-import 'package:mondaymorning/src/pages/home_page.dart';
+import 'package:mondaymorning/src/pages/landing_page.dart';
 import 'package:mondaymorning/src/ui/screens/home_screen.dart';
 
 @MaterialAutoRouter(
@@ -10,13 +10,13 @@ import 'package:mondaymorning/src/ui/screens/home_screen.dart';
   routes: <AutoRoute>[
     AutoRoute<dynamic>(
       path: '/',
-      name: 'HomeRoute',
-      page: HomePage,
+      name: 'LandingRoute',
+      page: LandingPage,
       initial: true,
       children: [
         AutoRoute<dynamic>(
           path: 'home',
-          name: 'HomeScreenRoute',
+          name: 'HomeRoute',
           page: HomeScreen,
         ),
         AutoRoute<dynamic>(

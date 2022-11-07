@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/services/router/mm_router.gr.dart';
-import 'package:mondaymorning/src/store/states/home_page/home_page_data_type.dart';
-import 'package:mondaymorning/src/store/states/home_page/home_page_provider.dart';
+import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_type.dart';
+import 'package:mondaymorning/src/store/states/landing_page/landing_page_provider.dart';
 import 'package:mondaymorning/src/ui/screens/full_error_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_loading_screen.dart';
 
-class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
+class LandingPage extends ConsumerWidget {
+  const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     SizeConfig().init(context);
-    return FutureBuilder<HomePageData>(
-      future: ref.watch(homePageDataProvider.future),
+    return FutureBuilder<LandingPageData>(
+      future: ref.watch(landingPageDataProvider.future),
       initialData: null,
-      builder: (BuildContext context, AsyncSnapshot<HomePageData> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<LandingPageData> snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
           return FullLoadingScreen();
         }
@@ -33,7 +33,7 @@ class HomePage extends ConsumerWidget {
         }
         return AutoTabsScaffold(
           routes: [
-            HomeScreenRoute(data: snapshot.data!),
+            HomeRoute(data: snapshot.data!),
             CategoriesRoute(),
             ExpressionRouter(),
             MoreRouter(),
