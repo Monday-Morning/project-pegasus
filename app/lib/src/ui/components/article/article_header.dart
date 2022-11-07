@@ -61,7 +61,7 @@ class ArticleHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  Moment(createdAt!).format('MMMM DD, YYYY'),
+                  Moment(createdAt).format('MMMM DD, YYYY'),
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
                 Row(

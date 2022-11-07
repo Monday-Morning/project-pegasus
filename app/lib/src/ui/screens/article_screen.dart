@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:moment_dart/moment_dart.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
-import 'package:mondaymorning/src/services/app_utils.dart';
-import 'package:mondaymorning/src/services/themes/size_config.dart';
-import 'package:mondaymorning/src/store/constants/categories.dart';
-import 'package:mondaymorning/src/store/constants/media_stores.dart';
 import 'package:mondaymorning/src/ui/components/article/article_app_bar.dart';
 import 'package:mondaymorning/src/ui/components/article/article_body.dart';
 import 'package:mondaymorning/src/ui/components/article/article_disclaimer.dart';
