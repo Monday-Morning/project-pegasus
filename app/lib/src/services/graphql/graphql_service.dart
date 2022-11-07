@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mondaymorning/src/services/graphql/graphql_api.dart';
 
@@ -13,7 +14,9 @@ class GraphQLService implements GraphQLAPI {
   @override
   Future<void> init() async {
     final HttpLink httpLink = HttpLink(
-      'https://mondaymorning.nitrkl.ac.in/api/v1/graph',
+      !kDebugMode
+          ? 'https://mondaymorning.nitrkl.ac.in/api/v1/graph'
+          : 'http://localhost:5000',
     );
 
     // TODO: implement provider for firebase auth state

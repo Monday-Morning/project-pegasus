@@ -1,3 +1,5 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -16,14 +18,20 @@ Future<AppConfig> appConfig(AppConfigRef ref) async {
   FirebaseApp firebaseApp = await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform);
 
+  if (kDebugMode) {
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
+    await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(false);
+    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  } else {
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  }
+
   // TODO: Setup firebase app check
   // await FirebaseAppCheck.instance.activate(
   //   webRecaptchaSiteKey: 'web-captcha-key',
   // );
-
-  if (!kDebugMode) {
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-  }
 
   await GraphQLService().init();
 
@@ -32,7 +40,7 @@ Future<AppConfig> appConfig(AppConfigRef ref) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final String? themeMode = prefs.getString('preffered_app_theme_mode');
 
-  if (!kDebugMode) {
+  if (kDebugMode) {
     await Future.delayed(const Duration(seconds: 3), () => {});
   }
 
