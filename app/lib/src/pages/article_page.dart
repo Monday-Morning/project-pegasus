@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/states/article_page/article_page_data_type.dart';
 import 'package:mondaymorning/src/store/states/article_page/article_page_provider.dart';
+import 'package:mondaymorning/src/ui/screens/article_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_error_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_loading_screen.dart';
 
@@ -31,7 +32,7 @@ class ArticlePage extends ConsumerWidget {
         if (kDebugMode) {
           print(snapshot.data);
         }
-        return Container();
+        return ArticleScreen(article: snapshot.data!.article);
       },
     );
   }

@@ -23,6 +23,33 @@ import 'package:mondaymorning/src/ui/screens/home_screen.dart';
           path: 'categories',
           name: 'CategoriesRoute',
           page: EmptyRouterPage,
+          children: [
+            AutoRoute<dynamic>(
+              path: 'campus',
+              name: 'CampusRoute',
+              page: EmptyRouterPage,
+            ),
+            AutoRoute<dynamic>(
+              path: 'connect',
+              name: 'ConnectRoute',
+              page: EmptyRouterPage,
+            ),
+            AutoRoute<dynamic>(
+              path: 'ddcwc',
+              name: 'DDCWCRoute',
+              page: EmptyRouterPage,
+            ),
+            AutoRoute<dynamic>(
+              path: 'career',
+              name: 'CareerRoute',
+              page: EmptyRouterPage,
+            ),
+            AutoRoute<dynamic>(
+              path: 'alumni',
+              name: 'AlumniRoute',
+              page: EmptyRouterPage,
+            ),
+          ],
         ),
         AutoRoute<dynamic>(
           path: 'expressions',
@@ -47,31 +74,6 @@ import 'package:mondaymorning/src/ui/screens/home_screen.dart';
       path: 'article/:articleId',
       name: 'ArticleRoute',
       page: ArticlePage,
-    ),
-    AutoRoute<dynamic>(
-      path: 'campus',
-      name: 'CampusRoute',
-      page: EmptyRouterPage,
-    ),
-    AutoRoute<dynamic>(
-      path: 'connect',
-      name: 'ConnectRoute',
-      page: EmptyRouterPage,
-    ),
-    AutoRoute<dynamic>(
-      path: 'ddcwc',
-      name: 'DDCWCRoute',
-      page: EmptyRouterPage,
-    ),
-    AutoRoute<dynamic>(
-      path: 'career',
-      name: 'CareerRoute',
-      page: EmptyRouterPage,
-    ),
-    AutoRoute<dynamic>(
-      path: 'alumni',
-      name: 'AlumniRoute',
-      page: EmptyRouterPage,
     ),
   ],
 )
