@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class MediaStores {
   static const String adamantiumArchiveA = 'https://ik.imagekit.io/adamantiumA';
   static const String adamantiumArchiveB = 'https://ik.imagekit.io/adamantiumB';
