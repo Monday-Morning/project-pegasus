@@ -18,11 +18,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5+1
+  flutter_markdown: ^0.6.13
   freezed_annotation: ^2.2.0
   google_fonts: ^3.0.1
   graphql_flutter: ^5.1.0
   hooks_riverpod: ^2.0.2
   json_annotation: ^4.7.0
+  moment_dart: ^0.10.4
   riverpod_annotation: ^1.0.4
   shared_preferences: ^2.0.15
 

@@ -42,9 +42,7 @@ class BigArticleCard extends StatelessWidget {
                   aspectRatio: 16 / 9,
                   child: Image(
                     image: NetworkImage(
-                      MediaStores.stores[article.coverMedia.rectangle!.store]! +
-                          Uri.encodeFull(
-                              article.coverMedia.rectangle!.storePath),
+                      '${MediaStores.stores[article.coverMedia.rectangle!.store]!}${Uri.encodeFull(article.coverMedia.rectangle!.storePath)}',
                     ),
                     fit: BoxFit.fill,
                   ),
