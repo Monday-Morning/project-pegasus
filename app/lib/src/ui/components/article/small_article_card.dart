@@ -22,6 +22,7 @@ class SmallArticleCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTileTap,
       child: Card(
+        surfaceTintColor: Theme.of(context).cardTheme.color,
         margin: EdgeInsets.only(
             left: SizeConfig.safeBlockHorizontal!,
             right: SizeConfig.safeBlockHorizontal!),
@@ -30,7 +31,6 @@ class SmallArticleCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(
               Theme.of(context).extension<REMSpace>()!.get(1)),
         ),
-        color: Theme.of(context).cardTheme.color,
         elevation: 7,
         child: Row(
           children: [

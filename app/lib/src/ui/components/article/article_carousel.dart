@@ -74,8 +74,8 @@ class ArticleCarousel extends HookWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: currentIndex.value == index
-                    ? Colors.white
-                    : Colors.white.withOpacity(0.4),
+                    ? Theme.of(context).bottomNavigationBarTheme.selectedItemColor
+                    : Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
               ),
             );
           }).toList(),

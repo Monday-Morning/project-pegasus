@@ -181,7 +181,7 @@ class AppTheme {
         brightness:
             themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
         canvasColor: backgroundColor,
-        // cardColor: backgroundColor,
+        cardColor: themeMode == ThemeMode.dark ? Colors.grey[850] : Color(0xFFEDEDED),
         colorScheme: ColorScheme(
           primary: primaryColor!,
           primaryContainer: primaryColorDark,
@@ -232,14 +232,14 @@ class AppTheme {
         // bottomAppBarTheme: BottomAppBarTheme(),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
             backgroundColor: themeMode == ThemeMode.dark
-                ? primarySwatch[50]
-                : primarySwatch[850],
+                ? primarySwatch[850]
+                : primarySwatch[50],
             selectedItemColor: themeMode == ThemeMode.dark
-                ? primarySwatch[500]
-                : primarySwatch[300],
+                ? primarySwatch[300]
+                : primarySwatch[500],
             unselectedItemColor: themeMode == ThemeMode.dark
-                ? primarySwatch[400]
-                : primarySwatch[200]),
+                ? primarySwatch[200]
+                : primarySwatch[400]),
         // bottomSheetTheme: BottomSheetThemeData(),
         // buttonBarTheme: ButtonBarThemeData(),
         // buttonTheme: ButtonThemeData(),
