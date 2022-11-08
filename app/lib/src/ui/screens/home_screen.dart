@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                         article: data.latestIssue.articles![index],
                         onTileTap: () {
                           AutoRouter.of(context).push(
-                            ArticleRoute(),
+                            ArticleRoute(articleId: data.latestIssue.articles![index].id),
                           );
                         }
                       )
