@@ -231,15 +231,19 @@ class AppTheme {
                 foregroundColor: Colors.grey[900]),
         // bottomAppBarTheme: BottomAppBarTheme(),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            backgroundColor: themeMode == ThemeMode.dark
-                ? primarySwatch[50]
-                : primarySwatch[850],
-            selectedItemColor: themeMode == ThemeMode.dark
-                ? primarySwatch[500]
-                : primarySwatch[300],
-            unselectedItemColor: themeMode == ThemeMode.dark
-                ? primarySwatch[400]
-                : primarySwatch[200]),
+          showSelectedLabels: true,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: themeMode == ThemeMode.dark
+              ? primarySwatch[50]
+              : primarySwatch[850],
+          selectedItemColor: themeMode == ThemeMode.dark
+              ? primarySwatch[500]
+              : primarySwatch[300],
+          unselectedItemColor: themeMode == ThemeMode.dark
+              ? primarySwatch[400]
+              : primarySwatch[200],
+        ),
         // bottomSheetTheme: BottomSheetThemeData(),
         // buttonBarTheme: ButtonBarThemeData(),
         // buttonTheme: ButtonThemeData(),
