@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/services/themes/rem_size.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 
@@ -64,9 +65,9 @@ class AppTheme {
         color: primaryTextColor,
       );
 
-  TextStyle get headline3 => GoogleFonts.ibmPlexSans(
-        fontSize: 18,
-        fontWeight: FontWeight.w700,
+  TextStyle get headline3 => GoogleFonts.sourceSansPro(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
         fontStyle: FontStyle.normal,
         decoration: TextDecoration.none,
         // height: 24,
@@ -142,7 +143,7 @@ class AppTheme {
         fontStyle: FontStyle.normal,
         decoration: TextDecoration.none,
         // height: 16,
-        color: primaryTextColor,
+        color: Colors.grey[700],
       );
 
   TextStyle get linkMetadataText => GoogleFonts.sourceSansPro(
@@ -154,6 +155,15 @@ class AppTheme {
         color: primaryTextColor,
       );
 
+  TextStyle get labelMetadataText => GoogleFonts.sourceSansPro(
+        fontSize: 10,
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.normal,
+        color: themeMode == ThemeMode.dark
+            ? primarySwatch[200]
+            : primarySwatch[400],
+      );
+
   TextTheme get textTheme => TextTheme(
         headline1: headline1,
         headline2: headline2,
@@ -162,6 +172,7 @@ class AppTheme {
         bodyText2: regularBodySubtext,
         caption: regularMetadataText,
         button: boldBodyText,
+        subtitle1: labelMetadataText,
         overline: boldBodySubtext,
       );
 
@@ -181,7 +192,9 @@ class AppTheme {
         brightness:
             themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
         canvasColor: backgroundColor,
-        cardColor: themeMode == ThemeMode.dark ? Colors.grey[850] : Color(0xFFEDEDED),
+        cardColor: themeMode == ThemeMode.dark
+            ? Colors.grey[850]
+            : MMColors.kLightCardColor,
         colorScheme: ColorScheme(
           primary: primaryColor!,
           primaryContainer: primaryColorDark,

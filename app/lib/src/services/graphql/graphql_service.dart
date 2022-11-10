@@ -16,7 +16,7 @@ class GraphQLService implements GraphQLAPI {
     final HttpLink httpLink = HttpLink(
       !kDebugMode
           ? 'https://mondaymorning.nitrkl.ac.in/api/v1/graph'
-          : 'https://mm.dashnet.in/api/v1/graph',
+          : 'http://localhost:5000',
     );
 
     // TODO: implement provider for firebase auth state

@@ -20,35 +20,36 @@ class HomeScreen extends StatelessWidget {
         child: Flex(
           direction: Axis.vertical,
           children: [
-            SingleChildScrollView(
-              padding: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.safeBlockHorizontal! * 2),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ArticleCarousel(featured: data.latestIssue.featured!),
-                  SizedBox(height: SizeConfig.safeBlockHorizontal! * 5,),
-                  ListView.separated(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: ((context, index) => SmallArticleCard(
-                        article: data.latestIssue.articles![index],
-                        onTileTap: () {
-                          AutoRouter.of(context).push(
-                            ArticleRoute(articleId: data.latestIssue.articles![index].id),
-                          );
-                        }
-                      )
-                    ),
-                    separatorBuilder: ((context, index) => SizedBox(height: SizeConfig.safeBlockVertical! * 1.5,)),
-                    itemCount: data.latestIssue.featured!.length,
-                  ),
-                  SizedBox(height: SizeConfig.safeBlockHorizontal! * 5,),
-                ],
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ArticleCarousel(featured: data.latestIssue.featured!),
+                SizedBox(
+                  height: SizeConfig.safeBlockHorizontal! * 5,
+                ),
+                ListView.separated(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: ((context, index) => SmallArticleCard(
+                      article: data.latestIssue.articles![index],
+                      onTileTap: () {
+                        AutoRouter.of(context).push(
+                          ArticleRoute(
+                              articleId: data.latestIssue.articles![index].id),
+                        );
+                      })),
+                  separatorBuilder: ((context, index) => SizedBox(
+                        height: SizeConfig.safeBlockVertical! * 1.5,
+                      )),
+                  itemCount: data.latestIssue.featured!.length,
+                ),
+                SizedBox(
+                  height: SizeConfig.safeBlockHorizontal! * 5,
+                ),
+              ],
             ),
           ],
         ),

@@ -49,10 +49,7 @@ class SmallArticleCard extends StatelessWidget {
                     ),
                     child: Image(
                       image: NetworkImage(
-                        MediaStores
-                                .stores[article.coverMedia.rectangle!.store]! +
-                            Uri.encodeFull(
-                                article.coverMedia.rectangle!.storePath),
+                        '${MediaStores.stores[article.coverMedia.rectangle!.store]!}${Uri.encodeFull(article.coverMedia.rectangle!.storePath)}',
                       ),
                       fit: BoxFit.cover,
                     )),
@@ -69,12 +66,7 @@ class SmallArticleCard extends StatelessWidget {
                     width: SizeConfig.safeBlockHorizontal! * 10,
                     child: Text(
                       'Editorial',
-                      style: TextStyle(
-                        fontSize: 10,
-                        color: Theme.of(context)
-                            .bottomNavigationBarTheme
-                            .unselectedItemColor,
-                      ),
+                      style: Theme.of(context).textTheme.subtitle1,
                       maxLines: 1,
                     ),
                   ),
@@ -82,10 +74,7 @@ class SmallArticleCard extends StatelessWidget {
                     height: SizeConfig.safeBlockVertical! * 5,
                     child: Text(
                       article.title,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context).textTheme.headline3,
                     ),
                   ),
                   SizedBox(height: SizeConfig.safeBlockVertical! * 0.5),
@@ -97,7 +86,9 @@ class SmallArticleCard extends StatelessWidget {
                         height: SizeConfig.safeBlockVertical! * 2,
                         child: Row(
                           children: [
-                            ListView.separated(
+                            SizedBox(
+                              width: SizeConfig.safeBlockHorizontal! * 40,
+                              child: ListView.separated(
                                 scrollDirection: Axis.horizontal,
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
@@ -105,8 +96,7 @@ class SmallArticleCard extends StatelessWidget {
                                   return Text(
                                     AppUtils.limitAuthor(
                                         article.authors[index].name),
-                                    style: const TextStyle(
-                                        fontSize: 12, color: Color(0xFF6E6E6E)),
+                                    style: Theme.of(context).textTheme.caption,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                   );
@@ -114,11 +104,12 @@ class SmallArticleCard extends StatelessWidget {
                                 separatorBuilder: (context, index) {
                                   return Text(
                                     ', ',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Color(0xFF6E6E6E)),
+                                    style: Theme.of(context).textTheme.caption,
                                   );
                                 },
-                                itemCount: article.authors.length),
+                                itemCount: article.authors.length,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -126,7 +117,7 @@ class SmallArticleCard extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.watch_later_outlined,
-                            color: Color(0xFF6E6E6E),
+                            color: Colors.grey[700],
                             size: 14,
                           ),
                           SizedBox(
@@ -134,13 +125,10 @@ class SmallArticleCard extends StatelessWidget {
                             width: SizeConfig.safeBlockHorizontal! * 10,
                             child: Text(
                               ' ${Duration(seconds: article.readTime).inMinutes} min',
-                              style: TextStyle(
-                                color: Color(0xFF6E6E6E),
-                                fontSize: 12,
-                              ),
+                              style: Theme.of(context).textTheme.caption,
                             ),
                           ),
-                          SizedBox(width: 12),
+                          SizedBox(width: SizeConfig.safeBlockHorizontal! * 2),
                         ],
                       ),
                     ],
