@@ -36,9 +36,9 @@ class ArticleCarousel extends HookWidget {
             viewportFraction: 1,
             initialPage: 0,
             enableInfiniteScroll: true,
-            // autoPlay: true,
+            autoPlay: true,
             autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayAnimationDuration: Duration(milliseconds: 1000),
             autoPlayCurve: Curves.fastOutSlowIn,
             scrollDirection: Axis.horizontal,
             onPageChanged: (index, reason) {
@@ -74,8 +74,8 @@ class ArticleCarousel extends HookWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: currentIndex.value == index
-                    ? Colors.white
-                    : Colors.white.withOpacity(0.4),
+                    ? Theme.of(context).bottomNavigationBarTheme.selectedItemColor
+                    : Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
               ),
             );
           }).toList(),
