@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/services/router/mm_router.gr.dart';
 import 'package:mondaymorning/src/store/states/home_page/home_page_data_type.dart';
@@ -49,7 +48,6 @@ class HomePage extends ConsumerWidget {
                     Icons.home_outlined,
                   ),
                   label: 'Home',
-                  backgroundColor: MMColors.blue[800],
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
