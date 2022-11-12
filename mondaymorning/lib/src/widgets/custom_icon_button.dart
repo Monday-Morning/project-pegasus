@@ -1,14 +1,10 @@
 /// CustomIconButton takes an icon amd a text, builds a raised button
+// ignore_for_file: public_member_api_docs
 
-import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
 
 class CustomIconButton extends StatelessWidget {
-
-  /// Constructor for [CustomIconButton]
-  final IconData icon;
-  final String text;
-  final void Function() onButtonTap;
   const CustomIconButton({
     Key? key,
     required this.icon,
@@ -16,27 +12,34 @@ class CustomIconButton extends StatelessWidget {
     required this.onButtonTap,
   }) : super(key: key);
 
+  /// Constructor for [CustomIconButton]
+  final IconData icon;
+  final String text;
+  final void Function() onButtonTap;
+
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       onPressed: onButtonTap,
-      elevation: 3,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6),
+      style: ElevatedButton.styleFrom(
+        foregroundColor: Theme.of(context).cardTheme.color,
+        elevation: 20,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 10),
       ),
-      color: Theme.of(context).cardTheme.color,
-      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 10),
       child: Row(
         children: [
-          SizedBox(width: 4),
+          const SizedBox(width: 4),
           Icon(
             icon,
             size: 18,
             color: Theme.of(context).iconTheme.color,
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Container(
-            width: MediaQuery.of(context).size.width*0.291,
+            width: MediaQuery.of(context).size.width * 0.291,
             height: 16.5,
             child: AutoSizeText(
               text,

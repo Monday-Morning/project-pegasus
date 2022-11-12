@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/services/themes/rem_size.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 
@@ -44,6 +45,9 @@ class AppTheme {
   Color? get secondaryTextColor =>
       themeMode == ThemeMode.dark ? Colors.grey[400] : Colors.grey[600];
 
+  Color? get captionColor =>
+      themeMode == ThemeMode.dark ? Colors.grey[500] : Colors.grey[600];
+
   // TODO: Configure variation for desktops
 
   TextStyle get headline1 => GoogleFonts.ibmPlexSans(
@@ -64,9 +68,9 @@ class AppTheme {
         color: primaryTextColor,
       );
 
-  TextStyle get headline3 => GoogleFonts.ibmPlexSans(
-        fontSize: 18,
-        fontWeight: FontWeight.w700,
+  TextStyle get headline3 => GoogleFonts.sourceSansPro(
+        fontSize: 15,
+        fontWeight: FontWeight.w600,
         fontStyle: FontStyle.normal,
         decoration: TextDecoration.none,
         // height: 24,
@@ -136,13 +140,13 @@ class AppTheme {
         color: primaryTextColor,
       );
 
-  TextStyle get regularMetadataText => GoogleFonts.sourceSansPro(
-        fontSize: 12,
+  TextStyle get regularMetadataText => GoogleFonts.inter(
+        fontSize: 10,
         fontWeight: FontWeight.w400,
         fontStyle: FontStyle.normal,
         decoration: TextDecoration.none,
         // height: 16,
-        color: primaryTextColor,
+        color: captionColor,
       );
 
   TextStyle get linkMetadataText => GoogleFonts.sourceSansPro(
@@ -154,6 +158,15 @@ class AppTheme {
         color: primaryTextColor,
       );
 
+  TextStyle get labelMetadataText => GoogleFonts.sourceSansPro(
+        fontSize: 10,
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.normal,
+        color: themeMode == ThemeMode.dark
+            ? primarySwatch[200]
+            : primarySwatch[400],
+      );
+
   TextTheme get textTheme => TextTheme(
         headline1: headline1,
         headline2: headline2,
@@ -162,6 +175,7 @@ class AppTheme {
         bodyText2: regularBodySubtext,
         caption: regularMetadataText,
         button: boldBodyText,
+        subtitle1: labelMetadataText,
         overline: boldBodySubtext,
       );
 
@@ -181,7 +195,9 @@ class AppTheme {
         brightness:
             themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
         canvasColor: backgroundColor,
-        // cardColor: backgroundColor,
+        cardColor: themeMode == ThemeMode.dark
+            ? Colors.grey[850]
+            : MMColors.kLightCardColor,
         colorScheme: ColorScheme(
           primary: primaryColor!,
           primaryContainer: primaryColorDark,
@@ -231,18 +247,16 @@ class AppTheme {
                 foregroundColor: Colors.grey[900]),
         // bottomAppBarTheme: BottomAppBarTheme(),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          showSelectedLabels: true,
-          showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           backgroundColor: themeMode == ThemeMode.dark
-              ? primarySwatch[50]
-              : primarySwatch[850],
+              ? primarySwatch[850]
+              : primarySwatch[50],
           selectedItemColor: themeMode == ThemeMode.dark
-              ? primarySwatch[500]
-              : primarySwatch[300],
+              ? primarySwatch[300]
+              : primarySwatch[500],
           unselectedItemColor: themeMode == ThemeMode.dark
-              ? primarySwatch[400]
-              : primarySwatch[200],
+              ? primarySwatch[200]
+              : primarySwatch[400],
         ),
         // bottomSheetTheme: BottomSheetThemeData(),
         // buttonBarTheme: ButtonBarThemeData(),

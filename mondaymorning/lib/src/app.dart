@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mondaymorning/src/providers/providers.dart';
 import 'package:mondaymorning/src/services/navigation/router.gr.dart';
 import 'package:mondaymorning/src/themes/base_theme.dart';
-import 'package:mondaymorning/src/utils/strings.dart';
 
 // final _httpLink = HttpLink(Strings.graphQLURL);
 //
