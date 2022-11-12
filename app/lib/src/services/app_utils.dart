@@ -9,7 +9,7 @@ class AppUtils {
     return finalName;
   }
 
-  static String limtiString(String str, {int limit = 30}) {
+  static String limitString(String str, {int limit = 30}) {
     if (str.length > limit) {
       return '${str.substring(0, limit)}...';
     }

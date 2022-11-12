@@ -14,14 +14,17 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              SizedBox(
+                width: SizeConfig.safeBlockHorizontal!,
+              ),
               ImageIcon(
                 AssetImage(
                     'assets/images/${Theme.of(context).brightness.name}/mm_logo.png'),
                 color: Theme.of(context).appBarTheme.foregroundColor,
-                size: SizeConfig.safeBlockVertical! * 8,
+                size: SizeConfig.safeBlockVertical! * 6,
               ),
               SizedBox(
-                width: SizeConfig.safeBlockHorizontal! * 2,
+                width: SizeConfig.safeBlockHorizontal! * 0.5,
               ),
               ImageIcon(
                 AssetImage(
