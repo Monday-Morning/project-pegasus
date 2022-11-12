@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/squiggle/squiggle.dart';
-import 'package:mondaymorning/src/services/themes/mm_colors.dart';
+import 'package:mondaymorning/src/ui/components/article/markdown_text.dart';
 
 class CategoriesScreen extends StatelessWidget {
   final Squiggle squiggle;
@@ -45,7 +45,7 @@ class CategoriesScreen extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text('Categories'),
+        child: MarkdownText(text: squiggle.content),
       ),
     );
   }
