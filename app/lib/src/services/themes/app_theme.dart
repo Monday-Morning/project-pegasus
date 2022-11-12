@@ -45,6 +45,9 @@ class AppTheme {
   Color? get secondaryTextColor =>
       themeMode == ThemeMode.dark ? Colors.grey[400] : Colors.grey[600];
 
+  Color? get captionColor =>
+      themeMode == ThemeMode.dark ? Colors.grey[500] : Colors.grey[600];
+
   // TODO: Configure variation for desktops
 
   TextStyle get headline1 => GoogleFonts.ibmPlexSans(
@@ -66,7 +69,7 @@ class AppTheme {
       );
 
   TextStyle get headline3 => GoogleFonts.sourceSansPro(
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: FontWeight.w600,
         fontStyle: FontStyle.normal,
         decoration: TextDecoration.none,
@@ -137,13 +140,13 @@ class AppTheme {
         color: primaryTextColor,
       );
 
-  TextStyle get regularMetadataText => GoogleFonts.sourceSansPro(
-        fontSize: 12,
+  TextStyle get regularMetadataText => GoogleFonts.inter(
+        fontSize: 10,
         fontWeight: FontWeight.w400,
         fontStyle: FontStyle.normal,
         decoration: TextDecoration.none,
         // height: 16,
-        color: Colors.grey[700],
+        color: captionColor,
       );
 
   TextStyle get linkMetadataText => GoogleFonts.sourceSansPro(

@@ -114,14 +114,16 @@ class SmallArticleCard extends StatelessWidget {
                         ),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.watch_later_outlined,
-                            color: Colors.grey[700],
-                            size: 14,
+                            color: Colors.grey[500],
+                            size: 12,
                           ),
                           SizedBox(
-                            height: SizeConfig.safeBlockVertical! * 2,
+                            height: SizeConfig.safeBlockVertical! * 1.5,
                             width: SizeConfig.safeBlockHorizontal! * 10,
                             child: Text(
                               ' ${Duration(seconds: article.readTime).inMinutes} min',
