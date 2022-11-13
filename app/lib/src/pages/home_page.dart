@@ -34,7 +34,7 @@ class HomePage extends ConsumerWidget {
         return AutoTabsScaffold(
           routes: [
             HomeScreenRoute(data: snapshot.data!),
-            CategoriesRoute(),
+            CategoriesRoute(squiggle: snapshot.data!.latestSquiggle),
             ExpressionRouter(),
             MoreRouter(),
           ],
