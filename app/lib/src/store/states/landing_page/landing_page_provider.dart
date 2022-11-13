@@ -1,13 +1,13 @@
+import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_type.dart';
 import 'package:mondaymorning/src/api/repositories/squiggle/squiggle_repository_provider.dart';
-import 'package:mondaymorning/src/store/states/home_page/home_page_data_type.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:mondaymorning/src/api/repositories/issue/issue_repository_provider.dart';
 
-part 'home_page_provider.g.dart';
+part 'landing_page_provider.g.dart';
 
 @riverpod
-Future<HomePageData> homePageData(HomePageDataRef ref) async {
-  return HomePageData(
+Future<LandingPageData> landingPageData(LandingPageDataRef ref) async {
+  return LandingPageData(
     latestIssue: await ref.read(issueRepositoryProvider).getLatestIssue(),
     // issues: await graphIssueRepository.getIssues(limit: 10, onlyPublished: true),
     latestSquiggle:
