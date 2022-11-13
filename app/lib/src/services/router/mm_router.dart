@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:mondaymorning/src/pages/article_page.dart';
 import 'package:mondaymorning/src/pages/home_page.dart';
+import 'package:mondaymorning/src/ui/screens/categories_screen.dart';
 import 'package:mondaymorning/src/ui/screens/home_screen.dart';
 
 @MaterialAutoRouter(
@@ -22,7 +23,7 @@ import 'package:mondaymorning/src/ui/screens/home_screen.dart';
         AutoRoute<dynamic>(
           path: 'categories',
           name: 'CategoriesRoute',
-          page: EmptyRouterPage,
+          page: CategoriesScreen,
           children: [
             AutoRoute<dynamic>(
               path: 'campus',

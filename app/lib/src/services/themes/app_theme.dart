@@ -247,15 +247,17 @@ class AppTheme {
                 foregroundColor: Colors.grey[900]),
         // bottomAppBarTheme: BottomAppBarTheme(),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            backgroundColor: themeMode == ThemeMode.dark
-                ? primarySwatch[850]
-                : primarySwatch[50],
-            selectedItemColor: themeMode == ThemeMode.dark
-                ? primarySwatch[300]
-                : primarySwatch[500],
-            unselectedItemColor: themeMode == ThemeMode.dark
-                ? primarySwatch[200]
-                : primarySwatch[400]),
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: themeMode == ThemeMode.dark
+              ? primarySwatch[850]
+              : primarySwatch[50],
+          selectedItemColor: themeMode == ThemeMode.dark
+              ? primarySwatch[300]
+              : primarySwatch[500],
+          unselectedItemColor: themeMode == ThemeMode.dark
+              ? primarySwatch[200]
+              : primarySwatch[400],
+        ),
         // bottomSheetTheme: BottomSheetThemeData(),
         // buttonBarTheme: ButtonBarThemeData(),
         // buttonTheme: ButtonThemeData(),
