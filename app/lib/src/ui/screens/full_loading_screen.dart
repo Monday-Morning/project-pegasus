@@ -47,7 +47,7 @@ class FullLoadingScreen extends StatelessWidget {
                 SizedBox(
                     height: Theme.of(context).extension<REMSpace>()!.get(2)),
                 Text('Loading...',
-                    style: Theme.of(context).textTheme.subtitle1),
+                    style: Theme.of(context).textTheme.bodyText1),
               ],
             ),
           ],

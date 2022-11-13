@@ -33,8 +33,8 @@ class LandingPage extends ConsumerWidget {
         }
         return AutoTabsScaffold(
           routes: [
-            HomeRoute(data: snapshot.data!),
-            CategoriesRoute(),
+            HomeScreenRoute(data: snapshot.data!),
+            CategoriesRoute(squiggle: snapshot.data!.latestSquiggle),
             ExpressionRouter(),
             MoreRouter(),
           ],
