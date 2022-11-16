@@ -7,19 +7,20 @@ import 'package:mondaymorning/src/services/routes.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/states/category_page/category_page_data_type.dart';
 import 'package:mondaymorning/src/store/states/category_page/category_page_provider.dart';
-import 'package:mondaymorning/src/ui/screens/category_screen.dart';
+import 'package:mondaymorning/src/ui/components/category/full_subcategory_page.dart';
 
-class CategoryPage extends ConsumerWidget {
+class SubCategoryPage extends ConsumerWidget {
   final String category;
-  const CategoryPage({super.key, required this.category});
+  final String subCategory;
+  const SubCategoryPage(
+      {super.key, required this.category, required this.subCategory});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     SizeConfig().init(context);
     return FutureBuilder<CategoryPageData>(
       future: ref.watch(categoryPageDataProvider(categoryId: [
-        categoriesRoutes[category]!.idNumber,
-        ...?categoriesRoutes[category]?.subCategoriesIds
+        subCategoriesRoutes[category]![subCategory]!.idNumber
       ], limit: 2)
           .future),
       initialData: null,
@@ -35,9 +36,10 @@ class CategoryPage extends ConsumerWidget {
           if (kDebugMode) {
             print(snapshot.data?.articles);
           }
-          return CategoryScreen(
-            data: snapshot.data!,
+          return FullSubCategoriesPage(
+            articles: snapshot.data!.articles,
             category: category,
+            subCategory: subCategory,
           );
         }
         return FullLoadingPage();

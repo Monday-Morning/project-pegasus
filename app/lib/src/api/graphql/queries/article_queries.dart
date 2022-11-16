@@ -8,4 +8,20 @@ class ArticleQueries {
       }
     }
   ''';
+
+  static const getArticlesByCategory = '''
+    query getArticlesByCategories(
+    \$categoryNumbers: [Int]!
+    \$limit: Int
+    \$offset: Int
+  ) {
+    getArticlesByCategories(
+      categoryNumbers: \$categoryNumbers
+      limit: \$limit
+      offset: \$offset
+    ) {
+      ${ArticleFragments.basicArticleData}
+    }
+  }
+  ''';
 }

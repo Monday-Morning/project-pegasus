@@ -32,9 +32,26 @@ class GraphArticleRepository implements ArticleRepository {
   }
 
   @override
-  Future<List<Article>> getArticlesByCategory(
-      {required String categoryId, required int limit}) {
-    // TODO: implement getArticlesByCategory
-    throw UnimplementedError();
+  Future<List<List<Article>>> getArticlesByCategory(
+      {required List<int> categoryId, required int limit}) async {
+    try {
+      final result = await graphClient.query(
+        query: QueryOptions(
+          document: gql(ArticleQueries.getArticlesByCategory),
+          variables: {
+            'limit' : limit,
+            'categoryNumbers' : categoryId,
+          },
+        ),
+      );
+
+      final List<List<dynamic>> data = (result.data!['getArticlesByCategories'] as List<dynamic>).cast<List<dynamic>>();
+
+      final finalData = data.map((e) => e.map((e) => Article.fromJson(e as Map<String, dynamic>)).toList()).toList();
+
+      return finalData;
+    } catch (e) {
+      rethrow;
+    }
   }
 }

@@ -79,7 +79,7 @@ class AppTheme {
 
   TextStyle get boldBodyText => GoogleFonts.sourceSansPro(
         fontSize: 16,
-        fontWeight: FontWeight.w900,
+        fontWeight: FontWeight.w600,
         fontStyle: FontStyle.normal,
         decoration: TextDecoration.none,
         // height: 24,
