@@ -4,6 +4,7 @@ class MMColors {
   static const Color kDarkScaffoldBackground = Color(0xFF232323);
   static const Color kLightScaffoldBackground = Color(0xFFFDFDFD);
   static const Color kLightCardColor = Color(0xFFEDEDED);
+  static const Color kHighlightColor = Color(0xFF6E6E6E);
 
   // static const Color white = Color(0xFFFFFFFF);
   // static const Color black = Color(0xFF222222);

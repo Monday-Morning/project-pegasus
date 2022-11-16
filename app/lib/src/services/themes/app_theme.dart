@@ -218,7 +218,7 @@ class AppTheme {
         // disabledColor: backgroundColor,
         // dividerColor: backgroundColor,
         // errorColor: accentColor!,
-        // highlightColor: backgroundColor,
+        highlightColor: MMColors.kHighlightColor,
         // hoverColor: backgroundColor,
         // hintColor: backgroundColor,
         // indicatorColor: backgroundColor,
@@ -278,7 +278,10 @@ class AppTheme {
         // snackBarTheme: SnackBarThemeData(),
         // switchTheme: SwitchThemeData(),
         // tabBarTheme: TabBarTheme(),
-        // textButtonTheme: TextButtonThemeData(),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(Colors.transparent)),
+        ),
         // textSelectionTheme: TextSelectionThemeData(),
         // timePickerTheme: TimePickerThemeData(),
         // toggleButtonsTheme: ToggleButtonsThemeData(),

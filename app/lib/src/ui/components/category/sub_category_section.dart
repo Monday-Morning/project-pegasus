@@ -5,6 +5,7 @@ import 'package:mondaymorning/src/services/routes.dart';
 import 'package:mondaymorning/src/services/router/mm_router.gr.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
+import 'package:mondaymorning/src/ui/components/article/small_article_card.dart';
 
 class SubCategorySection extends StatelessWidget {
   const SubCategorySection(
@@ -58,16 +59,17 @@ class SubCategorySection extends StatelessWidget {
           SizedBox(
             height: 5.0,
           ),
-          // for (int i = 0; i < articles.length; i++)
-          // ArticleTile(
-          //   article: articles[i],
-          //   onTileTap: () {
-          //     context.router.push(
-          //       FullRouteArticle(postId: 1),
-          //     );
-          //   },
-          // ),
-
+          for (int i = 0; i < articles.length; i++)
+            SmallArticleCard(
+              article: articles[i],
+              onTileTap: () {
+                AutoRouter.of(context).push(
+                  ArticleRoute(
+                    articleId: articles[i].id,
+                  ),
+                );
+              },
+            ),
           SizedBox(height: 20.0),
         ],
       ),

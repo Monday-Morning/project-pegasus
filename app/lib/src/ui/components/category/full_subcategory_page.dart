@@ -4,7 +4,9 @@ import 'package:mondaymorning/src/api/models/article/article.dart';
 import 'package:mondaymorning/src/services/routes.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/article/article_carousel.dart';
+import 'package:mondaymorning/src/ui/components/article/small_article_card.dart';
 import 'package:mondaymorning/src/ui/components/category/category_top_bar.dart';
+import 'package:mondaymorning/src/services/router/mm_router.gr.dart';
 
 /// SubCategories of various Categories
 class FullSubCategoriesPage extends StatelessWidget {
@@ -53,15 +55,19 @@ class FullSubCategoriesPage extends StatelessWidget {
                         0,
                         (articles[0].length / 2).round(),
                       )),
-                      // for (int i = (articles[0].length/2).round(); i < articles[0].length; i++)
-                      // SmallArticleCard(
-                      //   article: articles[0][i],
-                      //   onTileTap: () {
-                      //     context.router.push(
-                      //       FullRouteArticle(postId: 1),
-                      //     );
-                      //   },
-                      // ),
+                      for (int i = (articles[0].length / 2).round();
+                          i < articles[0].length;
+                          i++)
+                        SmallArticleCard(
+                          article: articles[0][i],
+                          onTileTap: () {
+                            AutoRouter.of(context).push(
+                              ArticleRoute(
+                                articleId: articles[0][i].id,
+                              ),
+                            );
+                          },
+                        ),
                     ],
                   ),
                 ),

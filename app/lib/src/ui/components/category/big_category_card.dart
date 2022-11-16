@@ -26,17 +26,14 @@ class BigCategoryCard extends StatelessWidget {
             elevation: 3,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
-                Theme.of(context).extension<REMSpace>()!.get(1)
-              ),
+                  Theme.of(context).extension<REMSpace>()!.get(1)),
             ),
             child: InkWell(
               onTap: onCardTap,
               child: Padding(
-                padding:
-                    EdgeInsets.symmetric(
-                      horizontal: SizeConfig.safeBlockHorizontal! * 2, 
-                      vertical: SizeConfig.safeBlockVertical! * 2
-                    ),
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.safeBlockHorizontal! * 2,
+                    vertical: SizeConfig.safeBlockVertical! * 2),
                 child: Column(
                   children: [
                     Expanded(
@@ -62,10 +59,7 @@ class BigCategoryCard extends StatelessWidget {
                         child: Center(
                           child: Text(
                             title,
-                            style: TextStyle(
-                              fontSize: 15.4,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: Theme.of(context).textTheme.headline3,
                           ),
                         ),
                       ),

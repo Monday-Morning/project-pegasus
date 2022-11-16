@@ -28,46 +28,46 @@ class CategoriesTopBar extends StatelessWidget {
     return SizedBox(
       height: SizeConfig.safeBlockVertical! * 5,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.safeBlockHorizontal!),
-              child: Center(
-                child: TextButton(
-                  onPressed: () {
-                    if (categories[index] != 'All') {
-                      AutoRouter.of(context).replace(
-                        SubCategoryRoute(
-                            category: category, subCategory: categories[index]),
-                      );
-                    } else {
-                      AutoRouter.of(context).replace(
-                        CategoryRoute(category: category),
-                      );
-                    }
-                  },
-                  style: ButtonStyle(
-                      overlayColor:
-                          MaterialStateProperty.all(Colors.transparent)),
-                  child: Text(
-                    categories[index] != 'All'
-                        ? ((subCategoriesRoutes[category]![categories[index]]
-                                as SubCategoriesClass)
-                            .name
-                            .toString())
-                        : 'All',
-                    style: ((isCategory && categories[index] == 'All') ||
-                            (categories[index] == subCategory))
-                        ? TextStyle(
-                            fontSize: 18, color: Theme.of(context).primaryColor)
-                        : TextStyle(fontSize: 18, color: Color(0xff6E6E6E)),
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            margin: EdgeInsets.symmetric(
+                horizontal: SizeConfig.safeBlockHorizontal!),
+            child: Center(
+              child: TextButton(
+                onPressed: () {
+                  if (categories[index] != 'All') {
+                    AutoRouter.of(context).replace(
+                      SubCategoryRoute(
+                          category: category, subCategory: categories[index]),
+                    );
+                  } else {
+                    AutoRouter.of(context).replace(
+                      CategoryRoute(category: category),
+                    );
+                  }
+                },
+                child: Text(
+                  categories[index] != 'All'
+                      ? ((subCategoriesRoutes[category]![categories[index]]
+                              as SubCategoriesClass)
+                          .name
+                          .toString())
+                      : 'All',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: (isCategory && categories[index] == 'All') ||
+                            (categories[index] == subCategory)
+                        ? Theme.of(context).primaryColor
+                        : Theme.of(context).highlightColor,
                   ),
                 ),
               ),
-            );
-          }),
+            ),
+          );
+        },
+      ),
     );
   }
 }
