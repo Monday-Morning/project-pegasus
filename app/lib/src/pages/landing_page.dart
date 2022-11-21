@@ -36,8 +36,8 @@ class LandingPage extends ConsumerWidget {
           routes: [
             HomeRoute(data: snapshot.data!),
             CategoriesRoute(squiggle: snapshot.data!.latestSquiggle),
-            ExpressionRouter(),
-            MoreRouter(),
+            ExpressionRoute(),
+            MoreRoute(),
           ],
           bottomNavigationBuilder: (context, tabsRouter) {
             return LandingBottomBar(tabsRouter: tabsRouter);
