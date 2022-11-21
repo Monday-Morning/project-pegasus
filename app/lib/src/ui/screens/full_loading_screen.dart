@@ -19,7 +19,7 @@ class FullLoadingScreen extends StatelessWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/${Theme.of(context).brightness == Brightness.dark ? 'dark' : 'light'}/mm_logo.png'),
+                          'assets/images/${Theme.of(context).brightness.name}/mm_logo.png'),
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -36,7 +36,7 @@ class FullLoadingScreen extends StatelessWidget {
                           Theme.of(context).extension<REMSpace>()!.get(6)),
                   child: Image(
                     image: AssetImage(
-                        'assets/images/${Theme.of(context).brightness == Brightness.dark ? 'dark' : 'light'}/monday_morning.png'),
+                        'assets/images/${Theme.of(context).brightness.name}/monday_morning.png'),
                   ),
                 ),
               ],
