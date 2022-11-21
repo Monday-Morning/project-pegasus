@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mondaymorning/src/services/router/mm_router.gr.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/categories/big_category_card.dart';
 import 'package:mondaymorning/src/ui/components/categories/small_category_card.dart';
@@ -19,9 +21,9 @@ class MainCategoriesGrid extends StatelessWidget {
                   'assets/images/${Theme.of(context).brightness.name}/campus.png',
               title: 'Campus',
               onCardTap: () {
-                // AutoRouter.of(context).push(
-                //   CategoryRoute(category: 'campus'),
-                // );
+                AutoRouter.of(context).push(
+                  CategoryRoute(category: 'campus'),
+                );
               },
             ),
             BigCategoryCard(
@@ -29,9 +31,9 @@ class MainCategoriesGrid extends StatelessWidget {
                   'assets/images/${Theme.of(context).brightness.name}/connect.png',
               title: 'Connect',
               onCardTap: () {
-                // AutoRouter.of(context).push(
-                //   CategoryRoute(category: 'connect'),
-                // );
+                AutoRouter.of(context).push(
+                  CategoryRoute(category: 'connect'),
+                );
               },
             ),
             BigCategoryCard(
@@ -39,9 +41,9 @@ class MainCategoriesGrid extends StatelessWidget {
                   'assets/images/${Theme.of(context).brightness.name}/ddandcwc.png',
               title: 'DD & CWC',
               onCardTap: () {
-                // AutoRouter.of(context).push(
-                //   CategoryRoute(category: 'ddcwc'),
-                // );
+                AutoRouter.of(context).push(
+                  CategoryRoute(category: 'ddcwc'),
+                );
               },
             ),
           ],
@@ -53,18 +55,18 @@ class MainCategoriesGrid extends StatelessWidget {
               image: 'assets/images/light/career.png',
               title: 'Career',
               onCardTap: () {
-                // AutoRouter.of(context).push(
-                //   CategoryRoute(category: 'career'),
-                // );
+                AutoRouter.of(context).push(
+                  CategoryRoute(category: 'career'),
+                );
               },
             ),
             BigCategoryCard(
               image: 'assets/images/light/alumni.png',
               title: 'Alumni',
               onCardTap: () {
-                // AutoRouter.of(context).push(
-                //   CategoryRoute(category: 'alumni'),
-                // );
+                AutoRouter.of(context).push(
+                  CategoryRoute(category: 'alumni'),
+                );
               },
             ),
             BigCategoryCard(

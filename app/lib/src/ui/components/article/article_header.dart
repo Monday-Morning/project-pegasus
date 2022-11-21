@@ -38,7 +38,7 @@ class ArticleHeader extends StatelessWidget {
             child: Text(
               categories
                       ?.map((e) =>
-                          Categories.categoryNumbers[e.number]!.toUpperCase())
+                          Categories.allCategoryNames[e.number]!.toUpperCase())
                       .join(' | ') ??
                   '',
               style: Theme.of(context).textTheme.caption,
