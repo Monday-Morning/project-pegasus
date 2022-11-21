@@ -1,9 +1,37 @@
 class Categories {
-  // TODO: reafctor for granular access
+  // TODO: refactor for granular access
 
-  static final Map<int, String> categoryNumbers = {
+  static final Map<String, int> categoryIds = {
+    'campus': 1,
+    'connect': 2,
+    'ddcwc': 3,
+    'career': 4,
+    'alumni': 5,
+    'expressions': 6,
+  };
+
+  static final Map<int, String> categoryNames = {
+    1: 'campus',
+    2: 'connect',
+    3: 'ddcwc',
+    4: 'career',
+    5: 'alumni',
+    6: 'expressions',
+  };
+
+  static final Map<String, List<int>> subCategoryIdsByCategory = {
+    'campus': [11, 12, 13, 14, 15, 16, 17],
+    'connect': [21, 22, 23, 24],
+    'ddcwc': [31, 32],
+    'career': [41, 42, 43, 44, 45],
+    'alumni': [51, 52],
+    'expressions': [61, 62, 63, 64, 65, 66, 67],
+  };
+
+  static final Map<int, String> allCategoryNames = {
     -1: '......',
 
+    // Campus
     1: 'Campus',
     11: 'Academics',
     12: 'Campus Buzz',
@@ -35,16 +63,19 @@ class Categories {
     1119: 'School of Management',
     1120: 'Chemistry',
 
+    // Connect
     2: 'Connect',
     21: 'Interviews',
     22: 'SAC Speaks',
     23: 'CGPA',
     24: 'Guest Interview',
 
+    // DD & CWC
     3: 'DD & CWC',
     31: "Director's Desk",
     32: "Chief Warden's Desk",
 
+    // Career
     4: 'Career',
     41: 'Placements',
     42: 'Internships',
@@ -52,10 +83,12 @@ class Categories {
     44: 'Live',
     45: 'Guidance',
 
+    // Alumni
     5: 'Alumni',
     51: 'Alumni Speaks',
     52: 'Alumni Affairs',
 
+    // Expressions
     6: 'Expressions',
     61: 'Witsdom',
     62: 'Photostory',
