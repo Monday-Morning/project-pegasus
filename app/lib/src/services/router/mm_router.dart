@@ -5,7 +5,9 @@ import 'package:mondaymorning/src/pages/category_page.dart';
 import 'package:mondaymorning/src/pages/full_error_page.dart';
 import 'package:mondaymorning/src/pages/landing_page.dart';
 import 'package:mondaymorning/src/ui/screens/categories_screen.dart';
+import 'package:mondaymorning/src/ui/screens/category_screen.dart';
 import 'package:mondaymorning/src/ui/screens/home_screen.dart';
+import 'package:mondaymorning/src/ui/screens/sub_category_screen.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -76,9 +78,14 @@ import 'package:mondaymorning/src/ui/screens/home_screen.dart';
       page: CategoryPage,
       children: [
         AutoRoute<dynamic>(
+          path: 'all',
+          name: 'AllCategoryRoute',
+          page: CategoryScreen,
+        ),
+        AutoRoute<dynamic>(
           path: ':subCategory',
           name: 'SubCategoryRoute',
-          page: CategoryPage,
+          page: SubCategoryScreen,
         ),
       ],
     ),
