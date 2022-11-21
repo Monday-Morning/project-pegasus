@@ -171,11 +171,15 @@ class AppTheme {
         headline1: headline1,
         headline2: headline2,
         headline3: headline3,
+        headline4: headline3,
+        headline5: headline3,
+        headline6: headline3,
+        subtitle1: labelMetadataText,
+        subtitle2: labelMetadataText,
         bodyText1: regularBodyText,
         bodyText2: regularBodySubtext,
         caption: regularMetadataText,
         button: boldBodyText,
-        subtitle1: labelMetadataText,
         overline: boldBodySubtext,
       );
 
