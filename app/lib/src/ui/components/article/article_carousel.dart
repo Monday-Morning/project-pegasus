@@ -5,7 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/article/big_article_card.dart';
-import 'package:mondaymorning/src/services/router/mm_router.gr.dart';
+import 'package:mondaymorning/src/services/router/mm_router.dart';
 
 class ArticleCarousel extends HookWidget {
   final List<Article> featured;
@@ -74,8 +74,12 @@ class ArticleCarousel extends HookWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: currentIndex.value == index
-                    ? Theme.of(context).bottomNavigationBarTheme.selectedItemColor
-                    : Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+                    ? Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .selectedItemColor
+                    : Theme.of(context)
+                        .bottomNavigationBarTheme
+                        .unselectedItemColor,
               ),
             );
           }).toList(),

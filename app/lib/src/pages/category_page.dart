@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mondaymorning/src/services/router/mm_router.gr.dart';
+import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/store/constants/categories.dart';
 import 'package:mondaymorning/src/store/states/category_page/category_page_data_type.dart';
 import 'package:mondaymorning/src/store/states/category_page/category_page_provider.dart';

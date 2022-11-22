@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:mondaymorning/src/pages/article_page.dart';
 import 'package:mondaymorning/src/pages/category_page.dart';
@@ -8,6 +7,8 @@ import 'package:mondaymorning/src/ui/screens/categories_screen.dart';
 import 'package:mondaymorning/src/ui/screens/category_screen.dart';
 import 'package:mondaymorning/src/ui/screens/home_screen.dart';
 import 'package:mondaymorning/src/ui/screens/sub_category_screen.dart';
+
+part 'mm_router.gr.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -96,4 +97,4 @@ import 'package:mondaymorning/src/ui/screens/sub_category_screen.dart';
     ),
   ],
 )
-class $MMRouter {}
+class MMRouter extends _$MMRouter {}
