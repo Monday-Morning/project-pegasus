@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
-import 'package:mondaymorning/src/services/router/mm_router.gr.dart';
+import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_type.dart';
 import 'package:mondaymorning/src/store/states/landing_page/landing_page_provider.dart';
 import 'package:mondaymorning/src/ui/components/home/landing_bottom_bar.dart';
