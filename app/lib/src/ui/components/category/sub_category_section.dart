@@ -25,8 +25,9 @@ class SubCategorySection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.safeBlockHorizontal! * 2,
-          vertical: SizeConfig.safeBlockVertical!),
+        horizontal: SizeConfig.safeBlockHorizontal! * 2,
+        vertical: SizeConfig.safeBlockVertical!,
+      ),
       child: Column(
         children: [
           Row(
@@ -35,12 +36,12 @@ class SubCategorySection extends StatelessWidget {
             children: [
               Text(
                 Categories.allCategoryNames[subCategoryId]!,
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.headline2,
               ),
               SizedBox(
                 width: SizeConfig.safeBlockHorizontal! * 20,
                 height: SizeConfig.safeBlockVertical! * 4,
-                child: ElevatedButton(
+                child: TextButton(
                   onPressed: () {
                     AutoRouter.of(context).push(SubCategoryRoute(
                         subCategory:
@@ -51,18 +52,6 @@ class SubCategorySection extends StatelessWidget {
                             .indexOf(subCategoryId)
                             .abs()]));
                   },
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(MMColors.blue),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          Theme.of(context).extension<REMSpace>()!.get(2),
-                        ),
-                      ),
-                    ),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                  ),
                   child: Text('More'),
                 ),
               )

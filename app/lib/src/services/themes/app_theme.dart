@@ -282,7 +282,13 @@ class AppTheme {
         // snackBarTheme: SnackBarThemeData(),
         // switchTheme: SwitchThemeData(),
         // tabBarTheme: TabBarTheme(),
-        // textButtonTheme: TextButtonThemeData(),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(MMColors.blue),
+            foregroundColor: MaterialStateProperty.all(Colors.white),
+            padding: MaterialStateProperty.all(EdgeInsets.all(1)),
+          ),
+        ),
         // textSelectionTheme: TextSelectionThemeData(),
         // timePickerTheme: TimePickerThemeData(),
         // toggleButtonsTheme: ToggleButtonsThemeData(),
