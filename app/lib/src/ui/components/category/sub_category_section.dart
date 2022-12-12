@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
 import 'package:mondaymorning/src/services/router/mm_router.dart';
+import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/constants/categories.dart';
@@ -52,7 +53,7 @@ class SubCategorySection extends StatelessWidget {
                   },
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(Color(0xFF006DCC)),
+                        MaterialStateProperty.all(MMColors.blue),
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
