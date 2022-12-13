@@ -2,8 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
 import 'package:mondaymorning/src/services/router/mm_router.dart';
-import 'package:mondaymorning/src/services/themes/mm_colors.dart';
-import 'package:mondaymorning/src/services/themes/rem_space.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/constants/categories.dart';
 import 'package:mondaymorning/src/ui/components/article/small_article_card.dart';
@@ -60,10 +58,11 @@ class SubCategorySection extends StatelessWidget {
           SizedBox(
             height: 5.0,
           ),
-          for (int i = 0;
-              i < ((articles[index].length > 3) ? 3 : articles[index].length);
-              i++)
-            SmallArticleCard(
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, i) => SmallArticleCard(
               article: articles[index][i],
               onTileTap: () {
                 AutoRouter.of(context).push(
@@ -73,6 +72,8 @@ class SubCategorySection extends StatelessWidget {
                 );
               },
             ),
+            itemCount: articles[index].length > 3 ? 3 : articles[index].length,
+          ),
         ],
       ),
     );

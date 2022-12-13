@@ -41,13 +41,18 @@ class CategoryScreen extends StatelessWidget {
           SizedBox(height: SizeConfig.safeBlockVertical!),
           ArticleCarousel(featured: featuredArticles),
           SizedBox(height: SizeConfig.safeBlockVertical! * 2),
-          for (int i = 0; i < categoriesIds.length; i++)
-            SubCategorySection(
-              category: category,
-              subCategoryId: categoriesIds[i],
-              articles: articles,
-              index: i,
-            )
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: categoriesIds.length,
+            itemBuilder: ((context, i) => SubCategorySection(
+                  category: category,
+                  subCategoryId: categoriesIds[i],
+                  articles: articles,
+                  index: i,
+                )),
+          ),
         ],
       ),
     );
