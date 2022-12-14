@@ -42,12 +42,9 @@ class HomeScreen extends StatelessWidget {
                         );
                       })),
                   separatorBuilder: ((context, index) => SizedBox(
-                        height: SizeConfig.safeBlockVertical! * 1.5,
+                        height: SizeConfig.safeBlockVertical! * 0.2,
                       )),
                   itemCount: data.latestIssue.featured!.length,
-                ),
-                SizedBox(
-                  height: SizeConfig.safeBlockHorizontal! * 5,
                 ),
               ],
             ),
