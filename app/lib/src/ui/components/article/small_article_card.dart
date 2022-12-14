@@ -24,7 +24,8 @@ class SmallArticleCard extends StatelessWidget {
       child: Card(
         surfaceTintColor: Theme.of(context).cardTheme.color,
         margin: EdgeInsets.symmetric(
-            horizontal: SizeConfig.safeBlockHorizontal! * 1.5),
+            horizontal: SizeConfig.safeBlockHorizontal! * 1.5,
+            vertical: SizeConfig.safeBlockVertical! * 0.5,),
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(

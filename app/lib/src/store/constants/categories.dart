@@ -20,7 +20,7 @@ class Categories {
   };
 
   static final Map<String, List<int>> subCategoryIdsByCategory = {
-    'campus': [11, 12, 13, 14, 15, 16, 17],
+    'campus': [11, 12, 14, 15, 16, 17],
     'connect': [21, 22, 23, 24],
     'ddcwc': [31, 32],
     'career': [41, 42, 43, 44, 45],
@@ -35,7 +35,7 @@ class Categories {
     1: 'Campus',
     11: 'Academics',
     12: 'Campus Buzz',
-    13: 'Forum',
+    // 13: 'Forum',
     14: 'Student Activities',
     15: 'Halls',
     16: 'Poll Analysis',

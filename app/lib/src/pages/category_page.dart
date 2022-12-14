@@ -41,7 +41,8 @@ class CategoryPage extends ConsumerWidget {
         }
         return AutoTabsRouter.tabBar(
           routes: [
-            AllCategoryRoute(articles: snapshot.data!.articles),
+            AllCategoryRoute(
+                category: category, articles: snapshot.data!.articles),
             ...(Categories.subCategoryIdsByCategory[category]!
                 .map(
                   (e) => SubCategoryRoute(
