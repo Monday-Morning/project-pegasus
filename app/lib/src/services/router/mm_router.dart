@@ -10,6 +10,7 @@ import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_ty
 import 'package:mondaymorning/src/ui/screens/categories_screen.dart';
 import 'package:mondaymorning/src/ui/screens/category_screen.dart';
 import 'package:mondaymorning/src/ui/screens/home_screen.dart';
+import 'package:mondaymorning/src/ui/screens/more_screen.dart';
 import 'package:mondaymorning/src/ui/screens/sub_category_screen.dart';
 
 part 'mm_router.gr.dart';
@@ -68,7 +69,7 @@ part 'mm_router.gr.dart';
         AutoRoute<dynamic>(
           path: 'more',
           name: 'MoreRoute',
-          page: FullErrorPage,
+          page: MoreScreen,
         ),
       ],
     ),
