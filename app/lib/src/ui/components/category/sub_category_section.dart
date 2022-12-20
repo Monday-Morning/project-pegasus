@@ -41,14 +41,10 @@ class SubCategorySection extends StatelessWidget {
                 height: SizeConfig.safeBlockVertical! * 4,
                 child: TextButton(
                   onPressed: () {
-                    AutoRouter.of(context).push(SubCategoryRoute(
-                        subCategory:
-                            Categories.allCategoryNames[subCategoryId]!,
-                        subCategoryId: subCategoryId,
-                        articles: articles[Categories
+                    AutoTabsRouter.of(context).setActiveIndex(Categories
                             .subCategoryIdsByCategory[category]!
-                            .indexOf(subCategoryId)
-                            .abs()]));
+                            .indexOf(subCategoryId) +
+                        1);
                   },
                   child: Text('More'),
                 ),
