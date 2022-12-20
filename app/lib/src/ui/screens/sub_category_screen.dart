@@ -24,6 +24,8 @@ class SubCategoryScreen extends StatelessWidget {
     if (kDebugMode) {
       print(articles);
     }
+    final notFeaturedArticles =
+        articles.sublist((articles.length / 2).round(), articles.length);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,23 +43,27 @@ class SubCategoryScreen extends StatelessWidget {
                       height: SizeConfig.safeBlockHorizontal! * 2,
                     ),
                     ArticleCarousel(
-                        featured: articles.sublist(
-                      0,
-                      (articles.length / 2).round(),
-                    )),
-                    for (int i = (articles.length / 2).round();
-                        i < articles.length;
-                        i++)
-                      SmallArticleCard(
-                        article: articles[i],
+                      featured: articles.sublist(
+                        0,
+                        (articles.length / 2).round(),
+                      ),
+                    ),
+                    ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: notFeaturedArticles.length,
+                      itemBuilder: (context, index) => SmallArticleCard(
+                        article: notFeaturedArticles[index],
                         onTileTap: () {
                           AutoRouter.of(context).push(
                             ArticleRoute(
-                              articleId: articles[i].id,
+                              articleId: notFeaturedArticles[index].id,
                             ),
                           );
                         },
                       ),
+                    ),
                   ],
                 ),
               ),
