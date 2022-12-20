@@ -7,6 +7,7 @@ import 'package:mondaymorning/src/pages/category_page.dart';
 import 'package:mondaymorning/src/pages/full_error_page.dart';
 import 'package:mondaymorning/src/pages/landing_page.dart';
 import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_type.dart';
+import 'package:mondaymorning/src/ui/screens/about_screen.dart';
 import 'package:mondaymorning/src/ui/screens/categories_screen.dart';
 import 'package:mondaymorning/src/ui/screens/category_screen.dart';
 import 'package:mondaymorning/src/ui/screens/home_screen.dart';
@@ -94,6 +95,11 @@ part 'mm_router.gr.dart';
           page: SubCategoryScreen,
         ),
       ],
+    ),
+    AutoRoute(
+      path: 'about',
+      name: 'AboutRoute',
+      page: AboutMMScreen,
     ),
     AutoRoute<dynamic>(
       path: '*',

@@ -20,7 +20,7 @@ class MoreScreen extends StatelessWidget {
     MoreCard('Password Change', Icons.password_outlined, NotFoundRoute()),
     MoreCard('Verify Account', Icons.verified_outlined, NotFoundRoute()),
     MoreCard('Terms and Policies', Icons.info_outline, NotFoundRoute()),
-    MoreCard('About MM', Icons.call_outlined, NotFoundRoute()),
+    MoreCard('About MM', Icons.call_outlined, AboutRoute()),
     MoreCard(
         'Newsletter Subscription', Icons.description_outlined, NotFoundRoute()),
   ];
@@ -47,33 +47,35 @@ class MoreScreen extends StatelessWidget {
                 margin: EdgeInsets.symmetric(
                     horizontal: SizeConfig.safeBlockHorizontal! * 0.5),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                        Theme.of(context).extension<REMSpace>()!.get(1)),
-                    border:
-                        Border.all(color: MMColors.kDividerColor, width: 1)),
+                  borderRadius: BorderRadius.circular(
+                    Theme.of(context).extension<REMSpace>()!.get(1),
+                  ),
+                  border: Border.all(color: MMColors.kDividerColor, width: 1),
+                ),
                 child: Column(
                   children: [
                     ListView.separated(
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return TileWidget(
-                            feature: data[index].feature,
-                            icon: data[index].icon,
-                            onTileTap: () {
-                              context.router.push(
-                                data[index].route,
-                              );
-                            },
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return Divider(
-                            height: 1.0,
-                            color: MMColors.kDividerColor,
-                          );
-                        },
-                        itemCount: data.length),
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return TileWidget(
+                          feature: data[index].feature,
+                          icon: data[index].icon,
+                          onTileTap: () {
+                            context.router.push(
+                              data[index].route,
+                            );
+                          },
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return Divider(
+                          height: 1.0,
+                          color: MMColors.kDividerColor,
+                        );
+                      },
+                      itemCount: data.length,
+                    ),
                   ],
                 ),
               ),

@@ -15,7 +15,7 @@ class TileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTileTap,
       child: Container(
         margin:

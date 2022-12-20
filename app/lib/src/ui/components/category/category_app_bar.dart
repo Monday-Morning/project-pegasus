@@ -18,6 +18,7 @@ class CategoryAppBar extends StatelessWidget implements PreferredSizeWidget {
       title:
           Text(Categories.allCategoryNames[Categories.categoryIds[category]!]!),
       bottom: TabBar(
+        indicatorColor: Colors.transparent,
         controller: tabController,
         isScrollable: true,
         tabs: [
