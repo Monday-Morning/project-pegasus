@@ -85,14 +85,36 @@ class ArticleBody extends StatelessWidget {
                   ),
                 ),
               );
+            case 'ORDERED_LIST':
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.safeBlockVertical! * 2,
+                ),
+                child: MarkdownText(
+                  text: content[index].text,
+                ),
+              );
+            case 'UNORDERED_LIST':
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.safeBlockVertical! * 2,
+                ),
+                child: MarkdownText(
+                  text: content[index].text,
+                ),
+              );
             case 'QUOTE':
               return Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: SizeConfig.safeBlockVertical! * 2,
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal! * 4),
-                  padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal! * 2),
+                  margin: EdgeInsets.only(
+                    left: SizeConfig.safeBlockHorizontal! * 4,
+                  ),
+                  padding: EdgeInsets.only(
+                    left: SizeConfig.safeBlockHorizontal! * 2,
+                  ),
                   decoration: BoxDecoration(
                     color: Theme.of(context).appBarTheme.backgroundColor,
                     border: Border(
