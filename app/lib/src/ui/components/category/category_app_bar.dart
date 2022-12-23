@@ -21,10 +21,19 @@ class CategoryAppBar extends StatelessWidget implements PreferredSizeWidget {
         indicatorColor: Colors.transparent,
         controller: tabController,
         isScrollable: true,
+        labelColor: Theme.of(context).textTheme.bodyText1!.color,
+        labelStyle: Theme.of(context)
+            .textTheme
+            .bodyText1!
+            .copyWith(fontWeight: FontWeight.w700),
+        unselectedLabelColor: Theme.of(context).textTheme.bodyText1!.color,
+        unselectedLabelStyle: Theme.of(context).textTheme.bodyText1,
         tabs: [
           Tab(text: 'All'),
           ...(Categories.subCategoryIdsByCategory[category]!
-              .map((e) => Tab(text: Categories.allCategoryNames[e]!))
+              .map(
+                (e) => Tab(text: Categories.allCategoryNames[e]!),
+              )
               .toList()),
         ],
       ),

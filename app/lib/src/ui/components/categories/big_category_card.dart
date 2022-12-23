@@ -22,6 +22,7 @@ class BigCategoryCard extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 118 / 168,
           child: Card(
+            surfaceTintColor: Theme.of(context).cardTheme.color,
             clipBehavior: Clip.antiAlias,
             elevation: 3,
             shape: RoundedRectangleBorder(
