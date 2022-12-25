@@ -220,7 +220,7 @@ class AppTheme {
         ),
         // dialogBackgroundColor: backgroundColor,
         // disabledColor: backgroundColor,
-        // dividerColor: backgroundColor,
+        dividerColor: MMColors.kDividerColor,
         // errorColor: accentColor!,
         // highlightColor: backgroundColor,
         // hoverColor: backgroundColor,

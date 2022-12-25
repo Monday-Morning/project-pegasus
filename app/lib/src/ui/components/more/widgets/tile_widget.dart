@@ -34,12 +34,7 @@ class TileWidget extends StatelessWidget {
                 SizedBox(width: SizeConfig.safeBlockHorizontal! * 3),
                 Text(
                   feature,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ],
             ),
