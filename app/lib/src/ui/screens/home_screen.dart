@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mondaymorning/src/api/models/article/article.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_type.dart';
 import 'package:mondaymorning/src/ui/components/article/article_carousel.dart';
@@ -14,6 +15,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Article> articles = [
+      ...?(data.latestIssue[0].articles?.where((element) =>
+          (data.latestIssue[0].featured!.contains(element) ? false : true))),
+      ...data.latestIssue[1].featured!
+    ];
+
+    if (articles.length > 6) articles = articles.sublist(0, 6);
     return Scaffold(
       appBar: SearchAppBar(),
       body: SingleChildScrollView(
@@ -25,7 +33,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: [
-                ArticleCarousel(featured: data.latestIssue.featured!),
+                ArticleCarousel(featured: data.latestIssue[0].featured!),
                 SizedBox(
                   height: SizeConfig.safeBlockHorizontal! * 5,
                 ),
@@ -34,17 +42,17 @@ class HomeScreen extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: ((context, index) => SmallArticleCard(
-                      article: data.latestIssue.articles![index],
-                      onTileTap: () {
-                        AutoRouter.of(context).push(
-                          ArticleRoute(
-                              articleId: data.latestIssue.articles![index].id),
-                        );
-                      })),
+                        article: articles[index],
+                        onTileTap: () {
+                          AutoRouter.of(context).push(
+                            ArticleRoute(articleId: articles[index].id),
+                          );
+                        },
+                      )),
                   separatorBuilder: ((context, index) => SizedBox(
                         height: SizeConfig.safeBlockVertical! * 0.2,
                       )),
-                  itemCount: data.latestIssue.featured!.length,
+                  itemCount: articles.length,
                 ),
               ],
             ),
