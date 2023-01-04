@@ -19,7 +19,7 @@ class SmallCategoryCard extends StatelessWidget {
     return ElevatedButton(
       onPressed: onButtonTap,
       style: ElevatedButton.styleFrom(
-        foregroundColor: Theme.of(context).cardTheme.color,
+        surfaceTintColor: Theme.of(context).cardTheme.color,
         elevation: 2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6),

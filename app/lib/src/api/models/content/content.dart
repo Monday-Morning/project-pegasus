@@ -9,7 +9,7 @@ part 'content.g.dart';
 class Content with _$Content {
   const factory Content({
     required String text,
-    Map<String, dynamic>? data,
+    String? data,
     required String contentType,
     BlockFormatting? blockFormatting,
     Image? media,
