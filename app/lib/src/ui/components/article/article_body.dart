@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/content/content.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/constants/media_stores.dart';
+import 'package:mondaymorning/src/ui/components/article/article_table.dart';
 import 'package:mondaymorning/src/ui/components/article/markdown_text.dart';
 
 class ArticleBody extends StatelessWidget {
@@ -85,12 +86,37 @@ class ArticleBody extends StatelessWidget {
                 ),
               );
             case 'QUOTE':
-              // TODO: add correct design for quote
               return Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: SizeConfig.safeBlockVertical! * 2,
                 ),
-                child: MarkdownText(text: '> ${content[index].text}'),
+                child: Container(
+                  margin: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal! * 4),
+                  padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal! * 2),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).appBarTheme.backgroundColor,
+                    border: Border(
+                      left: BorderSide(
+                        color: Theme.of(context).highlightColor,
+                        width: 3.0,
+                      ),
+                    ),
+                  ),
+                  child: MarkdownText(
+                    text: content[index].text,
+                  ),
+                ),
+              );
+            case 'TABLE':
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.safeBlockVertical! * 2,
+                  horizontal: SizeConfig.safeBlockHorizontal!,
+                ),
+                child: ArticleTable(
+                  tableBody: content[index].data!.toString(),
+                  blockFormatting: content[index].blockFormatting!,
+                ),
               );
             default:
               return Padding(
