@@ -19,7 +19,7 @@ class MoreScreen extends StatelessWidget {
     MoreCard('Bookmarks', Icons.bookmark_border_outlined, NotFoundRoute()),
     MoreCard('Password Change', Icons.password_outlined, NotFoundRoute()),
     MoreCard('Verify Account', Icons.verified_outlined, NotFoundRoute()),
-    MoreCard('Terms and Policies', Icons.info_outline, NotFoundRoute()),
+    MoreCard('Terms and Policies', Icons.info_outline, TermsRoute()),
     MoreCard('About MM', Icons.call_outlined, AboutRoute()),
     MoreCard(
         'Newsletter Subscription', Icons.description_outlined, NotFoundRoute()),
@@ -45,7 +45,8 @@ class MoreScreen extends StatelessWidget {
             children: [
               Container(
                 margin: EdgeInsets.symmetric(
-                    horizontal: SizeConfig.safeBlockHorizontal! * 0.5),
+                  horizontal: SizeConfig.safeBlockHorizontal! * 0.5,
+                ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     Theme.of(context).extension<REMSpace>()!.get(1),
