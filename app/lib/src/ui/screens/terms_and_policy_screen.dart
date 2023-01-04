@@ -13,7 +13,7 @@ class TermsAndPoliciesScreen extends StatelessWidget {
       routes: [
         ...(categories
             .map(
-              (e) => TermsRoute(id: e.id),
+              (e) => ContentRoute(id: e.id),
             )
             .toList()),
       ],

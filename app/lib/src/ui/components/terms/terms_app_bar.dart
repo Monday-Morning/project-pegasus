@@ -21,6 +21,13 @@ class TermsAppBar extends StatelessWidget implements PreferredSizeWidget {
         indicatorColor: Colors.transparent,
         controller: tabController,
         isScrollable: true,
+        labelColor: Theme.of(context).textTheme.bodyText1!.color,
+        labelStyle: Theme.of(context)
+            .textTheme
+            .bodyText1!
+            .copyWith(fontWeight: FontWeight.w700),
+        unselectedLabelColor: Theme.of(context).textTheme.bodyText1!.color,
+        unselectedLabelStyle: Theme.of(context).textTheme.bodyText1,
         tabs: [
           ...(categories.map((e) => Tab(text: e.name)).toList()),
         ],

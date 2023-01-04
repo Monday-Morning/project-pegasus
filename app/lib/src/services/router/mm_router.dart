@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
-import 'package:mondaymorning/src/api/models/content/content.dart';
 import 'package:mondaymorning/src/api/models/squiggle/squiggle.dart';
 import 'package:mondaymorning/src/pages/article_page.dart';
 import 'package:mondaymorning/src/pages/category_page.dart';
