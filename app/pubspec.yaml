@@ -25,9 +25,11 @@ dependencies:
   graphql_flutter: ^5.1.0
   hooks_riverpod: ^2.0.2
   json_annotation: ^4.7.0
+  material_design_icons_flutter: ^6.0.7096
   moment_dart: ^0.10.4
   riverpod_annotation: ^1.0.4
   shared_preferences: ^2.0.15
+  url_launcher: ^6.1.7
 
 dev_dependencies:
   analyzer: ^5.2.0
