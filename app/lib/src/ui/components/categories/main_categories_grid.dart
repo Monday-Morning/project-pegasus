@@ -92,7 +92,7 @@ class MainCategoriesGrid extends StatelessWidget {
                 flex: 1,
                 child: SmallCategoryCard(
                   icon: Icons.calendar_today_outlined,
-                  text: 'Wisdom',
+                  text: 'Witsdom',
                   onButtonTap: () {
                     // context.router.push(
                     //   ComingSoonRoute(),
@@ -127,7 +127,7 @@ class MainCategoriesGrid extends StatelessWidget {
                 flex: 1,
                 child: SmallCategoryCard(
                   icon: Icons.calendar_today_outlined,
-                  text: 'Photojournalism',
+                  text: 'Photostory',
                   onButtonTap: () {
                     // context.router.push(
                     //   ComingSoonRoute(),
