@@ -117,6 +117,11 @@ part 'mm_router.gr.dart';
       ],
     ),
     AutoRoute<dynamic>(
+      path: 'commingsoon',
+      name: 'ComingSoonRoute',
+      page: ComingSoonScreen,
+    ),
+    AutoRoute<dynamic>(
       path: '*',
       name: 'NotFoundRoute',
       page: FullErrorPage,

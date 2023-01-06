@@ -16,13 +16,13 @@ class MoreCard {
 /// More Screen of the app.
 class MoreScreen extends StatelessWidget {
   final List<MoreCard> data = [
-    MoreCard('Bookmarks', Icons.bookmark_border_outlined, NotFoundRoute()),
-    MoreCard('Password Change', Icons.password_outlined, NotFoundRoute()),
-    MoreCard('Verify Account', Icons.verified_outlined, NotFoundRoute()),
+    MoreCard('Bookmarks', Icons.bookmark_border_outlined, ComingSoonRoute()),
+    MoreCard('Password Change', Icons.password_outlined, ComingSoonRoute()),
+    MoreCard('Verify Account', Icons.verified_outlined, ComingSoonRoute()),
     MoreCard('Terms and Policies', Icons.info_outline, TermsRoute()),
     MoreCard('About MM', Icons.call_outlined, AboutRoute()),
-    MoreCard(
-        'Newsletter Subscription', Icons.description_outlined, NotFoundRoute()),
+    MoreCard('Newsletter Subscription', Icons.description_outlined,
+        ComingSoonRoute()),
   ];
 
   MoreScreen({super.key});

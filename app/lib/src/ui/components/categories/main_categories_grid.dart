@@ -73,9 +73,9 @@ class MainCategoriesGrid extends StatelessWidget {
               image: 'assets/images/light/expression.png',
               title: 'Expression',
               onCardTap: () {
-                // context.router.push(
-                //   ComingSoonRoute(),
-                // );
+                AutoRouter.of(context).push(
+                  ComingSoonRoute(),
+                );
               },
             ),
           ],
@@ -94,9 +94,9 @@ class MainCategoriesGrid extends StatelessWidget {
                   icon: Icons.calendar_today_outlined,
                   text: 'Witsdom',
                   onButtonTap: () {
-                    // context.router.push(
-                    //   ComingSoonRoute(),
-                    // );
+                    AutoRouter.of(context).push(
+                      ComingSoonRoute(),
+                    );
                   },
                 ),
               ),
@@ -107,9 +107,9 @@ class MainCategoriesGrid extends StatelessWidget {
                   icon: Icons.pie_chart_outline,
                   text: 'Podcasts',
                   onButtonTap: () {
-                    // context.router.push(
-                    //   ComingSoonRoute(),
-                    // );
+                    AutoRouter.of(context).push(
+                      ComingSoonRoute(),
+                    );
                   },
                 ),
               ),
@@ -129,9 +129,9 @@ class MainCategoriesGrid extends StatelessWidget {
                   icon: Icons.calendar_today_outlined,
                   text: 'Photostory',
                   onButtonTap: () {
-                    // context.router.push(
-                    //   ComingSoonRoute(),
-                    // );
+                    AutoRouter.of(context).push(
+                      ComingSoonRoute(),
+                    );
                   },
                 ),
               ),
@@ -142,9 +142,9 @@ class MainCategoriesGrid extends StatelessWidget {
                   icon: Icons.pie_chart_outline,
                   text: 'Photo Gallery',
                   onButtonTap: () {
-                    // context.router.push(
-                    //   ComingSoonRoute(),
-                    // );
+                    AutoRouter.of(context).push(
+                      ComingSoonRoute(),
+                    );
                   },
                 ),
               ),
