@@ -15,6 +15,11 @@ part 'app_config_provider.g.dart';
 
 @riverpod
 Future<AppConfig> appConfig(AppConfigRef ref) async {
+  List<AppConfig> appConfig = await Future.wait<AppConfig>([getAppConfig(ref), Future.delayed(Duration(milliseconds: 3500))]);
+  return appConfig.first;
+}
+
+Future<AppConfig> getAppConfig(AppConfigRef ref) async {
   FirebaseApp firebaseApp = await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform);
 
@@ -49,7 +54,7 @@ Future<AppConfig> appConfig(AppConfigRef ref) async {
     themeMode == 'light'
         ? ThemeMode.light
         : themeMode == 'dark'
-            ? ThemeMode.dark
-            : ThemeMode.system,
+        ? ThemeMode.dark
+        : ThemeMode.system,
   );
 }
