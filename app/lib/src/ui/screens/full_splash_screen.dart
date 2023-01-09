@@ -8,7 +8,6 @@ class FullSplashScreen extends StatefulWidget {
 }
 
 class _FullSplashScreenState extends State<FullSplashScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -16,18 +15,18 @@ class _FullSplashScreenState extends State<FullSplashScreen> {
   }
 
   void delay() async {
-    await Future.delayed(const Duration(minutes: 1));
+    await Future.delayed(const Duration(minutes: 1), () => null);
     Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Image.asset(
-            'assets/images/${Theme.of(context).brightness.name}/splash.gif',
+          'assets/images/${Theme.of(context).brightness.name}/splash.gif',
           fit: BoxFit.fill,
         ),
       ),
