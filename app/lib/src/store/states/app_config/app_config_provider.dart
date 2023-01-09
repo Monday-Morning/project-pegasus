@@ -15,8 +15,9 @@ part 'app_config_provider.g.dart';
 
 @riverpod
 Future<AppConfig> appConfig(AppConfigRef ref) async {
-  List<AppConfig> appConfig = await Future.wait<AppConfig>([getAppConfig(ref), Future.delayed(Duration(milliseconds: 3500))]);
-  return appConfig.first;
+  List<AppConfig?> appConfig = await Future.wait<AppConfig?>(
+      [getAppConfig(ref), Future.delayed(Duration(seconds: 5), () => null)]);
+  return appConfig.first!;
 }
 
 Future<AppConfig> getAppConfig(AppConfigRef ref) async {
@@ -45,16 +46,12 @@ Future<AppConfig> getAppConfig(AppConfigRef ref) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final String? themeMode = prefs.getString('preffered_app_theme_mode');
 
-  if (kDebugMode) {
-    await Future.delayed(const Duration(seconds: 3), () => {});
-  }
-
   return AppConfig().init(
     firebaseApp,
     themeMode == 'light'
         ? ThemeMode.light
         : themeMode == 'dark'
-        ? ThemeMode.dark
-        : ThemeMode.system,
+            ? ThemeMode.dark
+            : ThemeMode.system,
   );
 }
