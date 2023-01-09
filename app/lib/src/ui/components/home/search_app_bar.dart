@@ -33,26 +33,26 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
                 size: SizeConfig.safeBlockHorizontal! * 45,
               ),
               Spacer(flex: 1),
-              Container(
-                margin: EdgeInsets.only(
-                  top: SizeConfig.safeBlockVertical! * 2,
-                  bottom: SizeConfig.safeBlockVertical! * 2.5,
-                ),
-                padding:
-                    EdgeInsets.only(right: SizeConfig.safeBlockHorizontal! * 1),
-                decoration: BoxDecoration(
-                  // shape: BoxShape.circle,
-                  color: Theme.of(context).cardColor,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(50),
-                      bottomLeft: Radius.circular(50)),
-                ),
-                height: SizeConfig.safeBlockVertical! * 8,
-                child: IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {},
-                ),
-              )
+              // Container(
+              //   margin: EdgeInsets.only(
+              //     top: SizeConfig.safeBlockVertical! * 2,
+              //     bottom: SizeConfig.safeBlockVertical! * 2.5,
+              //   ),
+              //   padding:
+              //       EdgeInsets.only(right: SizeConfig.safeBlockHorizontal! * 1),
+              //   decoration: BoxDecoration(
+              //     // shape: BoxShape.circle,
+              //     color: Theme.of(context).cardColor,
+              //     borderRadius: BorderRadius.only(
+              //         topLeft: Radius.circular(50),
+              //         bottomLeft: Radius.circular(50)),
+              //   ),
+              //   height: SizeConfig.safeBlockVertical! * 8,
+              //   child: IconButton(
+              //     icon: Icon(Icons.search),
+              //     onPressed: () {},
+              //   ),
+              // )
             ],
           )),
     );

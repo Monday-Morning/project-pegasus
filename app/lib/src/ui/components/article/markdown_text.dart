@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:mondaymorning/src/ui/components/more/widgets/url_loader.dart';
 
 class MarkdownText extends StatelessWidget {
   const MarkdownText({
@@ -19,7 +20,7 @@ class MarkdownText extends StatelessWidget {
       selectable: true,
       shrinkWrap: true,
       onTapLink: (text, href, title) {
-        // TODO: add link to browser
+        URLLauncher.uriLauncher(Uri.parse(href!));
       },
       softLineBreak: true,
       data: text,
