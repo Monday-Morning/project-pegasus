@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mondaymorning/src/pages/full_error_page.dart';
-import 'package:mondaymorning/src/pages/full_loading_page.dart';
+import 'package:mondaymorning/src/pages/splash_page.dart';
 import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/index.dart';
 import 'package:mondaymorning/src/store/states/app_config/app_config_provider.dart';
@@ -22,7 +22,7 @@ class ProjectPegasus extends ConsumerWidget {
     ]);
     return FutureBuilder<AppConfig>(
       future: ref.watch(appConfigProvider.future),
-      builder: (context, snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<AppConfig> snapshot) {
         if (snapshot.hasError) {
           if (kDebugMode) {
             print(snapshot.error);
@@ -43,7 +43,7 @@ class ProjectPegasus extends ConsumerWidget {
             ),
           );
         }
-        return FullLoadingPage();
+        return SplashPage();
       },
     );
   }
