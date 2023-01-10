@@ -8,7 +8,7 @@ part 'landing_page_provider.g.dart';
 @riverpod
 Future<LandingPageData> landingPageData(LandingPageDataRef ref) async {
   return LandingPageData(
-    latestIssue: await ref.read(issueRepositoryProvider).getLatestIssue(),
+    latestIssue: await ref.read(issueRepositoryProvider).getIssues(limit: 2, onlyPublished: false),
     // issues: await graphIssueRepository.getIssues(limit: 10, onlyPublished: true),
     latestSquiggle:
         await ref.read(squiggleRepositoryProvider).getLatestSquiggle(),

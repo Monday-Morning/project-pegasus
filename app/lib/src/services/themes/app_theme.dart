@@ -220,9 +220,11 @@ class AppTheme {
         ),
         // dialogBackgroundColor: backgroundColor,
         // disabledColor: backgroundColor,
-        // dividerColor: backgroundColor,
+        dividerColor:
+            themeMode == ThemeMode.dark ? Colors.grey[100] : Colors.black,
         // errorColor: accentColor!,
-        // highlightColor: backgroundColor,
+        highlightColor:
+            themeMode == ThemeMode.dark ? primaryColor! : Colors.black,
         // hoverColor: backgroundColor,
         // hintColor: backgroundColor,
         // indicatorColor: backgroundColor,

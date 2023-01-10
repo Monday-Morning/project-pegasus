@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
-import 'package:mondaymorning/src/store/constants/categories.dart';
+import 'package:mondaymorning/src/ui/components/terms/terms_content.dart';
 
-class CategoryAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CategoryAppBar({
+class TermsAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const TermsAppBar({
     Key? key,
-    required this.category,
     required this.tabController,
   }) : super(key: key);
 
-  final String category;
   final TabController tabController;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title:
-          Text(Categories.allCategoryNames[Categories.categoryIds[category]!]!),
+      title: Text(
+        'Terms and Policies',
+        style: Theme.of(context).textTheme.headline2,
+      ),
       bottom: TabBar(
         indicatorColor: Colors.transparent,
         controller: tabController,
@@ -29,12 +29,7 @@ class CategoryAppBar extends StatelessWidget implements PreferredSizeWidget {
         unselectedLabelColor: Theme.of(context).textTheme.bodyText1!.color,
         unselectedLabelStyle: Theme.of(context).textTheme.bodyText1,
         tabs: [
-          Tab(text: 'All'),
-          ...(Categories.subCategoryIdsByCategory[category]!
-              .map(
-                (e) => Tab(text: Categories.allCategoryNames[e]!),
-              )
-              .toList()),
+          ...(categories.map((e) => Tab(text: e.name)).toList()),
         ],
       ),
     );

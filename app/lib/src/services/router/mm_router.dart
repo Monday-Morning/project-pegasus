@@ -7,10 +7,15 @@ import 'package:mondaymorning/src/pages/category_page.dart';
 import 'package:mondaymorning/src/pages/full_error_page.dart';
 import 'package:mondaymorning/src/pages/landing_page.dart';
 import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_type.dart';
+import 'package:mondaymorning/src/ui/screens/about_screen.dart';
+import 'package:mondaymorning/src/ui/components/terms/content_screen.dart';
 import 'package:mondaymorning/src/ui/screens/categories_screen.dart';
 import 'package:mondaymorning/src/ui/screens/category_screen.dart';
+import 'package:mondaymorning/src/ui/screens/coming_soon_screen.dart';
 import 'package:mondaymorning/src/ui/screens/home_screen.dart';
+import 'package:mondaymorning/src/ui/screens/more_screen.dart';
 import 'package:mondaymorning/src/ui/screens/sub_category_screen.dart';
+import 'package:mondaymorning/src/ui/screens/terms_and_policy_screen.dart';
 
 part 'mm_router.gr.dart';
 
@@ -63,12 +68,12 @@ part 'mm_router.gr.dart';
         AutoRoute<dynamic>(
           path: 'expressions',
           name: 'ExpressionRoute',
-          page: FullErrorPage,
+          page: ComingSoonScreen,
         ),
         AutoRoute<dynamic>(
           path: 'more',
           name: 'MoreRoute',
-          page: FullErrorPage,
+          page: MoreScreen,
         ),
       ],
     ),
@@ -93,6 +98,28 @@ part 'mm_router.gr.dart';
           page: SubCategoryScreen,
         ),
       ],
+    ),
+    AutoRoute(
+      path: 'about',
+      name: 'AboutRoute',
+      page: AboutMMScreen,
+    ),
+    AutoRoute<dynamic>(
+      path: 'terms',
+      name: 'TermsRoute',
+      page: TermsAndPoliciesScreen,
+      children: [
+        AutoRoute<dynamic>(
+          path: 'content',
+          name: 'ContentRoute',
+          page: ContentScreen,
+        ),
+      ],
+    ),
+    AutoRoute<dynamic>(
+      path: 'commingsoon',
+      name: 'ComingSoonRoute',
+      page: ComingSoonScreen,
     ),
     AutoRoute<dynamic>(
       path: '*',
