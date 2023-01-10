@@ -16,6 +16,12 @@ part 'app_config_provider.g.dart';
 
 @riverpod
 Future<AppConfig> appConfig(AppConfigRef ref) async {
+  List<AppConfig?> appConfig = await Future.wait<AppConfig?>(
+      [getAppConfig(ref), Future.delayed(Duration(seconds: 5), () => null)]);
+  return appConfig.first!;
+}
+
+Future<AppConfig> getAppConfig(AppConfigRef ref) async {
   FirebaseApp firebaseApp = await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform);
 
