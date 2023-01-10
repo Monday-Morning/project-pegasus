@@ -14,7 +14,7 @@ class GraphQLService implements GraphQLAPI {
   @override
   Future<void> init() async {
     final HttpLink httpLink = HttpLink(
-      kDebugMode
+      !kDebugMode
           ? 'https://mondaymorning.nitrkl.ac.in/api/v1/graph'
           : 'http://localhost:5000/v1/graph',
     );

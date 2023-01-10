@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 class AppConfig {
   static FirebaseApp? _firebaseApp;
   static ThemeMode? _themeMode;
+  static String? _initialUrl;
 
-  AppConfig init(FirebaseApp firebaseApp, ThemeMode themeMode) {
+  AppConfig init(
+      FirebaseApp firebaseApp, ThemeMode themeMode, String? initialUrl) {
     AppConfig._firebaseApp = firebaseApp;
     AppConfig._themeMode = themeMode;
+    AppConfig._initialUrl = initialUrl;
     return this;
   }
 
@@ -16,4 +19,6 @@ class AppConfig {
       _themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light;
 
   FirebaseApp get firebaseApp => _firebaseApp ?? Firebase.app();
+
+  String? get initialUrl => _initialUrl;
 }

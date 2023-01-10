@@ -10,6 +10,7 @@ import 'package:mondaymorning/src/services/graphql/graphql_service.dart';
 import 'package:mondaymorning/src/store/states/app_config/app_config_type.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uni_links/uni_links.dart';
 
 part 'app_config_provider.g.dart';
 
@@ -46,6 +47,12 @@ Future<AppConfig> getAppConfig(AppConfigRef ref) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final String? themeMode = prefs.getString('preffered_app_theme_mode');
 
+  if (kDebugMode) {
+    await Future.delayed(const Duration(seconds: 3), () => {});
+  }
+
+  String? initialUrl = await getInitialLink();
+
   return AppConfig().init(
     firebaseApp,
     themeMode == 'light'
@@ -53,5 +60,6 @@ Future<AppConfig> getAppConfig(AppConfigRef ref) async {
         : themeMode == 'dark'
             ? ThemeMode.dark
             : ThemeMode.system,
+    initialUrl,
   );
 }
