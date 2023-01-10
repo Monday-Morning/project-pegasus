@@ -8,16 +8,6 @@ class FullSplashScreen extends StatefulWidget {
 }
 
 class _FullSplashScreenState extends State<FullSplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    delay();
-  }
-
-  void delay() async {
-    await Future.delayed(const Duration(minutes: 1), () => null);
-    Navigator.pop(context);
-  }
 
   @override
   Widget build(BuildContext context) {

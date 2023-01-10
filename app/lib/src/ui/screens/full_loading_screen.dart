@@ -10,6 +10,9 @@ class FullLoadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = Theme.of(context).brightness.name == "dark";
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       // body: Center(
       //   child: Column(
@@ -59,50 +62,35 @@ class FullLoadingScreen extends StatelessWidget {
 
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.only(top: 14, bottom: 10, left: 8, right: 8),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                height: 16,
-              ),
               Row(
                 children: [
                   Shimmer.fromColors(
-                    baseColor: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black26
-                        : Colors.grey[300]!,
-                    highlightColor: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black12
-                        : Colors.grey[200]!,
+                    baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+                    highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
                     child: Container(
-                      height: 40,
-                      width: 40,
+                      height: 0.092*screenWidth,
+                      width: 0.092*screenWidth,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).brightness.name == 'dark'
-                            ? Colors.black
-                            : Colors.grey,
-                        borderRadius: BorderRadius.circular(20),
+                        color: isDark ? Colors.black: Colors.grey,
+                        borderRadius: BorderRadius.circular(0.08*screenWidth),
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 14,
+                    width: 0.02*screenHeight,
                   ),
                   Expanded(
                     child: Shimmer.fromColors(
-                      baseColor: Theme.of(context).brightness.name == 'dark'
-                          ? Colors.black26
-                          : Colors.grey[300]!,
-                      highlightColor:
-                          Theme.of(context).brightness.name == 'dark'
-                              ? Colors.black12
-                              : Colors.grey[200]!,
+                      baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+                      highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
                       child: Container(
-                        height: 24,
+                        height: 0.0379*screenHeight,
                         decoration: BoxDecoration(
-                          color: Theme.of(context).brightness.name == 'dark'
-                              ? Colors.black
-                              : Colors.grey,
+                          color: isDark ? Colors.black: Colors.grey,
                           borderRadius: BorderRadius.circular(6),
                         ),
                       ),
@@ -110,34 +98,24 @@ class FullLoadingScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: 0.01*screenHeight,),
               Shimmer.fromColors(
-                baseColor: Theme.of(context).brightness.name == 'dark'
-                    ? Colors.black26
-                    : Colors.grey[300]!,
-                highlightColor: Theme.of(context).brightness.name == 'dark'
-                    ? Colors.black12
-                    : Colors.grey[200]!,
+                baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+                highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
                 child: Container(
-                  height: 205,
+                  height: 0.265*screenHeight,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black
-                        : Colors.grey,
+                    color: isDark ? Colors.black: Colors.grey,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 25,
-              ),
-              buildArticleTileShimmer(context),
-              buildArticleTileShimmer(context),
-              buildArticleTileShimmer(context),
-              buildArticleTileShimmer(context),
-              buildArticleTileShimmer(context),
+              SizedBox(height: 0.02*screenHeight,),
+              buildArticleTileShimmer(context, isDark, screenHeight, screenWidth),
+              buildArticleTileShimmer(context, isDark, screenHeight, screenWidth),
+              buildArticleTileShimmer(context, isDark, screenHeight, screenWidth),
+              buildArticleTileShimmer(context, isDark, screenHeight, screenWidth),
+              buildArticleTileShimmer(context, isDark, screenHeight, screenWidth),
             ],
           ),
         ),
@@ -145,141 +123,104 @@ class FullLoadingScreen extends StatelessWidget {
     );
   }
 
-  Widget buildArticleTileShimmer(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(bottom: 12),
-        child: Row(
-          children: [
-            Shimmer.fromColors(
-              baseColor: Theme.of(context).brightness.name == 'dark'
-                  ? Colors.black26
-                  : Colors.grey[300]!,
-              highlightColor: Theme.of(context).brightness.name == 'dark'
-                  ? Colors.black12
-                  : Colors.grey[200]!,
-              child: Container(
-                height: 75,
-                width: 75,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).brightness.name == 'dark'
-                      ? Colors.black
-                      : Colors.grey,
-                  borderRadius: BorderRadius.circular(8),
+  Widget buildArticleTileShimmer(BuildContext context, bool isDark, double height, double width) => Container(
+    child: Padding(
+      padding: EdgeInsets.only(top: 0.01*height),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Shimmer.fromColors(
+            baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+            highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
+            child: Container(
+              height: 0.106*height,
+              width: 0.21*width,
+              decoration: BoxDecoration(
+                color: isDark ? Colors.black: Colors.grey,
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 0.097*height,
+            width: 0.715*width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Shimmer.fromColors(
+                  baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+                  highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
+                  child: Container(
+                    height: 0.012*height,
+                    width: 0.2*width,
+                    decoration: BoxDecoration(
+                      color: isDark ? Colors.black: Colors.grey,
+                      borderRadius: BorderRadius.circular(2.3),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            SizedBox(
-              height: 70,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Shimmer.fromColors(
-                    baseColor: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black26
-                        : Colors.grey[300]!,
-                    highlightColor: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black12
-                        : Colors.grey[200]!,
-                    child: Container(
-                      height: 8,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).brightness.name == 'dark'
-                            ? Colors.black
-                            : Colors.grey,
-                        borderRadius: BorderRadius.circular(2.5),
-                      ),
+                Shimmer.fromColors(
+                  baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+                  highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
+                  child: Container(
+                    height: 0.0148*height,
+                    width: 0.75*width,
+                    decoration: BoxDecoration(
+                      color: isDark ? Colors.black: Colors.grey,
+                      borderRadius: BorderRadius.circular(4),
                     ),
                   ),
-                  Shimmer.fromColors(
-                    baseColor: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black26
-                        : Colors.grey[300]!,
-                    highlightColor: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black12
-                        : Colors.grey[200]!,
-                    child: Container(
-                      height: 11,
-                      width: 280,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).brightness.name == 'dark'
-                            ? Colors.black
-                            : Colors.grey,
-                        borderRadius: BorderRadius.circular(3),
-                      ),
+                ),
+                Shimmer.fromColors(
+                  baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+                  highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
+                  child: Container(
+                    height: 0.0148*height,
+                    width: 0.75*width,
+                    decoration: BoxDecoration(
+                      color: isDark ? Colors.black: Colors.grey,
+                      borderRadius: BorderRadius.circular(4),
                     ),
                   ),
-                  Shimmer.fromColors(
-                    baseColor: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black26
-                        : Colors.grey[300]!,
-                    highlightColor: Theme.of(context).brightness.name == 'dark'
-                        ? Colors.black12
-                        : Colors.grey[200]!,
-                    child: Container(
-                      height: 11,
-                      width: 280,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).brightness.name == 'dark'
-                            ? Colors.black
-                            : Colors.grey,
-                        borderRadius: BorderRadius.circular(3),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 280,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Shimmer.fromColors(
-                          baseColor: Theme.of(context).brightness.name == 'dark'
-                              ? Colors.black26
-                              : Colors.grey[300]!,
-                          highlightColor:
-                              Theme.of(context).brightness.name == 'dark'
-                                  ? Colors.black12
-                                  : Colors.grey[200]!,
-                          child: Container(
-                            height: 8,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).brightness.name == 'dark'
-                                  ? Colors.black
-                                  : Colors.grey,
-                              borderRadius: BorderRadius.circular(2),
-                            ),
+                ),
+                SizedBox(
+                  width: 0.75*width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Shimmer.fromColors(
+                        baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+                        highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
+                        child: Container(
+                          height: 0.012*height,
+                          width: 0.24*width,
+                          decoration: BoxDecoration(
+                            color: isDark ? Colors.black: Colors.grey,
+                            borderRadius: BorderRadius.circular(2.3),
                           ),
                         ),
-                        Shimmer.fromColors(
-                          baseColor: Theme.of(context).brightness.name == 'dark'
-                              ? Colors.black26
-                              : Colors.grey[300]!,
-                          highlightColor:
-                              Theme.of(context).brightness.name == 'dark'
-                                  ? Colors.black12
-                                  : Colors.grey[200]!,
-                          child: Container(
-                            height: 8,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).brightness.name == 'dark'
-                                  ? Colors.black
-                                  : Colors.grey,
-                              borderRadius: BorderRadius.circular(2),
-                            ),
+                      ),
+                      Shimmer.fromColors(
+                        baseColor: isDark ? Colors.black26: Colors.grey[300]!,
+                        highlightColor: isDark ? Colors.black12: Colors.grey[200]!,
+                        child: Container(
+                          height: 0.012*height,
+                          width: 0.19*width,
+                          decoration: BoxDecoration(
+                            color: isDark ? Colors.black: Colors.grey,
+                            borderRadius: BorderRadius.circular(2.3),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    ),
+  );
 }
