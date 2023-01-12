@@ -57,7 +57,7 @@ class ArticleBody extends StatelessWidget {
                 ),
                 child: Container(
                   constraints: BoxConstraints(
-                    maxHeight: SizeConfig.safeBlockVertical! * 80,
+                    //maxHeight: SizeConfig.safeBlockVertical! * 80,
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
@@ -73,12 +73,15 @@ class ArticleBody extends StatelessWidget {
                       if (loadingProgress == null) {
                         return child;
                       }
-                      return Center(
-                        child: CircularProgressIndicator(
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes!
-                              : null,
+                      return SizedBox(
+                        height: SizeConfig.safeBlockVertical! * 25,
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                                : null,
+                          ),
                         ),
                       );
                     },
