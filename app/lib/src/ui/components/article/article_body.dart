@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/content/content.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/constants/media_stores.dart';
+import 'package:mondaymorning/src/ui/components/article/article_image_view.dart';
 import 'package:mondaymorning/src/ui/components/article/article_table.dart';
 import 'package:mondaymorning/src/ui/components/article/markdown_text.dart';
 
@@ -50,38 +51,42 @@ class ArticleBody extends StatelessWidget {
                 child: MarkdownText(text: '### ${content[index].text}'),
               );
             case 'IMAGE':
-              // TODO: add feature to show fullscreen on click with zoom facility etc
               return Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: SizeConfig.safeBlockVertical! * 2,
                 ),
-                child: Container(
-                  constraints: BoxConstraints(
-                    maxHeight: SizeConfig.safeBlockVertical! * 80,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                      SizeConfig.safeBlockHorizontal! * 2,
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleImageView(image: '${MediaStores.stores[content[index].media!.store]!}${Uri.encodeFull(content[index].media!.storePath)}')));
+                  },
+                  child: Container(
+                    constraints: BoxConstraints(
+                      maxHeight: SizeConfig.safeBlockVertical! * 80,
                     ),
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  child: Image.network(
-                    '${MediaStores.stores[content[index].media!.store]!}${Uri.encodeFull(content[index].media!.storePath)}',
-                    fit: BoxFit.contain,
-                    alignment: Alignment.center,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) {
-                        return child;
-                      }
-                      return Center(
-                        child: CircularProgressIndicator(
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes!
-                              : null,
-                        ),
-                      );
-                    },
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        SizeConfig.safeBlockHorizontal! * 2,
+                      ),
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                    child: Image.network(
+                      '${MediaStores.stores[content[index].media!.store]!}${Uri.encodeFull(content[index].media!.storePath)}',
+                      fit: BoxFit.contain,
+                      alignment: Alignment.center,
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
+                        return Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                                : null,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               );
