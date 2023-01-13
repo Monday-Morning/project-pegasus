@@ -5,6 +5,7 @@ import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/states/article_page/article_page_data_type.dart';
 import 'package:mondaymorning/src/store/states/article_page/article_page_provider.dart';
 import 'package:mondaymorning/src/ui/screens/article_screen.dart';
+import 'package:mondaymorning/src/ui/screens/full_article_loading_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_error_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_loading_screen.dart';
 
@@ -21,7 +22,7 @@ class ArticlePage extends ConsumerWidget {
       initialData: null,
       builder: (BuildContext context, AsyncSnapshot<ArticlePageData> snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
-          return FullLoadingScreen();
+          return ArticleShimmerLoadingScreen();
         }
         if (snapshot.hasError || !snapshot.hasData) {
           if (kDebugMode) {
