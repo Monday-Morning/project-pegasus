@@ -18,7 +18,7 @@ class MainCategoriesGrid extends StatelessWidget {
           children: [
             BigCategoryCard(
               image:
-                  'assets/images/light/campus.svg',
+                  'assets/images/common_images/campus.svg',
               title: 'Campus',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -28,7 +28,7 @@ class MainCategoriesGrid extends StatelessWidget {
             ),
             BigCategoryCard(
               image:
-                  'assets/images/light/connect.svg',
+                  'assets/images/common_images/connect.svg',
               title: 'Connect',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -38,7 +38,7 @@ class MainCategoriesGrid extends StatelessWidget {
             ),
             BigCategoryCard(
               image:
-                  'assets/images/light/ddandcwc.svg',
+                  'assets/images/common_images/ddandcwc.svg',
               title: 'DD & CWC',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -52,7 +52,7 @@ class MainCategoriesGrid extends StatelessWidget {
         Row(
           children: [
             BigCategoryCard(
-              image: 'assets/images/light/career.svg',
+              image: 'assets/images/common_images/career.svg',
               title: 'Career',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -61,7 +61,7 @@ class MainCategoriesGrid extends StatelessWidget {
               },
             ),
             BigCategoryCard(
-              image: 'assets/images/light/alumni.svg',
+              image: 'assets/images/common_images/alumni.svg',
               title: 'Alumni',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -70,7 +70,7 @@ class MainCategoriesGrid extends StatelessWidget {
               },
             ),
             BigCategoryCard(
-              image: 'assets/images/light/expression.svg',
+              image: 'assets/images/common_images/expression.svg',
               title: 'Expression',
               onCardTap: () {
                 AutoRouter.of(context).push(

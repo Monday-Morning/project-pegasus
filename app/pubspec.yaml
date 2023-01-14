@@ -52,6 +52,7 @@ flutter:
     # - assets/i18n/
     - assets/images/light/
     - assets/images/dark/
+    - assets/images/common_images/
     - assets/fonts/
   fonts:
     - family: IBMPlexSans
