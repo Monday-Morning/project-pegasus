@@ -62,6 +62,7 @@ class ArticleBody extends StatelessWidget {
                   child: Container(
                     constraints: BoxConstraints(
                       //maxHeight: SizeConfig.safeBlockVertical! * 80,
+                      // Removed Constrains of the image box for new image viewer commit
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
