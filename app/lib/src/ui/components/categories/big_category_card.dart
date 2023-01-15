@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 
@@ -30,6 +31,7 @@ class BigCategoryCard extends StatelessWidget {
                   Theme.of(context).extension<REMSpace>()!.get(1)),
             ),
             child: InkWell(
+              highlightColor: Color(0x413ea2b6),
               onTap: onCardTap,
               child: Padding(
                 padding: EdgeInsets.symmetric(
@@ -44,7 +46,7 @@ class BigCategoryCard extends StatelessWidget {
                           aspectRatio: 1 / 1,
                           child: Container(
                             constraints: const BoxConstraints.expand(),
-                            child: Image.asset(
+                            child: SvgPicture.asset(
                               image,
                             ),
                           ),
