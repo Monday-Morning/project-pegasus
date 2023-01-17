@@ -3,7 +3,7 @@ description: The cross-platform Mobile Application for Monday Morning under Proj
 
 publish_to: 'none'
 
-version: 3.0.0+27
+version: 3.0.1+28
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -55,76 +55,6 @@ flutter:
     - assets/images/dark/
     - assets/images/common_images/
     - assets/fonts/
-  fonts:
-    - family: IBMPlexSans
-      fonts:
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-Thin.ttf
-          weight: 100
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-ThinItalic.ttf
-          weight: 100
-          style: italic
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-ExtraLight.ttf
-          weight: 200
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-ExtraLightItalic.ttf
-          weight: 200
-          style: italic
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-Light.ttf
-          weight: 300
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-LightItalic.ttf
-          weight: 300
-          style: italic
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-Italic.ttf
-          weight: 400
-          style: italic
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-MediumItalic.ttf
-          weight: 500
-          style: italic
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-SemiBoldItalic.ttf
-          weight: 600
-          style: italic
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/ibm_plex_sans/IBMPlexSans-BoldItalic.ttf
-          weight: 700
-          style: italic
-    - family: SourceSansPro
-      fonts:
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-ExtraLight.ttf
-          weight: 200
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-ExtraLightItalic.ttf
-          weight: 200
-          style: italic
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-Light.ttf
-          weight: 300
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-LightItalic.ttf
-          weight: 300
-          style: italic
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-Italic.ttf
-          weight: 400
-          style: italic
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-SemiBoldItalic.ttf
-          weight: 600
-          style: italic
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-BoldItalic.ttf
-          weight: 700
-          style: italic
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-Black.ttf
-          weight: 900
-        - asset: assets/fonts/source_sans_pro/SourceSansPro-BlackItalic.ttf
-          weight: 900
-          style: italic
 
 flutter_icons:
   android: true
