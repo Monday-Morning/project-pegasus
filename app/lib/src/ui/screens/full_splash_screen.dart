@@ -17,7 +17,7 @@ class _FullSplashScreenState extends State<FullSplashScreen> {
         height: MediaQuery.of(context).size.height,
         child: Image.asset(
           'assets/images/${Theme.of(context).brightness.name}/splash.gif',
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         ),
       ),
     );
