@@ -3,7 +3,7 @@ description: The cross-platform Mobile Application for Monday Morning under Proj
 
 publish_to: 'none'
 
-version: 3.0.1+28
+version: 3.0.2+29
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
