@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/Monday-Morning/project-tahiti">
+  <a href="https://github.com/Monday-Morning/project-pegasus">
     <img src="repoImages/logo.png" alt="Monday Morning Logo" width="130">
   </a>
 
@@ -153,16 +153,3 @@ Distributed under the MIT License. See [`License`](license-url) for more informa
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/Monday-Morning/project-tahiti?style=for-the-badge
-[contributors-url]: https://github.com/Monday-Morning/project-tahiti/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Monday-Morning/project-tahiti?style=for-the-badge
-[forks-url]: https://github.com/Monday-Morning/project-tahiti/network/members
-[stars-shield]: https://img.shields.io/github/stars/Monday-Morning/project-tahiti?style=for-the-badge
-[stars-url]: https://github.com/Monday-Morning/project-tahiti/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Monday-Morning/project-tahiti?style=for-the-badge
-[issues-url]: https://github.com/Monday-Morning/project-tahiti/issues
-[license-shield]: https://img.shields.io/github/license/Monday-Morning/project-tahiti?style=for-the-badge
-[license-url]: https://github.com/Monday-Morning/project-tahiti/blob/main/LICENSE.txt
-[home-screen]: repoImages/homeScreen.png
-[repo-cover]: repoImages/cover.png
-[repo-logo]: repoImages/logo.png
