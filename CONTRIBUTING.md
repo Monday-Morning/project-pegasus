@@ -77,5 +77,5 @@ $ git pull upstream
 $ git push origin
 ```
 
-- Always follow [commit message standards](https://chris.beams.io/posts/git-commit/)
+- Always follow [commit message standards](https://www.conventionalcommits.org/en/v1.0.0/)
 - About the [fork-and-branch workflow](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/)
