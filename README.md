@@ -61,14 +61,14 @@
 
 ## About Monday Morning
 
-[![Monday Morning][repo-cover]](https://mondaymorning.nitrkl.ac.in)
+[![Monday Morning](./repoImages/Cover.png)](https://mondaymorning.nitrkl.ac.in)
 
 Monday Morning is the student media body of National Institute of Technology, Rourkela. Since its inception in 2006, it has constantly served as a vital link between the student community and the administration. The weekly e-newsletter serves as a news feed for the students, professors and alumni of the institute, featuring campus activities, department updates, recruitment information, SAC happenings, alumni news, weekly polls and interviews of the Director, Chief Warden, professors, distinguished alumni and dignitaries and exceptional students. Apart from the online weekly edition, Monday Morning also publishes print editions and organises the Open House Discussion.
 
 ## About the Project
 
 <p float="center">
-  <img src="./repoImages/splash.png" width="19%" />
+  <img src="./app/assets/images/dark/splash.gif" width="19%" />
   <img src="./repoImages/home.png" width="19%" />
   <img src="./repoImages/categories.png" width="19%" />
   <img src="./repoImages/more.png" width="19%" />
@@ -90,7 +90,7 @@ Following technologies and libraries are used for the development of this websit
 - [Riverpod](https://riverpod.dev/)
 - [Firebase](https://firebase.google.com/)
 - [GraphQL](https://graphql.org/)
-- [Apollo Client](https://www.apollographql.com/docs/react/)
+- [graphql_flutter](https://pub.dev/packages/graphql_flutter)
 
 ## Getting Started
 
@@ -137,7 +137,19 @@ Please refer to the project's style and contribution guidelines for submitting p
     - From Android Studio/IntelliJ: **Click Packages get** in the action ribbon at the top of `pubspec.yaml`.
     - From VS Code: **Click Get Packages** located in right side of the action ribbon at the top of `pubspec.yaml`.
 
+4. **Configure**
 
+    Make sure you are in the `project-pegasus/app` directory
+
+    - Activate FlutterFire by running `dart pub global activate flutterfire_cli`.
+    - Configure the project by running `dart pub global run flutterfire_cli:flutterfire configure`.
+    - You can use [firebase emulator](https://firebase.google.com/docs/emulator-suite/) to run the project.
+
+5. **Build**
+
+    To build the project run `flutter pub run build_runner build`.
+    
+    
 ### Run the App
 
   On terminal:
