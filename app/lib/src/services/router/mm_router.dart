@@ -82,6 +82,10 @@ part 'mm_router.gr.dart';
       name: 'ArticleRoute',
       page: ArticlePage,
     ),
+    RedirectRoute(
+      path: 'article/:articleId/:articleSlug',
+      redirectTo: 'article/:articleId',
+    ),
     AutoRoute<dynamic>(
       path: ':category',
       name: 'CategoryRoute',
