@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,7 +13,10 @@ import 'package:mondaymorning/src/ui/screens/full_loading_screen.dart';
 class ArticlePage extends ConsumerWidget {
   final String articleId;
 
-  const ArticlePage({super.key, required this.articleId});
+  const ArticlePage({
+    super.key,
+    @PathParam('articleId') required this.articleId,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

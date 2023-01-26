@@ -60,6 +60,6 @@ Future<AppConfig> getAppConfig(AppConfigRef ref) async {
         : themeMode == 'dark'
             ? ThemeMode.dark
             : ThemeMode.system,
-    initialUrl,
+    initialUrl?.replaceFirst('https://mondaymorning.nitrkl.ac.in/', ''),
   );
 }

@@ -39,8 +39,8 @@ class ProjectPegasus extends ConsumerWidget {
             debugShowCheckedModeBanner: false,
             routeInformationParser: mmRouter.defaultRouteParser(),
             routerDelegate: mmRouter.delegate(
-                // initialDeepLink: snapshot.data!.initialUrl,
-                ),
+              initialDeepLink: snapshot.data!.initialUrl,
+            ),
           );
         }
         return SplashPage();
