@@ -15,51 +15,75 @@ import 'package:uni_links/uni_links.dart';
 part 'app_config_provider.g.dart';
 
 @riverpod
-Future<AppConfig> appConfig(AppConfigRef ref) async {
-  List<AppConfig?> appConfig = await Future.wait<AppConfig?>(
-      [getAppConfig(ref), Future.delayed(Duration(seconds: 5), () => null)]);
-  return appConfig.first!;
-}
+class AppConfigProvider extends _$AppConfigProvider {
+  Future<AppConfig> getAppConfig() async {
+    FirebaseApp firebaseApp = await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform);
 
-Future<AppConfig> getAppConfig(AppConfigRef ref) async {
-  FirebaseApp firebaseApp = await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform);
+    if (kDebugMode) {
+      await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
+      await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(false);
+      await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+    } else {
+      await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+      await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
+      FlutterError.onError =
+          FirebaseCrashlytics.instance.recordFlutterFatalError;
+    }
 
-  if (kDebugMode) {
-    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
-    await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(false);
-    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-  } else {
-    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-    await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    // TODO: Setup firebase app check
+    // await FirebaseAppCheck.instance.activate(
+    //   webRecaptchaSiteKey: 'web-captcha-key',
+    // );
+
+    await GraphQLService().init();
+
+    GoogleFonts.config.allowRuntimeFetching = false;
+
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? themeMode = prefs.getString('preffered_app_theme_mode');
+
+    if (kDebugMode) {
+      await Future.delayed(const Duration(seconds: 3), () => {});
+    }
+
+    String? initialUrl = await getInitialLink();
+
+    return AppConfig().init(
+      firebaseApp,
+      themeMode == 'light'
+          ? ThemeMode.light
+          : themeMode == 'dark'
+              ? ThemeMode.dark
+              : ThemeMode.system,
+      initialUrl,
+    );
   }
 
-  // TODO: Setup firebase app check
-  // await FirebaseAppCheck.instance.activate(
-  //   webRecaptchaSiteKey: 'web-captcha-key',
-  // );
-
-  await GraphQLService().init();
-
-  GoogleFonts.config.allowRuntimeFetching = false;
-
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  final String? themeMode = prefs.getString('preffered_app_theme_mode');
-
-  if (kDebugMode) {
-    await Future.delayed(const Duration(seconds: 3), () => {});
+  @override
+  FutureOr<AppConfig> build() async {
+    List<AppConfig?> appConfig = await Future.wait<AppConfig?>(
+        [getAppConfig(), Future.delayed(Duration(seconds: 5), () => null)]);
+    return appConfig.first!;
   }
 
-  String? initialUrl = await getInitialLink();
+  Future<void> toggleAppTheme(ThemeMode themeMode) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('preffered_app_theme_mode', themeMode.name);
 
-  return AppConfig().init(
-    firebaseApp,
-    themeMode == 'light'
-        ? ThemeMode.light
-        : themeMode == 'dark'
-            ? ThemeMode.dark
-            : ThemeMode.system,
-    initialUrl?.replaceFirst('https://mondaymorning.nitrkl.ac.in/', ''),
-  );
+    state = await AsyncValue.guard(() async {
+      return AppConfig().init(
+        state.value!.firebaseApp,
+        themeMode,
+        state.value!.initialUrl,
+      );
+    });
+  }
 }
+
+// @riverpod
+// Future<AppConfig> appConfig(AppConfigRef ref) async {
+//   List<AppConfig?> appConfig = await Future.wait<AppConfig?>(
+//       [getAppConfig(ref), Future.delayed(Duration(seconds: 5), () => null)]);
+//   return appConfig.first!;
+// }

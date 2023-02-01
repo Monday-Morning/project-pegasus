@@ -1,9 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
+import 'package:mondaymorning/src/store/states/app_config/app_config_provider.dart';
 import 'package:mondaymorning/src/ui/components/more/widgets/tile_widget.dart';
 
 class MoreCard {
@@ -14,7 +16,7 @@ class MoreCard {
 }
 
 /// More Screen of the app.
-class MoreScreen extends StatelessWidget {
+class MoreScreen extends ConsumerWidget {
   final List<MoreCard> data = [
     MoreCard('Bookmarks', Icons.bookmark_border_outlined, ComingSoonRoute()),
     MoreCard('Password Change', Icons.password_outlined, ComingSoonRoute()),
@@ -28,7 +30,7 @@ class MoreScreen extends StatelessWidget {
   MoreScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(10),
@@ -55,6 +57,18 @@ class MoreScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
+                    TileWidget(
+                        feature: 'Dark Mode Toggle',
+                        icon: Icons.dark_mode,
+                        onTileTap: () {
+                          ref
+                              .read(appConfigProviderProvider.notifier)
+                              .toggleAppTheme(ThemeMode.light);
+                        }),
+                    Divider(
+                      height: 1.0,
+                      color: MMColors.kDividerColor,
+                    ),
                     ListView.separated(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
