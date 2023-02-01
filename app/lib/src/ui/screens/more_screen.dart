@@ -57,14 +57,51 @@ class MoreScreen extends ConsumerWidget {
                 ),
                 child: Column(
                   children: [
-                    TileWidget(
-                        feature: 'Dark Mode Toggle',
-                        icon: Icons.dark_mode,
-                        onTileTap: () {
-                          ref
-                              .read(appConfigProviderProvider.notifier)
-                              .toggleAppTheme(ThemeMode.light);
-                        }),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.safeBlockHorizontal!,
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: SizeConfig.safeBlockVertical! * 0.1,
+                        horizontal: SizeConfig.safeBlockHorizontal! * 2,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(width: SizeConfig.safeBlockHorizontal!),
+                              Icon(Icons.dark_mode_outlined,
+                                  size: SizeConfig.safeBlockHorizontal! * 6),
+                              SizedBox(
+                                  width: SizeConfig.safeBlockHorizontal! * 3),
+                              Text(
+                                'Dark Mode',
+                                style: Theme.of(context).textTheme.bodyText1,
+                              ),
+                            ],
+                          ),
+                          Switch(
+                            value: Theme.of(context).brightness ==
+                                Brightness.light,
+                            onChanged: (enabled) {
+                              if (enabled) {
+                                ref
+                                    .read(appConfigProviderProvider.notifier)
+                                    .toggleAppTheme(ThemeMode.light);
+                              } else {
+                                ref
+                                    .read(appConfigProviderProvider.notifier)
+                                    .toggleAppTheme(ThemeMode.dark);
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Divider(
                       height: 1.0,
                       color: MMColors.kDividerColor,
