@@ -83,16 +83,16 @@ class MoreScreen extends ConsumerWidget {
                           ),
                           Switch(
                             value: Theme.of(context).brightness ==
-                                Brightness.light,
+                                Brightness.dark,
                             onChanged: (enabled) {
                               if (enabled) {
                                 ref
                                     .read(appConfigProviderProvider.notifier)
-                                    .toggleAppTheme(ThemeMode.light);
+                                    .toggleAppTheme(ThemeMode.dark);
                               } else {
                                 ref
                                     .read(appConfigProviderProvider.notifier)
-                                    .toggleAppTheme(ThemeMode.dark);
+                                    .toggleAppTheme(ThemeMode.light);
                               }
                             },
                           ),

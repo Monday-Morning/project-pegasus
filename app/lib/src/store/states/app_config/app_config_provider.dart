@@ -80,10 +80,3 @@ class AppConfigProvider extends _$AppConfigProvider {
     });
   }
 }
-
-// @riverpod
-// Future<AppConfig> appConfig(AppConfigRef ref) async {
-//   List<AppConfig?> appConfig = await Future.wait<AppConfig?>(
-//       [getAppConfig(ref), Future.delayed(Duration(seconds: 5), () => null)]);
-//   return appConfig.first!;
-// }
