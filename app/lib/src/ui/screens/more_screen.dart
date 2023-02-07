@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/states/app_config/app_config_provider.dart';
 import 'package:mondaymorning/src/ui/components/more/widgets/tile_widget.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 class MoreCard {
   final String feature;
@@ -42,18 +44,63 @@ class MoreScreen extends ConsumerWidget {
             ),
           ),
           body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              ToggleSwitch(
+                minWidth: SizeConfig.safeBlockHorizontal! * 100,
+                minHeight: SizeConfig.safeBlockVertical! * 5,
+                initialLabelIndex:
+                    Theme.of(context).brightness == Brightness.light
+                        ? 1
+                        : Theme.of(context).brightness == Brightness.dark
+                            ? 2
+                            : 0,
+                cornerRadius: 10,
+                activeFgColor: Theme.of(context).backgroundColor,
+                inactiveBgColor: Theme.of(context).backgroundColor,
+                inactiveFgColor: Theme.of(context).textTheme.bodyText1!.color,
+                totalSwitches: 3,
+                dividerColor: Theme.of(context).dividerColor,
+                labels: ['System', 'Light', 'Dark'],
+                icons: [
+                  Icons.settings_brightness_outlined,
+                  Icons.light_mode_outlined,
+                  Icons.dark_mode_outlined
+                ],
+                iconSize: SizeConfig.safeBlockHorizontal! * 6,
+                borderWidth: 1.0,
+                borderColor: [Theme.of(context).dividerColor],
+                activeBgColors: [
+                  [Theme.of(context).textTheme.bodyText1!.color!],
+                  [Theme.of(context).textTheme.bodyText1!.color!],
+                  [Theme.of(context).textTheme.bodyText1!.color!]
+                ],
+                onToggle: (index) {
+                  if (index == 0) {
+                    ref
+                        .read(appConfigProviderProvider.notifier)
+                        .toggleAppTheme(ThemeMode.system);
+                  } else if (index == 1) {
+                    ref
+                        .read(appConfigProviderProvider.notifier)
+                        .toggleAppTheme(ThemeMode.light);
+                  } else if (index == 2) {
+                    ref
+                        .read(appConfigProviderProvider.notifier)
+                        .toggleAppTheme(ThemeMode.dark);
+                  }
+                },
+              ),
               Container(
                 margin: EdgeInsets.symmetric(
                   horizontal: SizeConfig.safeBlockHorizontal! * 0.5,
+                  vertical: SizeConfig.safeBlockVertical!,
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     Theme.of(context).extension<REMSpace>()!.get(1),
                   ),
-                  border: Border.all(color: MMColors.kDividerColor, width: 1),
+                  border: Border.all(
+                      color: Theme.of(context).dividerColor, width: 1),
                 ),
                 child: Column(
                   children: [
@@ -82,8 +129,8 @@ class MoreScreen extends ConsumerWidget {
                             ],
                           ),
                           Switch(
-                            value: Theme.of(context).brightness ==
-                                Brightness.dark,
+                            value:
+                                Theme.of(context).brightness == Brightness.dark,
                             onChanged: (enabled) {
                               if (enabled) {
                                 ref
@@ -104,7 +151,7 @@ class MoreScreen extends ConsumerWidget {
                     ),
                     Divider(
                       height: 1.0,
-                      color: MMColors.kDividerColor,
+                      color: Theme.of(context).dividerColor,
                     ),
                     ListView.separated(
                       scrollDirection: Axis.vertical,
@@ -123,7 +170,7 @@ class MoreScreen extends ConsumerWidget {
                       separatorBuilder: (context, index) {
                         return Divider(
                           height: 1.0,
-                          color: MMColors.kDividerColor,
+                          color: Theme.of(context).dividerColor,
                         );
                       },
                       itemCount: data.length,

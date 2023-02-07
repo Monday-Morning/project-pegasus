@@ -28,6 +28,7 @@ dependencies:
   material_design_icons_flutter: ^6.0.7096
   moment_dart: ^0.10.4
   riverpod_annotation: ^1.0.4
+  toggle_switch: ^2.0.1
   shared_preferences: ^2.0.15
   uni_links: ^0.5.1
   url_launcher: ^6.1.7
