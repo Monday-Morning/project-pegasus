@@ -7,6 +7,7 @@ import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/states/app_config/app_config_provider.dart';
+import 'package:mondaymorning/src/ui/components/more/widgets/dropdown_tile_widget.dart';
 import 'package:mondaymorning/src/ui/components/more/widgets/tile_widget.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -19,6 +20,7 @@ class MoreCard {
 
 /// More Screen of the app.
 class MoreScreen extends ConsumerWidget {
+  // TODO: refactor this to contain list of widgets instead of a morecard class. Iterate and render elements directly.
   final List<MoreCard> data = [
     MoreCard('Bookmarks', Icons.bookmark_border_outlined, ComingSoonRoute()),
     MoreCard('Password Change', Icons.password_outlined, ComingSoonRoute()),
@@ -45,51 +47,6 @@ class MoreScreen extends ConsumerWidget {
           ),
           body: Column(
             children: [
-              ToggleSwitch(
-                minWidth: SizeConfig.safeBlockHorizontal! * 100,
-                minHeight: SizeConfig.safeBlockVertical! * 5,
-                initialLabelIndex:
-                    Theme.of(context).brightness == Brightness.light
-                        ? 1
-                        : Theme.of(context).brightness == Brightness.dark
-                            ? 2
-                            : 0,
-                cornerRadius: 10,
-                activeFgColor: Theme.of(context).backgroundColor,
-                inactiveBgColor: Theme.of(context).backgroundColor,
-                inactiveFgColor: Theme.of(context).textTheme.bodyText1!.color,
-                totalSwitches: 3,
-                dividerColor: Theme.of(context).dividerColor,
-                labels: ['System', 'Light', 'Dark'],
-                icons: [
-                  Icons.settings_brightness_outlined,
-                  Icons.light_mode_outlined,
-                  Icons.dark_mode_outlined
-                ],
-                iconSize: SizeConfig.safeBlockHorizontal! * 6,
-                borderWidth: 1.0,
-                borderColor: [Theme.of(context).dividerColor],
-                activeBgColors: [
-                  [Theme.of(context).textTheme.bodyText1!.color!],
-                  [Theme.of(context).textTheme.bodyText1!.color!],
-                  [Theme.of(context).textTheme.bodyText1!.color!]
-                ],
-                onToggle: (index) {
-                  if (index == 0) {
-                    ref
-                        .read(appConfigProviderProvider.notifier)
-                        .toggleAppTheme(ThemeMode.system);
-                  } else if (index == 1) {
-                    ref
-                        .read(appConfigProviderProvider.notifier)
-                        .toggleAppTheme(ThemeMode.light);
-                  } else if (index == 2) {
-                    ref
-                        .read(appConfigProviderProvider.notifier)
-                        .toggleAppTheme(ThemeMode.dark);
-                  }
-                },
-              ),
               Container(
                 margin: EdgeInsets.symmetric(
                   horizontal: SizeConfig.safeBlockHorizontal! * 0.5,
@@ -104,47 +61,59 @@ class MoreScreen extends ConsumerWidget {
                 ),
                 child: Column(
                   children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.safeBlockHorizontal!,
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: SizeConfig.safeBlockVertical! * 0.1,
-                        horizontal: SizeConfig.safeBlockHorizontal! * 2,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SizedBox(width: SizeConfig.safeBlockHorizontal!),
-                              Icon(Icons.dark_mode_outlined,
-                                  size: SizeConfig.safeBlockHorizontal! * 6),
-                              SizedBox(
-                                  width: SizeConfig.safeBlockHorizontal! * 3),
-                              Text(
-                                'Dark Mode',
-                                style: Theme.of(context).textTheme.bodyText1,
-                              ),
-                            ],
-                          ),
-                          Switch(
-                            value:
-                                Theme.of(context).brightness == Brightness.dark,
-                            onChanged: (enabled) {
-                              if (enabled) {
-                                ref
-                                    .read(appConfigProviderProvider.notifier)
-                                    .toggleAppTheme(ThemeMode.dark);
-                              } else {
-                                ref
-                                    .read(appConfigProviderProvider.notifier)
-                                    .toggleAppTheme(ThemeMode.light);
-                              }
-                            },
-                          ),
-                        ],
-                      ),
+                    DropdownTileWidget(
+                      feature: 'Theme Mode',
+                      icon: Icons.dark_mode_outlined,
+                      dropdownItems: <DropdownItem>[
+                        DropdownItem(
+                          feature: 'System',
+                          icon: Icons.settings_brightness_outlined,
+                          actionIcon: ref
+                                      .read(appConfigProviderProvider.notifier)
+                                      .appConfig
+                                      ?.themeMode !=
+                                  ThemeMode.system
+                              ? Icons.radio_button_off_outlined
+                              : Icons.radio_button_on_outlined,
+                          onTileTap: () {
+                            ref
+                                .read(appConfigProviderProvider.notifier)
+                                .toggleAppTheme(ThemeMode.system);
+                          },
+                        ),
+                        DropdownItem(
+                          feature: 'Light',
+                          icon: Icons.light_mode_outlined,
+                          actionIcon: ref
+                                      .read(appConfigProviderProvider.notifier)
+                                      .appConfig
+                                      ?.themeMode !=
+                                  ThemeMode.light
+                              ? Icons.radio_button_off_outlined
+                              : Icons.radio_button_on_outlined,
+                          onTileTap: () {
+                            ref
+                                .read(appConfigProviderProvider.notifier)
+                                .toggleAppTheme(ThemeMode.light);
+                          },
+                        ),
+                        DropdownItem(
+                          feature: 'Dark',
+                          icon: Icons.dark_mode_outlined,
+                          actionIcon: ref
+                                      .read(appConfigProviderProvider.notifier)
+                                      .appConfig
+                                      ?.themeMode !=
+                                  ThemeMode.dark
+                              ? Icons.radio_button_off_outlined
+                              : Icons.radio_button_on_outlined,
+                          onTileTap: () {
+                            ref
+                                .read(appConfigProviderProvider.notifier)
+                                .toggleAppTheme(ThemeMode.dark);
+                          },
+                        ),
+                      ],
                     ),
                     SizedBox(
                       width: 10,

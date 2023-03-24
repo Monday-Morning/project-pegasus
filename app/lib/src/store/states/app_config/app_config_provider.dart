@@ -67,6 +67,8 @@ class AppConfigProvider extends _$AppConfigProvider {
     return appConfig.first!;
   }
 
+  AppConfig? get appConfig => state.valueOrNull;
+
   Future<void> toggleAppTheme(ThemeMode themeMode) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('preffered_app_theme_mode', themeMode.name);
