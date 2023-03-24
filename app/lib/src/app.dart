@@ -7,7 +7,6 @@ import 'package:mondaymorning/src/pages/splash_page.dart';
 import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/index.dart';
 import 'package:mondaymorning/src/store/states/app_config/app_config_provider.dart';
-import 'package:mondaymorning/src/store/states/app_config/app_config_type.dart';
 
 class ProjectPegasus extends ConsumerWidget {
   ProjectPegasus({super.key});
@@ -20,30 +19,31 @@ class ProjectPegasus extends ConsumerWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return FutureBuilder<AppConfig>(
-      future: ref.watch(appConfigProvider.future),
-      builder: (BuildContext context, AsyncSnapshot<AppConfig> snapshot) {
-        if (snapshot.hasError) {
-          if (kDebugMode) {
-            print(snapshot.error);
-          }
-          return FullErrorPage();
-        }
-        if (snapshot.hasData) {
-          return MaterialApp.router(
-            title: 'MondayMorning',
-            themeMode: snapshot.data!.themeMode,
-            // themeMode: ThemeMode.dark,
-            theme: MMTheme.materialLight,
-            darkTheme: MMTheme.materialDark,
-            debugShowCheckedModeBanner: false,
-            routeInformationParser: mmRouter.defaultRouteParser(),
-            routerDelegate: mmRouter.delegate(
-              initialDeepLink: snapshot.data!.initialUrl,
-            ),
-          );
-        }
+    final appConfigProvider = ref.watch(appConfigProviderProvider);
+
+    return appConfigProvider.when(
+      loading: () {
         return SplashPage();
+      },
+      error: (error, stackTrace) {
+        if (kDebugMode) {
+          print(error);
+        }
+        return FullErrorPage();
+      },
+      data: (data) {
+        return MaterialApp.router(
+          title: 'MondayMorning',
+          themeMode: data.themeMode,
+          // themeMode: ThemeMode.dark,
+          theme: MMTheme.materialLight,
+          darkTheme: MMTheme.materialDark,
+          debugShowCheckedModeBanner: false,
+          routeInformationParser: mmRouter.defaultRouteParser(),
+          routerDelegate: mmRouter.delegate(
+              // initialDeepLink: snapshot.data!.initialUrl,
+              ),
+        );
       },
     );
   }

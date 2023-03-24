@@ -221,7 +221,7 @@ class AppTheme {
         // dialogBackgroundColor: backgroundColor,
         // disabledColor: backgroundColor,
         dividerColor:
-            themeMode == ThemeMode.dark ? Colors.grey[100] : Colors.black,
+            themeMode == ThemeMode.dark ? MMColors.kDividerColor : Colors.black,
         // errorColor: accentColor!,
         highlightColor:
             themeMode == ThemeMode.dark ? primaryColor! : Colors.black,

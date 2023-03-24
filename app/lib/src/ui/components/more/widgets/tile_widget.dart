@@ -7,11 +7,12 @@ class TileWidget extends StatelessWidget {
   final IconData icon;
   final void Function() onTileTap;
 
-  const TileWidget(
-      {super.key,
-      required this.feature,
-      required this.icon,
-      required this.onTileTap});
+  const TileWidget({
+    super.key,
+    required this.feature,
+    required this.icon,
+    required this.onTileTap,
+  });
 
   @override
   Widget build(BuildContext context) {
