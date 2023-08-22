@@ -156,7 +156,7 @@ class ArticleBody extends StatelessWidget {
                 ),
                 child: Text(
                   '-----\n${content[index].contentType}: ${content[index].text}\n-----',
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               );
           }

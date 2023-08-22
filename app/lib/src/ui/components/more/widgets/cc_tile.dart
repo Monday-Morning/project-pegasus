@@ -17,7 +17,7 @@ class CCTile extends StatelessWidget {
       children: [
         Text(
           name,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         GestureDetector(
           onTap: () {
@@ -25,7 +25,7 @@ class CCTile extends StatelessWidget {
           },
           child: Text(
             number,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         GestureDetector(

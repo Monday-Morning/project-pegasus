@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/more/about/cc_card.dart';
@@ -5,6 +6,7 @@ import 'package:mondaymorning/src/ui/components/more/about/email_card.dart';
 import 'package:mondaymorning/src/ui/components/more/about/map_card.dart';
 import 'package:mondaymorning/src/ui/components/more/about/social_card.dart';
 
+@RoutePage(name: 'AboutRoute')
 class AboutMMScreen extends StatelessWidget {
   const AboutMMScreen({Key? key}) : super(key: key);
 
@@ -14,7 +16,7 @@ class AboutMMScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'About and Contact Us',
-          style: Theme.of(context).textTheme.headline2,
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         elevation: 0,
       ),
@@ -28,7 +30,7 @@ class AboutMMScreen extends StatelessWidget {
               ),
               child: Text(
                 'Monday Morning is the official student media body of National Institute of Technology, Rourkela. Ever since its inception in 2006, it has been serving as a vital link between student community and the administration by being the featured news feed for the students, professors, and alumni, about campus activities, department updates, recruitment information, SAC happenings, fest coverage, alumni news, weekly polls and interviews with the Director, Chief Warden, Professors, distinguished alumni and dignitaries, and exceptional students. ',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
             SizedBox(height: SizeConfig.safeBlockVertical! * 2),

@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
-import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/constants/categories.dart';
 import 'package:mondaymorning/src/ui/components/article/small_article_card.dart';
+
+import '../../../services/router/mm_router.gr.dart';
 
 class SubCategorySection extends StatelessWidget {
   const SubCategorySection(
@@ -34,7 +35,7 @@ class SubCategorySection extends StatelessWidget {
             children: [
               Text(
                 Categories.allCategoryNames[subCategoryId]!,
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
               SizedBox(
                 width: SizeConfig.safeBlockHorizontal! * 20,

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
@@ -11,6 +12,7 @@ class SocialData {
   SocialData({required this.icon, required this.link});
 }
 
+@RoutePage<dynamic>(name: 'ExpressionRoute')
 class ComingSoonScreen extends StatelessWidget {
   ComingSoonScreen({super.key});
 
@@ -69,7 +71,7 @@ class ComingSoonScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Connect with us on',
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

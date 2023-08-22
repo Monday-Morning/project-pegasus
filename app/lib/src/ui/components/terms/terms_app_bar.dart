@@ -15,19 +15,19 @@ class TermsAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         'Terms and Policies',
-        style: Theme.of(context).textTheme.headline2,
+        style: Theme.of(context).textTheme.displayMedium,
       ),
       bottom: TabBar(
         indicatorColor: Colors.transparent,
         controller: tabController,
         isScrollable: true,
-        labelColor: Theme.of(context).textTheme.bodyText1!.color,
+        labelColor: Theme.of(context).textTheme.bodyLarge!.color,
         labelStyle: Theme.of(context)
             .textTheme
-            .bodyText1!
+            .bodyLarge!
             .copyWith(fontWeight: FontWeight.w700),
-        unselectedLabelColor: Theme.of(context).textTheme.bodyText1!.color,
-        unselectedLabelStyle: Theme.of(context).textTheme.bodyText1,
+        unselectedLabelColor: Theme.of(context).textTheme.bodyLarge!.color,
+        unselectedLabelStyle: Theme.of(context).textTheme.bodyLarge,
         tabs: [
           ...(categories.map((e) => Tab(text: e.name)).toList()),
         ],

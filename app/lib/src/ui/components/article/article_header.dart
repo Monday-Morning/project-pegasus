@@ -41,7 +41,7 @@ class ArticleHeader extends StatelessWidget {
                           Categories.allCategoryNames[e.number]!.toUpperCase())
                       .join(' | ') ??
                   '',
-              style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
           Padding(
@@ -50,7 +50,7 @@ class ArticleHeader extends StatelessWidget {
             ),
             child: Text(
               title,
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
           Padding(
@@ -62,21 +62,21 @@ class ArticleHeader extends StatelessWidget {
               children: [
                 Text(
                   Moment(createdAt).format('MMMM DD, YYYY'),
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 Row(
                   children: [
                     Icon(
                       Icons.watch_later_outlined,
-                      color: Theme.of(context).textTheme.bodyText2!.color,
-                      size: Theme.of(context).textTheme.bodyText2!.fontSize,
+                      color: Theme.of(context).textTheme.bodyMedium!.color,
+                      size: Theme.of(context).textTheme.bodyMedium!.fontSize,
                     ),
                     SizedBox(
                       width: SizeConfig.safeBlockHorizontal! * 1,
                     ),
                     Text(
                       '${Duration(seconds: readTime).inMinutes} min',
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -93,7 +93,7 @@ class ArticleHeader extends StatelessWidget {
               children: [
                 Text(
                   authors.map((e) => AppUtils.limitAuthor(e.name)).join(', '),
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),

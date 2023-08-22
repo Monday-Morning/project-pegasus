@@ -24,7 +24,7 @@ class SocialTile extends StatelessWidget {
             lable,
             style: Theme.of(context)
                 .textTheme
-                .bodyText1!
+                .bodyLarge!
                 .copyWith(decoration: TextDecoration.underline),
           ),
         ],
