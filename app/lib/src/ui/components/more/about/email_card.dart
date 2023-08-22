@@ -29,7 +29,7 @@ class EmailCard extends StatelessWidget {
                 children: [
                   Text(
                     'Email us at:',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                   MailWidget(
                     title: 'General queries',

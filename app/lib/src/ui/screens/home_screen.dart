@@ -6,8 +6,10 @@ import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_ty
 import 'package:mondaymorning/src/ui/components/article/article_carousel.dart';
 import 'package:mondaymorning/src/ui/components/article/small_article_card.dart';
 import 'package:mondaymorning/src/ui/components/home/search_app_bar.dart';
-import 'package:mondaymorning/src/services/router/mm_router.dart';
 
+import '../../services/router/mm_router.gr.dart';
+
+@RoutePage<dynamic>(name: 'HomeRoute')
 class HomeScreen extends StatelessWidget {
   final LandingPageData data;
 

@@ -35,7 +35,7 @@ class TileWidget extends StatelessWidget {
                 SizedBox(width: SizeConfig.safeBlockHorizontal! * 3),
                 Text(
                   feature,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ],
             ),

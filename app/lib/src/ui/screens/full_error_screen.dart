@@ -46,7 +46,7 @@ class FullErrorScreen extends StatelessWidget {
                 SizedBox(
                     height: Theme.of(context).extension<REMSpace>()!.get(2)),
                 Text('Oops! There was an error in loading the app.',
-                    style: Theme.of(context).textTheme.subtitle1),
+                    style: Theme.of(context).textTheme.titleMedium),
               ],
             ),
           ],

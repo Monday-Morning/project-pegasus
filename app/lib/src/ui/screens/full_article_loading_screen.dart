@@ -6,7 +6,7 @@ class ArticleShimmerLoadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = Theme.of(context).brightness.name == "dark";
+    bool isDark = Theme.of(context).brightness.name == 'dark';
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(

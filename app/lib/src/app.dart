@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mondaymorning/src/pages/full_error_page.dart';
 import 'package:mondaymorning/src/pages/splash_page.dart';
-import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/index.dart';
 import 'package:mondaymorning/src/store/states/app_config/app_config_provider.dart';
+import 'services/router/mm_router.dart';
 
 class ProjectPegasus extends ConsumerWidget {
   ProjectPegasus({super.key});
@@ -39,10 +39,11 @@ class ProjectPegasus extends ConsumerWidget {
           theme: MMTheme.materialLight,
           darkTheme: MMTheme.materialDark,
           debugShowCheckedModeBanner: false,
-          routeInformationParser: mmRouter.defaultRouteParser(),
+          routeInformationParser:
+              mmRouter.defaultRouteParser() as RouteInformationParser<Object>,
           routerDelegate: mmRouter.delegate(
               // initialDeepLink: snapshot.data!.initialUrl,
-              ),
+              ) as RouterDelegate<Object>,
         );
       },
     );

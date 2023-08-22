@@ -16,7 +16,7 @@ class MailWidget extends StatelessWidget {
         SizedBox(height: SizeConfig.safeBlockVertical!),
         Text(
           title,
-          style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 12),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 12),
         ),
         Link(
           uri: Uri.parse('mailto:$link'),
@@ -26,7 +26,7 @@ class MailWidget extends StatelessWidget {
               link,
               style: Theme.of(context)
                   .textTheme
-                  .bodyText1!
+                  .bodyLarge!
                   .copyWith(decoration: TextDecoration.underline),
             ),
           ),

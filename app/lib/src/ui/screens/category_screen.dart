@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
@@ -6,6 +7,7 @@ import 'package:mondaymorning/src/store/constants/categories.dart';
 import 'package:mondaymorning/src/ui/components/article/article_carousel.dart';
 import 'package:mondaymorning/src/ui/components/category/sub_category_section.dart';
 
+@RoutePage<dynamic>(name: 'AllCategoryRoute')
 class CategoryScreen extends StatelessWidget {
   final List<List<Article>> articles;
   final String category;

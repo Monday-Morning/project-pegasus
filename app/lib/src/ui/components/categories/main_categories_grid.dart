@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/categories/big_category_card.dart';
 import 'package:mondaymorning/src/ui/components/categories/small_category_card.dart';
+
+import '../../../services/router/mm_router.gr.dart';
 
 class MainCategoriesGrid extends StatelessWidget {
   const MainCategoriesGrid({
@@ -17,8 +18,7 @@ class MainCategoriesGrid extends StatelessWidget {
         Row(
           children: [
             BigCategoryCard(
-              image:
-                  'assets/images/common_images/campus.svg',
+              image: 'assets/images/common_images/campus.svg',
               title: 'Campus',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -27,8 +27,7 @@ class MainCategoriesGrid extends StatelessWidget {
               },
             ),
             BigCategoryCard(
-              image:
-                  'assets/images/common_images/connect.svg',
+              image: 'assets/images/common_images/connect.svg',
               title: 'Connect',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -37,8 +36,7 @@ class MainCategoriesGrid extends StatelessWidget {
               },
             ),
             BigCategoryCard(
-              image:
-                  'assets/images/common_images/ddandcwc.svg',
+              image: 'assets/images/common_images/ddandcwc.svg',
               title: 'DD & CWC',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -74,7 +72,7 @@ class MainCategoriesGrid extends StatelessWidget {
               title: 'Expression',
               onCardTap: () {
                 AutoRouter.of(context).push(
-                  ComingSoonRoute(),
+                  ExpressionRoute(),
                 );
               },
             ),
@@ -95,7 +93,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Witsdom',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ComingSoonRoute(),
+                      ExpressionRoute(),
                     );
                   },
                 ),
@@ -108,7 +106,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Podcasts',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ComingSoonRoute(),
+                      ExpressionRoute(),
                     );
                   },
                 ),
@@ -130,7 +128,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Photostory',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ComingSoonRoute(),
+                      ExpressionRoute(),
                     );
                   },
                 ),
@@ -143,7 +141,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Photo Gallery',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ComingSoonRoute(),
+                      ExpressionRoute(),
                     );
                   },
                 ),

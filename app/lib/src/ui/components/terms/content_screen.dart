@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/ui/components/terms/terms_content.dart';
 
+@RoutePage<dynamic>(name: 'ContentRoute')
 class ContentScreen extends StatelessWidget {
   final String id;
   const ContentScreen({super.key, required this.id});

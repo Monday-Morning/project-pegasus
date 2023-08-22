@@ -78,7 +78,7 @@ class DropdownTileWidget extends HookConsumerWidget {
                       SizedBox(width: SizeConfig.safeBlockHorizontal! * 3),
                       Text(
                         feature,
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
                   ),
@@ -130,7 +130,7 @@ class DropdownTileWidget extends HookConsumerWidget {
                                     width: SizeConfig.safeBlockHorizontal! * 3),
                                 Text(
                                   dropdownItems[index].feature,
-                                  style: Theme.of(context).textTheme.bodyText1,
+                                  style: Theme.of(context).textTheme.bodyLarge,
                                 ),
                               ],
                             ),
