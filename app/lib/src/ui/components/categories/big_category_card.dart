@@ -62,7 +62,7 @@ class BigCategoryCard extends StatelessWidget {
                         child: Center(
                           child: Text(
                             title,
-                            style: Theme.of(context).textTheme.headline3,
+                            style: Theme.of(context).textTheme.displaySmall,
                           ),
                         ),
                       ),

@@ -168,19 +168,19 @@ class AppTheme {
       );
 
   TextTheme get textTheme => TextTheme(
-        headline1: headline1,
-        headline2: headline2,
-        headline3: headline3,
-        headline4: headline3,
-        headline5: headline3,
-        headline6: headline3,
-        subtitle1: labelMetadataText,
-        subtitle2: labelMetadataText,
-        bodyText1: regularBodyText,
-        bodyText2: regularBodySubtext,
-        caption: regularMetadataText,
-        button: boldBodyText,
-        overline: boldBodySubtext,
+        displayLarge: headline1,
+        displayMedium: headline2,
+        displaySmall: headline3,
+        headlineMedium: headline3,
+        headlineSmall: headline3,
+        titleLarge: headline3,
+        titleMedium: labelMetadataText,
+        titleSmall: labelMetadataText,
+        bodyLarge: regularBodyText,
+        bodyMedium: regularBodySubtext,
+        bodySmall: regularMetadataText,
+        labelLarge: boldBodyText,
+        labelSmall: boldBodySubtext,
       );
 
   ThemeData get materialTheme => ThemeData(
@@ -192,32 +192,12 @@ class AppTheme {
           REMSpace(baseSpacing: baseSpacing),
           REMSize(baseSize: baseSize)
         ],
-
-        // COLOR
-        backgroundColor: backgroundColor,
-        bottomAppBarColor: backgroundColor,
         brightness:
             themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
         canvasColor: backgroundColor,
         cardColor: themeMode == ThemeMode.dark
             ? Colors.grey[850]
             : MMColors.kLightCardColor,
-        colorScheme: ColorScheme(
-          primary: primaryColor!,
-          primaryContainer: primaryColorDark,
-          secondary: secondaryColor!,
-          secondaryContainer: secondaryColorDark,
-          surface: backgroundColor,
-          background: backgroundColor,
-          error: accentColor!,
-          onPrimary: primaryTextColor!,
-          onSecondary: primaryTextColor!,
-          onSurface: primaryTextColor!,
-          onBackground: primaryTextColor!,
-          onError: primaryTextColor!,
-          brightness:
-              themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
-        ),
         // dialogBackgroundColor: backgroundColor,
         // disabledColor: backgroundColor,
         dividerColor:
@@ -231,7 +211,6 @@ class AppTheme {
         primaryColor: primaryColor!,
         primaryColorDark: primaryColorDark!,
         primaryColorLight: primaryColorLight!,
-        primarySwatch: primarySwatch,
         scaffoldBackgroundColor: backgroundColor,
         shadowColor: backgroundColor,
         splashColor: backgroundColor,
@@ -291,6 +270,23 @@ class AppTheme {
             padding: MaterialStateProperty.all(EdgeInsets.all(1)),
           ),
         ),
+        colorScheme: ColorScheme(
+          primary: primaryColor!,
+          primaryContainer: primaryColorDark,
+          secondary: secondaryColor!,
+          secondaryContainer: secondaryColorDark,
+          surface: backgroundColor,
+          background: backgroundColor,
+          error: accentColor!,
+          onPrimary: primaryTextColor!,
+          onSecondary: primaryTextColor!,
+          onSurface: primaryTextColor!,
+          onBackground: primaryTextColor!,
+          onError: primaryTextColor!,
+          brightness:
+              themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
+        ).copyWith(primary: primarySwatch, background: backgroundColor),
+        bottomAppBarTheme: BottomAppBarTheme(color: backgroundColor),
         // textSelectionTheme: TextSelectionThemeData(),
         // timePickerTheme: TimePickerThemeData(),
         // toggleButtonsTheme: ToggleButtonsThemeData(),

@@ -48,10 +48,10 @@ class ArticleTable extends StatelessWidget {
                   finalTableData[index][i],
                   style: (index == 0 && blockFormatting.hasHeaderRow!) ||
                           (i == 0 && blockFormatting.hasHeaderColumn!)
-                      ? Theme.of(context).textTheme.bodyText2?.copyWith(
+                      ? Theme.of(context).textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                           )
-                      : Theme.of(context).textTheme.bodyText2,
+                      : Theme.of(context).textTheme.bodyMedium,
                 ),
               );
             }).toList(),

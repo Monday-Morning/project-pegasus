@@ -42,7 +42,7 @@ class SquiggleBox extends StatelessWidget {
                     vertical: SizeConfig.safeBlockVertical! * 1),
                 child: Text(
                   'Squiggles',
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
                         fontWeight: FontWeight.w900,
                         color: Color(0xffF6F6F6),
                       ),

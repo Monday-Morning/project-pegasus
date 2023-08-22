@@ -1,52 +1,52 @@
 name: mondaymorning
 description: The cross-platform Mobile Application for Monday Morning under Project Infinity
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 3.0.2+29
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: ">=2.18.2 <3.0.0"
 
 dependencies:
-  auto_route: ^5.0.2
+  auto_route: ^7.8.0
   carousel_slider: ^4.1.1
   firebase_analytics: ^10.0.3
   firebase_app_installations: ^0.2.1+2
   firebase_auth: ^4.1.1
-  firebase_core: ^2.1.1
-  firebase_crashlytics: ^3.0.3
+  firebase_core: ^2.15.1
+  firebase_crashlytics: ^3.3.5
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5+1
   flutter_markdown: ^0.6.13
   freezed_annotation: ^2.2.0
-  google_fonts: ^3.0.1
+  google_fonts: ^5.1.0
   graphql_flutter: ^5.1.0
   hooks_riverpod: ^2.0.2
-  json_annotation: ^4.7.0
-  material_design_icons_flutter: ^6.0.7096
-  moment_dart: ^0.10.4
-  riverpod_annotation: ^1.0.4
+  json_annotation: ^4.8.1
+  material_design_icons_flutter: ^7.0.7296
+  moment_dart: ^0.18.1
+  riverpod_annotation: ^2.1.1
   toggle_switch: ^2.0.1
   shared_preferences: ^2.0.15
   uni_links: ^0.5.1
   url_launcher: ^6.1.7
-  shimmer: ^2.0.0
+  shimmer: ^3.0.0
   photo_view: ^0.14.0
-  flutter_svg: ^1.1.6
+  flutter_svg: ^2.0.7
 
 dev_dependencies:
-  analyzer: ^5.2.0
-  auto_route_generator: ^5.0.3
+  analyzer: ^6.2.0
+  auto_route_generator: ^7.3.1
   build_runner: ^2.3.2
-  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   freezed: ^2.2.1
   json_serializable: ^6.5.4
-  riverpod_generator: ^1.0.4
+  riverpod_generator: ^2.2.5
 
 flutter:
   uses-material-design: true
@@ -60,12 +60,12 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  image_path: 'assets/images/light/mm_logo_blue.png'
-  adaptive_icon_background: '#FFFFFF'
-  adaptive_icon_foreground: 'assets/images/light/mm_logo_blue.png'
+  image_path: "assets/images/light/mm_logo_blue.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/light/mm_logo_blue.png"
   remove_alpha_ios: true
   web:
     generate: true
-    image_path: 'assets/images/light/mm_logo_blue.png'
-    background_color: '#FFFFFF'
-    theme_color: '#006DCC'
+    image_path: "assets/images/light/mm_logo_blue.png"
+    background_color: "#FFFFFF"
+    theme_color: "#006DCC"
