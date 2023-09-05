@@ -3,10 +3,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
+import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/article/big_article_card.dart';
-
-import '../../../services/router/mm_router.gr.dart';
 
 class ArticleCarousel extends HookWidget {
   final List<Article> featured;

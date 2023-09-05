@@ -39,11 +39,10 @@ class ProjectPegasus extends ConsumerWidget {
           theme: MMTheme.materialLight,
           darkTheme: MMTheme.materialDark,
           debugShowCheckedModeBanner: false,
-          routeInformationParser:
-              mmRouter.defaultRouteParser() as RouteInformationParser<Object>,
+          routeInformationParser: mmRouter.defaultRouteParser(),
           routerDelegate: mmRouter.delegate(
               // initialDeepLink: snapshot.data!.initialUrl,
-              ) as RouterDelegate<Object>,
+              ),
         );
       },
     );
