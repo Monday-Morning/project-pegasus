@@ -1,10 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/categories/big_category_card.dart';
 import 'package:mondaymorning/src/ui/components/categories/small_category_card.dart';
-
-import '../../../services/router/mm_router.gr.dart';
 
 class MainCategoriesGrid extends StatelessWidget {
   const MainCategoriesGrid({
