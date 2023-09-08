@@ -2,11 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/article/article.dart';
+import 'package:mondaymorning/src/services/router/mm_router.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/article/article_carousel.dart';
 import 'package:mondaymorning/src/ui/components/article/small_article_card.dart';
-
-import '../../services/router/mm_router.gr.dart';
 
 @RoutePage<dynamic>(name: 'SubCategoryRoute')
 class SubCategoryScreen extends StatelessWidget {

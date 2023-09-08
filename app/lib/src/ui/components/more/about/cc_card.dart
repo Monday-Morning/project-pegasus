@@ -35,7 +35,7 @@ class CCCard extends StatelessWidget {
                     height: SizeConfig.safeBlockVertical!,
                   ),
                   CCTile(
-                    name: 'Aditya Bharambe',
+                    name: 'Aditya Bharambe     ',
                     number: '7039267530',
                     mail: 'mailto:morning.monday@gmail.com',
                   ),
@@ -47,7 +47,7 @@ class CCCard extends StatelessWidget {
                   ),
                   SizedBox(height: SizeConfig.safeBlockVertical! * 0.5),
                   CCTile(
-                    name: 'Arpan Vihan',
+                    name: 'Arpan Vihan               ',
                     number: '6398454922',
                     mail: 'mailto:morning.monday@gmail.com',
                   ),
