@@ -10,7 +10,7 @@ import 'package:mondaymorning/src/ui/components/home/landing_bottom_bar.dart';
 import 'package:mondaymorning/src/ui/screens/full_error_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_loading_screen.dart';
 
-@RoutePage<dynamic>(name: 'LandingRoute')
+@RoutePage<void>(name: 'LandingRoute')
 class LandingPage extends ConsumerWidget {
   const LandingPage({super.key});
 
@@ -37,7 +37,7 @@ class LandingPage extends ConsumerWidget {
           routes: [
             HomeRoute(data: snapshot.data!),
             CategoriesRoute(squiggle: snapshot.data!.latestSquiggle),
-            ExpressionRoute(),
+            CommingSoonRoute(),
             MoreRoute(),
           ],
           bottomNavigationBuilder: (context, tabsRouter) {

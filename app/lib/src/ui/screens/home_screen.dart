@@ -8,7 +8,7 @@ import 'package:mondaymorning/src/ui/components/article/article_carousel.dart';
 import 'package:mondaymorning/src/ui/components/article/small_article_card.dart';
 import 'package:mondaymorning/src/ui/components/home/search_app_bar.dart';
 
-@RoutePage<dynamic>(name: 'HomeRoute')
+@RoutePage<void>(name: 'HomeRoute')
 class HomeScreen extends StatelessWidget {
   final LandingPageData data;
 

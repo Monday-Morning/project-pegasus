@@ -9,7 +9,7 @@ import 'package:mondaymorning/src/ui/screens/article_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_article_loading_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_error_screen.dart';
 
-@RoutePage<dynamic>(name: 'ArticleRoute')
+@RoutePage<void>(name: 'ArticleRoute')
 class ArticlePage extends ConsumerWidget {
   final String articleId;
 

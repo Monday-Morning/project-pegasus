@@ -16,17 +16,17 @@ class MoreCard {
 }
 
 /// More Screen of the app.
-@RoutePage<dynamic>(name: 'MoreRoute')
+@RoutePage<void>(name: 'MoreRoute')
 class MoreScreen extends ConsumerWidget {
   // TODO: refactor this to contain list of widgets instead of a morecard class. Iterate and render elements directly.
   final List<MoreCard> data = [
-    MoreCard('Bookmarks', Icons.bookmark_border_outlined, ExpressionRoute()),
-    MoreCard('Password Change', Icons.password_outlined, ExpressionRoute()),
-    MoreCard('Verify Account', Icons.verified_outlined, ExpressionRoute()),
+    MoreCard('Bookmarks', Icons.bookmark_border_outlined, CommingSoonRoute()),
+    MoreCard('Password Change', Icons.password_outlined, CommingSoonRoute()),
+    MoreCard('Verify Account', Icons.verified_outlined, CommingSoonRoute()),
     MoreCard('Terms and Policies', Icons.info_outline, TermsRoute()),
     MoreCard('About MM', Icons.call_outlined, AboutRoute()),
     MoreCard('Newsletter Subscription', Icons.description_outlined,
-        ExpressionRoute()),
+        CommingSoonRoute()),
   ];
 
   MoreScreen({super.key});

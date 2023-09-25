@@ -41,8 +41,8 @@ class MMRouter extends _$MMRouter {
               path: 'categories',
             ),
             AutoRoute(
-              page: ExpressionRoute.page,
-              path: 'expressions',
+              page: CommingSoonRoute.page,
+              path: 'commingsoon',
             ),
             AutoRoute(
               page: MoreRoute.page,
@@ -87,7 +87,7 @@ class MMRouter extends _$MMRouter {
           ],
         ),
         AutoRoute(
-          page: ExpressionRoute.page,
+          page: CommingSoonRoute.page,
           path: '/commingsoon',
         ),
         AutoRoute(

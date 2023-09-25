@@ -6,7 +6,7 @@ import 'package:mondaymorning/src/pages/full_error_page.dart';
 import 'package:mondaymorning/src/pages/splash_page.dart';
 import 'package:mondaymorning/src/services/themes/index.dart';
 import 'package:mondaymorning/src/store/states/app_config/app_config_provider.dart';
-import 'services/router/mm_router.dart';
+import 'package:mondaymorning/src/services/router/mm_router.dart';
 
 class ProjectPegasus extends ConsumerWidget {
   ProjectPegasus({super.key});

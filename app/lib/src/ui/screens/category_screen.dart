@@ -7,7 +7,7 @@ import 'package:mondaymorning/src/store/constants/categories.dart';
 import 'package:mondaymorning/src/ui/components/article/article_carousel.dart';
 import 'package:mondaymorning/src/ui/components/category/sub_category_section.dart';
 
-@RoutePage<dynamic>(name: 'AllCategoryRoute')
+@RoutePage<void>(name: 'AllCategoryRoute')
 class CategoryScreen extends StatelessWidget {
   final List<List<Article>> articles;
   final String category;

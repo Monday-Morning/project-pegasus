@@ -6,7 +6,7 @@ import 'package:mondaymorning/src/ui/components/more/about/email_card.dart';
 import 'package:mondaymorning/src/ui/components/more/about/map_card.dart';
 import 'package:mondaymorning/src/ui/components/more/about/social_card.dart';
 
-@RoutePage(name: 'AboutRoute')
+@RoutePage<void>(name: 'AboutRoute')
 class AboutMMScreen extends StatelessWidget {
   const AboutMMScreen({Key? key}) : super(key: key);
 

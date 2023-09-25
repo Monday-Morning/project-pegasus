@@ -6,7 +6,7 @@ import 'package:mondaymorning/src/ui/components/categories/categories_app_bar.da
 import 'package:mondaymorning/src/ui/components/categories/main_categories_grid.dart';
 import 'package:mondaymorning/src/ui/components/categories/squiggle_box.dart';
 
-@RoutePage<dynamic>(name: 'CategoriesRoute')
+@RoutePage<void>(name: 'CategoriesRoute')
 class CategoriesScreen extends StatelessWidget {
   final Squiggle squiggle;
 

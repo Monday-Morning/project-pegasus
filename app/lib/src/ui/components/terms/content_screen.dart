@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/ui/components/terms/terms_content.dart';
 
-@RoutePage<dynamic>(name: 'ContentRoute')
+@RoutePage<void>(name: 'ContentRoute')
 class ContentScreen extends StatelessWidget {
   final String id;
   const ContentScreen({super.key, required this.id});
@@ -54,13 +54,10 @@ class ContentScreen extends StatelessWidget {
                       ListView.separated(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount:
-                            termsOfPolicy[id]![index].paragraphs.length,
+                        itemCount: termsOfPolicy[id]![index].paragraphs.length,
                         itemBuilder: (BuildContext context, int ind) {
                           return Text(
-                            termsOfPolicy[id]![index]
-                                .paragraphs
-                                .elementAt(ind),
+                            termsOfPolicy[id]![index].paragraphs.elementAt(ind),
                             style: TextStyle(
                               fontSize: 15,
                             ),

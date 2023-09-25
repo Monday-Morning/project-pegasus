@@ -12,7 +12,7 @@ class SocialData {
   SocialData({required this.icon, required this.link});
 }
 
-@RoutePage<dynamic>(name: 'ExpressionRoute')
+@RoutePage<dynamic>(name: 'CommingSoonRoute')
 class ComingSoonScreen extends StatelessWidget {
   ComingSoonScreen({super.key});
 

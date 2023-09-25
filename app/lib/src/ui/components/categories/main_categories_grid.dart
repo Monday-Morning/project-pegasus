@@ -71,7 +71,7 @@ class MainCategoriesGrid extends StatelessWidget {
               title: 'Expression',
               onCardTap: () {
                 AutoRouter.of(context).push(
-                  ExpressionRoute(),
+                  CommingSoonRoute(),
                 );
               },
             ),
@@ -92,7 +92,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Witsdom',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ExpressionRoute(),
+                      CommingSoonRoute(),
                     );
                   },
                 ),
@@ -105,7 +105,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Podcasts',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ExpressionRoute(),
+                      CommingSoonRoute(),
                     );
                   },
                 ),
@@ -127,7 +127,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Photostory',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ExpressionRoute(),
+                      CommingSoonRoute(),
                     );
                   },
                 ),
@@ -140,7 +140,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Photo Gallery',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ExpressionRoute(),
+                      CommingSoonRoute(),
                     );
                   },
                 ),
