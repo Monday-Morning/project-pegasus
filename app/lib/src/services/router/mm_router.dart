@@ -19,117 +19,80 @@ import 'package:mondaymorning/src/ui/screens/terms_and_policy_screen.dart';
 
 part 'mm_router.gr.dart';
 
-@MaterialAutoRouter(
+@AutoRouterConfig(
   replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute>[
-    AutoRoute<dynamic>(
-      path: '/',
-      name: 'LandingRoute',
-      page: LandingPage,
-      initial: true,
-      children: [
-        AutoRoute<dynamic>(
-          path: 'home',
-          name: 'HomeRoute',
-          page: HomeScreen,
-        ),
-        AutoRoute<dynamic>(
-          path: 'categories',
-          name: 'CategoriesRoute',
-          page: CategoriesScreen,
-          // children: [
-          // AutoRoute<dynamic>(
-          //   path: 'campus',
-          //   name: 'CampusRoute',
-          //   page: EmptyRouterPage,
-          // ),
-          // AutoRoute<dynamic>(
-          //   path: 'connect',
-          //   name: 'ConnectRoute',
-          //   page: EmptyRouterPage,
-          // ),
-          // AutoRoute<dynamic>(
-          //   path: 'ddcwc',
-          //   name: 'DDCWCRoute',
-          //   page: EmptyRouterPage,
-          // ),
-          // AutoRoute<dynamic>(
-          //   path: 'career',
-          //   name: 'CareerRoute',
-          //   page: EmptyRouterPage,
-          // ),
-          // AutoRoute<dynamic>(
-          //   path: 'alumni',
-          //   name: 'AlumniRoute',
-          //   page: EmptyRouterPage,
-          // ),
-          // ],
-        ),
-        AutoRoute<dynamic>(
-          path: 'expressions',
-          name: 'ExpressionRoute',
-          page: ComingSoonScreen,
-        ),
-        AutoRoute<dynamic>(
-          path: 'more',
-          name: 'MoreRoute',
-          page: MoreScreen,
-        ),
-      ],
-    ),
-    AutoRoute<dynamic>(
-      path: 'article/:articleId',
-      name: 'ArticleRoute',
-      page: ArticlePage,
-    ),
-    RedirectRoute(
-      path: 'article/:articleId/:articleSlug',
-      redirectTo: 'article/:articleId',
-    ),
-    AutoRoute<dynamic>(
-      path: ':category',
-      name: 'CategoryRoute',
-      page: CategoryPage,
-      children: [
-        AutoRoute<dynamic>(
-          path: 'all',
-          name: 'AllCategoryRoute',
-          page: CategoryScreen,
-        ),
-        AutoRoute<dynamic>(
-          path: ':subCategory',
-          name: 'SubCategoryRoute',
-          page: SubCategoryScreen,
-        ),
-      ],
-    ),
-    AutoRoute(
-      path: 'about',
-      name: 'AboutRoute',
-      page: AboutMMScreen,
-    ),
-    AutoRoute<dynamic>(
-      path: 'terms',
-      name: 'TermsRoute',
-      page: TermsAndPoliciesScreen,
-      children: [
-        AutoRoute<dynamic>(
-          path: 'content',
-          name: 'ContentRoute',
-          page: ContentScreen,
-        ),
-      ],
-    ),
-    AutoRoute<dynamic>(
-      path: 'commingsoon',
-      name: 'ComingSoonRoute',
-      page: ComingSoonScreen,
-    ),
-    AutoRoute<dynamic>(
-      path: '*',
-      name: 'NotFoundRoute',
-      page: FullErrorPage,
-    ),
-  ],
 )
-class MMRouter extends _$MMRouter {}
+class MMRouter extends _$MMRouter {
+  @override
+  RouteType get defaultRouteType => RouteType.material();
+  @override
+  List<AutoRoute> get routes => [
+        AutoRoute(
+          page: LandingRoute.page,
+          path: '/',
+          initial: true,
+          children: [
+            AutoRoute(
+              page: HomeRoute.page,
+              path: 'home',
+            ),
+            AutoRoute(
+              page: CategoriesRoute.page,
+              path: 'categories',
+            ),
+            AutoRoute(
+              page: CommingSoonRoute.page,
+              path: 'commingsoon',
+            ),
+            AutoRoute(
+              page: MoreRoute.page,
+              path: 'more',
+            ),
+          ],
+        ),
+        AutoRoute(
+          page: ArticleRoute.page,
+          path: '/article/:articleId',
+        ),
+        RedirectRoute(
+          path: '/article/:articleId/:articleSlug',
+          redirectTo: 'article/:articleId',
+        ),
+        AutoRoute(
+          page: CategoryRoute.page,
+          path: '/:category',
+          children: [
+            AutoRoute(
+              page: AllCategoryRoute.page,
+              path: 'all',
+            ),
+            AutoRoute(
+              page: SubCategoryRoute.page,
+              path: ':subCategory',
+            ),
+          ],
+        ),
+        AutoRoute(
+          page: AboutRoute.page,
+          path: '/about',
+        ),
+        AutoRoute(
+          page: TermsRoute.page,
+          path: '/terms',
+          children: [
+            AutoRoute(
+              page: ContentRoute.page,
+              path: 'content',
+            ),
+          ],
+        ),
+        AutoRoute(
+          page: CommingSoonRoute.page,
+          path: '/commingsoon',
+        ),
+        AutoRoute(
+          page: NotFoundRoute.page,
+          path: '/*',
+        ),
+      ];
+}

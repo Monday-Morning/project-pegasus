@@ -67,7 +67,7 @@ class SmallArticleCard extends StatelessWidget {
                     width: SizeConfig.safeBlockHorizontal! * 10,
                     child: Text(
                       'Editorial',
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.titleMedium,
                       maxLines: 1,
                     ),
                   ),
@@ -75,7 +75,7 @@ class SmallArticleCard extends StatelessWidget {
                     height: SizeConfig.safeBlockVertical! * 5,
                     child: Text(
                       article.title,
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                   SizedBox(height: SizeConfig.safeBlockVertical! * 0.5),
@@ -97,7 +97,7 @@ class SmallArticleCard extends StatelessWidget {
                                   return Text(
                                     AppUtils.limitAuthor(
                                         article.authors[index].name),
-                                    style: Theme.of(context).textTheme.caption,
+                                    style: Theme.of(context).textTheme.bodySmall,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                   );
@@ -105,7 +105,7 @@ class SmallArticleCard extends StatelessWidget {
                                 separatorBuilder: (context, index) {
                                   return Text(
                                     ', ',
-                                    style: Theme.of(context).textTheme.caption,
+                                    style: Theme.of(context).textTheme.bodySmall,
                                   );
                                 },
                                 itemCount: article.authors.length,
@@ -128,7 +128,7 @@ class SmallArticleCard extends StatelessWidget {
                             width: SizeConfig.safeBlockHorizontal! * 10,
                             child: Text(
                               ' ${Duration(seconds: article.readTime).inMinutes} min',
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ),
                           SizedBox(width: SizeConfig.safeBlockHorizontal! * 2),

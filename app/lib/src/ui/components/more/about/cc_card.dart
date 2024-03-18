@@ -29,26 +29,26 @@ class CCCard extends StatelessWidget {
                 children: [
                   Text(
                     'Chief Coordinators',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                   SizedBox(
                     height: SizeConfig.safeBlockVertical!,
                   ),
                   CCTile(
-                    name: 'Rashmi Ranjan Samantaray',
-                    number: '9556074595',
+                    name: 'Aditya Bharambe     ',
+                    number: '7039267530',
                     mail: 'mailto:morning.monday@gmail.com',
                   ),
                   SizedBox(height: SizeConfig.safeBlockVertical! * 0.5),
                   CCTile(
-                    name: 'Rishika Shah',
-                    number: '9667521704',
+                    name: 'Preeti Priyadarshini',
+                    number: '7656980495',
                     mail: 'mailto:morning.monday@gmail.com',
                   ),
                   SizedBox(height: SizeConfig.safeBlockVertical! * 0.5),
                   CCTile(
-                    name: 'Sunil Urmal',
-                    number: '9938287481',
+                    name: 'Arpan Vihan               ',
+                    number: '6398454922',
                     mail: 'mailto:morning.monday@gmail.com',
                   ),
                 ],

@@ -10,6 +10,7 @@ import 'package:mondaymorning/src/ui/components/category/category_app_bar.dart';
 import 'package:mondaymorning/src/ui/screens/full_error_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_loading_screen.dart';
 
+@RoutePage<void>(name: 'CategoryRoute')
 class CategoryPage extends ConsumerWidget {
   final String category;
 

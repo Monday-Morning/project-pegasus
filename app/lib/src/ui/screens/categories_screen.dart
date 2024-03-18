@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mondaymorning/src/api/models/squiggle/squiggle.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
@@ -5,6 +6,7 @@ import 'package:mondaymorning/src/ui/components/categories/categories_app_bar.da
 import 'package:mondaymorning/src/ui/components/categories/main_categories_grid.dart';
 import 'package:mondaymorning/src/ui/components/categories/squiggle_box.dart';
 
+@RoutePage<void>(name: 'CategoriesRoute')
 class CategoriesScreen extends StatelessWidget {
   final Squiggle squiggle;
 

@@ -29,7 +29,7 @@ class SocialMediaCard extends StatelessWidget {
                 children: [
                   Text(
                     'Social media handles:',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                   SizedBox(height: SizeConfig.safeBlockVertical! * 2),
                   SocialTile(

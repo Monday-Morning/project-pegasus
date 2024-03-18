@@ -34,7 +34,7 @@ class SubCategorySection extends StatelessWidget {
             children: [
               Text(
                 Categories.allCategoryNames[subCategoryId]!,
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
               SizedBox(
                 width: SizeConfig.safeBlockHorizontal! * 20,

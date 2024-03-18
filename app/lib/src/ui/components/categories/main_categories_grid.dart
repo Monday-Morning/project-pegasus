@@ -17,8 +17,7 @@ class MainCategoriesGrid extends StatelessWidget {
         Row(
           children: [
             BigCategoryCard(
-              image:
-                  'assets/images/common_images/campus.svg',
+              image: 'assets/images/common_images/campus.svg',
               title: 'Campus',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -27,8 +26,7 @@ class MainCategoriesGrid extends StatelessWidget {
               },
             ),
             BigCategoryCard(
-              image:
-                  'assets/images/common_images/connect.svg',
+              image: 'assets/images/common_images/connect.svg',
               title: 'Connect',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -37,8 +35,7 @@ class MainCategoriesGrid extends StatelessWidget {
               },
             ),
             BigCategoryCard(
-              image:
-                  'assets/images/common_images/ddandcwc.svg',
+              image: 'assets/images/common_images/ddandcwc.svg',
               title: 'DD & CWC',
               onCardTap: () {
                 AutoRouter.of(context).push(
@@ -74,7 +71,7 @@ class MainCategoriesGrid extends StatelessWidget {
               title: 'Expression',
               onCardTap: () {
                 AutoRouter.of(context).push(
-                  ComingSoonRoute(),
+                  CommingSoonRoute(),
                 );
               },
             ),
@@ -95,7 +92,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Witsdom',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ComingSoonRoute(),
+                      CommingSoonRoute(),
                     );
                   },
                 ),
@@ -108,7 +105,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Podcasts',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ComingSoonRoute(),
+                      CommingSoonRoute(),
                     );
                   },
                 ),
@@ -130,7 +127,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Photostory',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ComingSoonRoute(),
+                      CommingSoonRoute(),
                     );
                   },
                 ),
@@ -143,7 +140,7 @@ class MainCategoriesGrid extends StatelessWidget {
                   text: 'Photo Gallery',
                   onButtonTap: () {
                     AutoRouter.of(context).push(
-                      ComingSoonRoute(),
+                      CommingSoonRoute(),
                     );
                   },
                 ),

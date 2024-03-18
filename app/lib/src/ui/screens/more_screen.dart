@@ -1,15 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mondaymorning/src/services/router/mm_router.dart';
-import 'package:mondaymorning/src/services/themes/mm_colors.dart';
 import 'package:mondaymorning/src/services/themes/rem_space.dart';
 import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/states/app_config/app_config_provider.dart';
 import 'package:mondaymorning/src/ui/components/more/widgets/dropdown_tile_widget.dart';
 import 'package:mondaymorning/src/ui/components/more/widgets/tile_widget.dart';
-import 'package:toggle_switch/toggle_switch.dart';
 
 class MoreCard {
   final String feature;
@@ -19,16 +16,17 @@ class MoreCard {
 }
 
 /// More Screen of the app.
+@RoutePage<void>(name: 'MoreRoute')
 class MoreScreen extends ConsumerWidget {
   // TODO: refactor this to contain list of widgets instead of a morecard class. Iterate and render elements directly.
   final List<MoreCard> data = [
-    MoreCard('Bookmarks', Icons.bookmark_border_outlined, ComingSoonRoute()),
-    MoreCard('Password Change', Icons.password_outlined, ComingSoonRoute()),
-    MoreCard('Verify Account', Icons.verified_outlined, ComingSoonRoute()),
+    MoreCard('Bookmarks', Icons.bookmark_border_outlined, CommingSoonRoute()),
+    MoreCard('Password Change', Icons.password_outlined, CommingSoonRoute()),
+    MoreCard('Verify Account', Icons.verified_outlined, CommingSoonRoute()),
     MoreCard('Terms and Policies', Icons.info_outline, TermsRoute()),
     MoreCard('About MM', Icons.call_outlined, AboutRoute()),
     MoreCard('Newsletter Subscription', Icons.description_outlined,
-        ComingSoonRoute()),
+        CommingSoonRoute()),
   ];
 
   MoreScreen({super.key});
@@ -42,7 +40,7 @@ class MoreScreen extends ConsumerWidget {
           appBar: AppBar(
             title: Text(
               'More',
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
           body: Column(

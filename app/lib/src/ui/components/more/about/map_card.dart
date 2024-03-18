@@ -29,7 +29,7 @@ class MapCards extends StatelessWidget {
                 children: [
                   Text(
                     'We are based at:',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                   SizedBox(height: SizeConfig.safeBlockVertical! * 2),
                   Row(
@@ -41,7 +41,7 @@ class MapCards extends StatelessWidget {
                         children: [
                           Text(
                             'Student Activity Center\nNIT Rourkela\nSector-1, Rourkela\nOdisha, India\nPIN: 769008',
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ],
                       ),

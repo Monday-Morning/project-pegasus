@@ -23,7 +23,7 @@ class CategoriesAppBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 Text(
                   'Categories',
-                  style: Theme.of(context).textTheme.headline1!.copyWith(
+                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
                         fontWeight: FontWeight.w600,
                         color: Theme.of(context).primaryColor,
                       ),

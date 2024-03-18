@@ -7,6 +7,7 @@ import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/ui/components/article/article_carousel.dart';
 import 'package:mondaymorning/src/ui/components/article/small_article_card.dart';
 
+@RoutePage<void>(name: 'SubCategoryRoute')
 class SubCategoryScreen extends StatelessWidget {
   final String subCategory;
   final int subCategoryId;

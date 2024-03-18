@@ -2,14 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/services/router/mm_router.dart';
+import 'package:mondaymorning/src/services/themes/size_config.dart';
 import 'package:mondaymorning/src/store/states/landing_page/landing_page_data_type.dart';
 import 'package:mondaymorning/src/store/states/landing_page/landing_page_provider.dart';
 import 'package:mondaymorning/src/ui/components/home/landing_bottom_bar.dart';
 import 'package:mondaymorning/src/ui/screens/full_error_screen.dart';
 import 'package:mondaymorning/src/ui/screens/full_loading_screen.dart';
 
+@RoutePage<void>(name: 'LandingRoute')
 class LandingPage extends ConsumerWidget {
   const LandingPage({super.key});
 
@@ -36,7 +37,7 @@ class LandingPage extends ConsumerWidget {
           routes: [
             HomeRoute(data: snapshot.data!),
             CategoriesRoute(squiggle: snapshot.data!.latestSquiggle),
-            ExpressionRoute(),
+            CommingSoonRoute(),
             MoreRoute(),
           ],
           bottomNavigationBuilder: (context, tabsRouter) {
